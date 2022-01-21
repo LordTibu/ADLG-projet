@@ -1,13 +1,13 @@
 #include "card.h"
-#include<vector>
+#include<list>
 
 class cardLib
 {
 private:
-    std::vector<card> cardLibrary;
+    std::list<card> cardLibrary;
 public:
     cardLib();
     ~cardLib();
     void fillLibrary(); //fonction qui remplit la librerie de toutes les cartes disponibles
-    std::vector<card>& getLib();
+    std::list<card>& getLib();
 };

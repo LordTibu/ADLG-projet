@@ -17,6 +17,9 @@ unit::unit(card& Ncard, bool play){
 
 unit::~unit(){}
 
+unsigned int unit::getX() const {return xpos;}
+unsigned int unit::getY() const {return ypos;}
+
 void unit::attackUnit(unit* ennemy){
     ennemy->hp -= atk;
 }

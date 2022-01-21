@@ -2,18 +2,26 @@
 #include<vector>
 using namespace std;
 
+unit* getUnit(unsigned int n, list<unit>& l){
+    auto it = l.begin();
+    for(unsigned int i = 0; i < n; i++) it++;
+    return &*it;
+}
+
 int main(void){
-    unsigned int input, xmove, ymove;
+    unsigned int xmove, ymove;
+    int input;
     bool stay = true;
     bool deployPhase = true;
     bool actUnit = true;
     unsigned int dim = 5;
+    unit* easeUnit; // ptr pour faire plus lisibles les operations
     gameBoard GB = gameBoard(dim, dim);
     cardLib defaultPieces;
     defaultPieces.fillLibrary();
-    vector<card>& lib = defaultPieces.getLib();
-    vector<unit> playerDeck;
-    vector<unit> playerUnits;
+    list<card>& lib = defaultPieces.getLib();
+    list<unit> playerDeck;
+    list<unit> playerUnits;
     for(auto i = lib.begin(); i != lib.end(); i++){
         (*i).afficherConsole();
         playerDeck.push_back(unit((*i), true));
@@ -28,28 +36,28 @@ int main(void){
                 (*i).afficherConsole();
                 y++;
             }
-            cout << "quelle carte voulez vous jouer? - tapez 0 pour abandoner le jeu sinon le # de la carte" << endl;
+            cout << "quelle carte voulez vous jouer? - tapez 0 pour abandoner le jeu sinon le # de la carte, 100 pour passer" << endl;
             cin >> input;
             switch(input){
                 case 0:
                     stay = false;
                     break;
+                case 100:
+                    deployPhase = !deployPhase; 
+                    break;
                 default:
-                    if(input > 0 && input <= playerDeck.size()){
-                        cout << "input - 1 es: " << input - 1 << endl;
-                        playerUnits.push_back(playerDeck.at(input - 1));
+                    if(input > 0 && (unsigned int)input <= playerDeck.size()){
+                        playerUnits.push_back(*getUnit(input - 1, playerDeck));
                         GB.getTable()[0].occupy(&playerUnits.back()); // insere la piece choisice dans le table de jeu
-                        playerUnits.at(playerUnits.size() - 1).moveTo(0, 0);
-                        playerUnits.at(playerUnits.size() - 1).afficherPosition();
-                        GB.getTable()[0].getOccupier()->afficherConsole();
-                        //playerDeck.erase(std::next(playerDeck.begin(), input - 1));
+                        playerUnits.back().moveTo(0,0);
+                        playerDeck.erase(std::next(playerDeck.begin(), input - 1));
+                        deployPhase = !deployPhase; 
                     }
                     else {cout << "input non reconnu, svp ressayer" << endl;}
                     GB.afficherConsole();
                     break;
             }
             y = 1;
-            deployPhase = !deployPhase; 
         }
         else{
             cout << "unites disponibles: " << endl;
@@ -65,19 +73,24 @@ int main(void){
                     stay = false;
                     break;
                 default:
-                    if(input > 0 && input <= playerUnits.size()){
+                    if(input > 0 && (unsigned int)input <= playerUnits.size()){
                        while(actUnit){
                            cout << "a quelle case bouger l'unite? (donner x puis y en indice de tab)" << endl;
                            cin >> xmove;
                            cin >> ymove;
                            if(0 <= xmove && xmove < dim && 0 <= ymove && ymove < dim){
-                               GB.getTable()[0*dim+0].deOccupy();
-                               playerUnits[input - 1].moveTo(xmove, ymove);
-                               GB.getTable()[ymove * dim + xmove].occupy(&playerUnits[input - 1]);
-                               actUnit = false;
-                           }
+                               if(GB.getTable()[ymove*dim+xmove].getOccupier() == NULL){
+                                    easeUnit = getUnit(input - 1, playerUnits); // pour lisibilité
+                                    GB.getTable()[easeUnit->getY() * dim + easeUnit->getX()].deOccupy(); //on deOccupe la case anterieur
+                                    easeUnit->moveTo(xmove, ymove); // on bouge l'unite
+                                    GB.getTable()[ymove * dim + xmove].occupy(easeUnit);
+                                    actUnit = false;
+                                    deployPhase = !deployPhase; 
+                                }
+                               else {cout << "position deja occupée par une autre unite, svp reesayer" << endl;}
+                            }
                            else {cout << "position non valide dans le tableau, svp reesayer" << endl;}
-                       } 
+                        } 
                     }
                     else {cout << "input non reconnu, svp ressayer" << endl;}
                     actUnit = true;
@@ -85,7 +98,6 @@ int main(void){
                     break;
             }
             y = 1;
-            deployPhase = !deployPhase;
         }
     }
     GB.afficherConsole();

@@ -12,6 +12,6 @@ void cardLib::fillLibrary(){
     cardLibrary.push_back(card("samurai", "", 5, 3, 2));
 }
 
-std::vector<card>& cardLib::getLib(){
+std::list<card>& cardLib::getLib(){
     return cardLibrary;
 }

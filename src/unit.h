@@ -11,6 +11,11 @@ public:
     unit();
     unit(card& Ncard, bool play);
     ~unit();
+
+    unsigned int getX() const;
+    unsigned int getY() const;
+
+
     void attackUnit(unit* ennemy);
     void battleUnit(unit* ennemy);
     void afficherConsole() const;
