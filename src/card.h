@@ -1,5 +1,6 @@
 #include<string>
 #include<iostream>
+#include<assert.h>
 
 class card
 {
@@ -11,5 +12,6 @@ public:
     card();
     card(std::string nom, std::string Ndesc, unsigned int Nindex, unsigned int Nlife, unsigned int Nattack);
     ~card();
-    void afficherConsole();
+    void afficherConsole() const;
+    void afficherInitiales() const;
 };

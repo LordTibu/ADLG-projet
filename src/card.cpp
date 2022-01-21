@@ -16,6 +16,11 @@ card::card(std::string Nname, std::string Ndesc, unsigned int Nindex, unsigned i
 
 card::~card(){}
 
-void card::afficherConsole(){
+void card::afficherConsole() const{
     cout << name << "(atk = " << attack << "; life = " << life << ")" << endl;
+}
+
+void card::afficherInitiales() const{
+    assert(name != "");
+    cout << name.at(0) << name.at(1);
 }

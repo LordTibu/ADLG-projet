@@ -19,15 +19,20 @@ gameBoard::~gameBoard(){
 
 void gameBoard::afficherConsole(){
     if(table!=NULL){
-        for(unsigned int i = 0; i < dimx; i++){
+        for(unsigned int i = 0; i < 5; i++){
             cout << "[ ";
-            for(unsigned int j = 0; j < dimy; j++){
+            for(unsigned int j = 0; j < 5; j++){
+                cout << "index tab en lisant: " << j * dimx + i << endl;
                 if(table[j * dimx + i].getOccupier() == NULL){
-                cout << "# ";
+                    cout << "# ";
                 }
-                else {cout << "@ ";}
+                else {table[j * dimx + i].getOccupier()->afficherInitiales(); cout << " ";}
             }
             cout << "]" << endl;
         }
     }
+}
+
+gameSquare* gameBoard::getTable(){
+    return table;
 }

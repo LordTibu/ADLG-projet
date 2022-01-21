@@ -11,5 +11,6 @@ public:
     gameSquare(std::string terra, unit* occupy, unit* build);
     ~gameSquare();
     unit* getOccupier();
-    void occupySquare();
+    void occupy(unit* Noccupier);
+    void deOccupy();
 };

@@ -10,4 +10,5 @@ public:
     gameBoard(unsigned int Ndimx, unsigned int Ndimy);
     ~gameBoard();
     void afficherConsole();
+    gameSquare* getTable();
 };

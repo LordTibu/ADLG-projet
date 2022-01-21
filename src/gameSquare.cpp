@@ -1,7 +1,8 @@
 #include "gameSquare.h"
 
 gameSquare::gameSquare(){
-    occupier = building = NULL;
+    occupier = NULL;
+    building = NULL;
     terrain = "";
 }
 
@@ -16,3 +17,12 @@ gameSquare::~gameSquare(){
 }
 
 unit* gameSquare::getOccupier() {return occupier;}
+
+void gameSquare::occupy(unit* Noccupier){
+    occupier = Noccupier;
+}
+
+void gameSquare::deOccupy(){
+    occupier = NULL;
+}
+
