@@ -13,4 +13,5 @@ public:
     unit* getOccupier();
     void occupy(unit* Noccupier);
     void deOccupy();
+    void afficherConsole() const;
 };

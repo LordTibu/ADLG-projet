@@ -26,3 +26,8 @@ void gameSquare::deOccupy(){
     occupier = NULL;
 }
 
+void gameSquare::afficherConsole() const{
+    if(occupier == NULL) {std::cout << "# ";}
+    else {occupier->afficherInitiales();}
+}
+

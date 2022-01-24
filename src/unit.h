@@ -14,12 +14,15 @@ public:
 
     unsigned int getX() const;
     unsigned int getY() const;
+    bool isPlayers() const;
 
 
     void attackUnit(unit* ennemy);
-    void battleUnit(unit* ennemy);
+    bool battleUnit(unit* ennemy); //returns true in case of a victory, false if not
     void afficherConsole() const;
     void afficherInitiales();
     void afficherPosition();
     void moveTo(unsigned int x, unsigned int y);
+
+    bool operator==(const unit &u);
 };

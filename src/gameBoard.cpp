@@ -22,10 +22,7 @@ void gameBoard::afficherConsole(){
         for(unsigned int i = 0; i < 5; i++){
             cout << "[ ";
             for(unsigned int j = 0; j < 5; j++){
-                if(table[j * dimx + i].getOccupier() == NULL){
-                    cout << "# ";
-                }
-                else {table[j * dimx + i].getOccupier()->afficherInitiales(); cout << " ";}
+                table[j * dimx + i].afficherConsole();
             }
             cout << "]" << endl;
         }
