@@ -1,3 +1,6 @@
+#ifndef GAMEBOARD_H
+#define GAMEBOARD_H
+
 #include "gameSquare.h"
 
 class gameBoard
@@ -12,3 +15,4 @@ public:
     void afficherConsole();
     gameSquare* getTable();
 };
+#endif

@@ -1,3 +1,6 @@
+#ifndef UNIT_H
+#define UNIT_H
+
 #include "cardLib.h"
 
 class unit
@@ -26,3 +29,4 @@ public:
 
     bool operator==(const unit &u);
 };
+#endif

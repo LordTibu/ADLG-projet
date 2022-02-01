@@ -1,3 +1,6 @@
+#ifndef CARD_H
+#define CARD_H
+
 #include<string>
 #include<iostream>
 #include<assert.h>
@@ -15,3 +18,4 @@ public:
     void afficherConsole() const;
     void afficherInitiales() const;
 };
+#endif

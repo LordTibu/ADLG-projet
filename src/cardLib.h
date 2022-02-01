@@ -1,3 +1,6 @@
+#ifndef CARDLIB_H
+#define CARDLIB_H
+
 #include "card.h"
 #include<list>
 
@@ -11,3 +14,4 @@ public:
     void fillLibrary(); //fonction qui remplit la librerie de toutes les cartes disponibles
     std::list<card>& getLib();
 };
+#endif

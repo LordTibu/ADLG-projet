@@ -1,3 +1,5 @@
+#ifndef GAMESQUARE_H
+#define GAMESQUARE_H
 #include "unit.h"
 
 class gameSquare
@@ -15,3 +17,4 @@ public:
     void deOccupy();
     void afficherConsole() const;
 };
+#endif
