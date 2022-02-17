@@ -4,12 +4,16 @@ using namespace std;
 cardLib::cardLib() {}
 cardLib::~cardLib() {}
 
-void cardLib::fillLibrary(){
-    cardLibrary.push_back(card("soldat", "", 1, 2, 2));
-    cardLibrary.push_back(card("archer", "", 2, 1, 1)); // ranged
-    cardLibrary.push_back(card("peasant", "", 3, 1, 1));
-    cardLibrary.push_back(card("shinobi", "", 4, 1, 3)); // assansins (possible bonus later in dev.)
-    cardLibrary.push_back(card("samurai", "", 5, 3, 2));
+void cardLib::fillLibrary(const std::string & filename){
+    ifstream fichier (filename.c_str());
+    assert(fichier.is_open());
+    unsigned int id, nhp, natk, nptr;
+    string mot1, mot2;
+    for(unsigned int x=0; x<5; ++x){
+        fichier >> mot1 >> mot2 >> id >> nhp >> natk >>nptr;
+        cardLibrary.push_back(card(mot1, mot2, id, nhp , natk, nptr));
+    }
+    fichier.close();
 }
 
 std::list<card>& cardLib::getLib(){

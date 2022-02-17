@@ -9,11 +9,11 @@ class card
 {
 private:
     std::string name, description;
-    unsigned int index, life, attack;
+    unsigned int index, life, attack, protection;
     friend class unit; // Les unites ont access aux données des cartes pour utiliser ses stats
 public:
     card();
-    card(std::string nom, std::string Ndesc, unsigned int Nindex, unsigned int Nlife, unsigned int Nattack);
+    card(std::string nom, std::string Ndesc, unsigned int Nindex, unsigned int Nlife, unsigned int Nattack, unsigned int Nprotection);
     ~card();
     void afficherConsole() const;
     void afficherInitiales() const;
