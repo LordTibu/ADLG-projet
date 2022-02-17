@@ -153,7 +153,7 @@ int main(void){
                         break;
                     default:
                         if(input > 0 && (unsigned int)input <= ennemyDeck.size()){
-                            if(GB.getTable()[0].getOccupier() == NULL){
+                            if(GB.getTable()[4 * dim + 4].getOccupier() == NULL){
                             ennemyUnits.push_back(*getUnit(input - 1, ennemyDeck));
                             GB.getTable()[(dim-1)*dim+dim-1].occupy(&ennemyUnits.back()); // insere la piece choisice dans le table de jeu
                             ennemyUnits.back().moveTo(dim-1,dim-1);
