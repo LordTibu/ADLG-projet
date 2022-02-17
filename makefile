@@ -1,10 +1,12 @@
-CC= g++
-CFLAGS= -Wall -c
+CC = g++
+CFLAGS = -Wall -c
 SDLLIB = -lSDL2 -lSDL2_ttf -lSDL2_image
+OBJPATH = ./obj
+OBJ = $(OBJPATH)/*.o
 
 all: main mainConsole
 
-main: main.o game.o
+main: $(OBJPATH)/*.o
 	$(CC) -g obj/main.o obj/game.o $(SDLLIB) -o bin/main
 
 mainConsole: mainConsole.o gameBoard.o gameSquare.o unit.o cardLib.o card.o
