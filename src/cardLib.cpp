@@ -4,6 +4,7 @@ using namespace std;
 cardLib::cardLib() {}
 cardLib::~cardLib() {}
 
+
 void cardLib::fillLibrary(const std::string & filename){
     ifstream fichier (filename.c_str());
     assert(fichier.is_open());
