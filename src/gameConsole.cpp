@@ -12,7 +12,7 @@ gameConsole::~gameConsole(){}
 
 void gameConsole::gameInit(unsigned int xdim, unsigned int ydim){
     GB = gameBoard(xdim, ydim); //creation du tableau de jeu
-    defaultPieces.fillLibrary(); 
+    defaultPieces.fillLibrary("./assets/units.txt"); 
     std::list<card>& lib = defaultPieces.getLib();
     for(auto i = lib.begin(); i != lib.end(); i++){ //Creation des decks a partir des cartes dans la librerie
         (*i).afficherConsole();

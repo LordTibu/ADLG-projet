@@ -10,6 +10,7 @@ unit::unit(card& Ncard, bool play){
     cardIndex = &Ncard;
     hp = Ncard.life;
     atk = Ncard.attack;
+    ptr = Ncard.protection;
     player1 = play;
     if(player1) {xpos = ypos = 99;}
     else {xpos = ypos = 4;}
@@ -45,7 +46,7 @@ bool unit::battleUnit(unit* ennemy){
 }
 
 void unit::afficherConsole() const{
-    std::cout << cardIndex->name << ": " << "current atk: " <<atk << "; current hp: " << hp << std::endl;
+    std::cout << cardIndex->name << ": " << "current atk: " <<atk << "; current hp: " << hp << "; current ptr: "<<ptr <<std::endl;
 }
 
 void unit::afficherInitiales(){

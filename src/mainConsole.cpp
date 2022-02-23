@@ -19,7 +19,7 @@ int main(void){
     unit* easeUnit; // ptr pour faire plus lisibles les operations
     gameBoard GB = gameBoard(dim, dim);
     cardLib defaultPieces;
-    defaultPieces.fillLibrary();
+    defaultPieces.fillLibrary("./assets/units.txt");
     list<card>& lib = defaultPieces.getLib();
     list<unit> playerDeck;
     list<unit> playerUnits;
