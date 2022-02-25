@@ -3,6 +3,11 @@
 
 #include "gameSquare.h"
 
+/*! \class gameBoard
+    \brief class qui gère le board
+
+    Cette classe me chuâ los gvos
+*/
 class gameBoard
 {
 private:

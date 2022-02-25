@@ -2,6 +2,11 @@
 #define GAMESQUARE_H
 #include "unit.h"
 
+/*! \class gameSquare
+    \brief class qui gère une case
+
+    Cette classe me chuâ los gvos
+*/
 class gameSquare
 {
 private:

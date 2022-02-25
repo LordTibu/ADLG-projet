@@ -6,6 +6,11 @@
 #include<fstream>
 #include<string>
 
+/*! \class cardLib
+    \brief class qui gère la librarie des cartes
+
+    Cette classe me chuâ los gvos
+*/
 class cardLib
 {
 private:

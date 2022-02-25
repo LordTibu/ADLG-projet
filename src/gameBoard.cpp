@@ -22,6 +22,8 @@ gameBoard::~gameBoard(){
 void gameBoard::afficherConsole(){
     //bool alternate = false;
     if(table!=NULL){
+        cout << endl;
+        cout << "***** ZONE DE COMBAT *****" << endl;
         for(unsigned int i = 0; i < 5; i++){
             cout << "[ ";
             //if(alternate) {cout << "  ";}
@@ -31,6 +33,8 @@ void gameBoard::afficherConsole(){
             //alternate = !alternate;
             cout << "]" << endl;
         }
+        cout << "***** ZONE DE COMBAT *****" << endl;
+        cout << endl;
     }
 }
 

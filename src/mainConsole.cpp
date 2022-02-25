@@ -26,15 +26,18 @@ int main(void){
     list<unit> ennemyDeck;
     list<unit> ennemyUnits;
     for(auto i = lib.begin(); i != lib.end(); i++){ //Creation des decks a partir des cartes dans la librerie
-        (*i).afficherConsole();
         playerDeck.push_back(unit((*i), playerTurn));
         ennemyDeck.push_back(unit((*i), !playerTurn));
     }
+
     unsigned int y = 1;
     GB.afficherConsole();
     while(stay){
         if(playerTurn){
+            cout << "********************" << endl;
             cout << "PLAYER TURN" << endl;
+            cout << "********************" << endl;
+            cout << endl;
             if(deployPhase){ //DEPLOYMENT PHASE
                 cout << "cartes disponibles: " << endl;
                 for(auto i = playerDeck.begin(); i != playerDeck.end(); i++){
@@ -49,8 +52,13 @@ int main(void){
                         stay = false;
                         break;
                     case 100:
-                        deployPhase = !deployPhase; 
-                        break;
+                        if(playerUnits.size() > 0){
+                            deployPhase = !deployPhase; 
+                            break;
+                        } else { 
+                            cout << "vous avez aucune carte dans votre deck, vous pouvez pas passer, quelle carte voulez vous jouer? " << endl;
+                            cin >> input;
+                            }
                     default:
                         if(input > 0 && (unsigned int)input <= playerDeck.size()){
                             if(GB.getTable()[0].getOccupier() == NULL){
@@ -102,7 +110,11 @@ int main(void){
                                         cout << "position deja occupée par une autre unite, svp reesayer" << endl;
                                     }
                                     else{
+                                        cout << endl;
+                                        cout << "********************" << endl;
                                         cout << "Initiating battle" << endl;
+                                        cout << "********************" << endl;
+                                        cout << endl;
                                         if(getUnit(input - 1, ennemyUnits)->battleUnit(GB.getTable()[ymove*dim+xmove].getOccupier())){
                                             ennemyUnits.remove(*GB.getTable()[ymove*dim+xmove].getOccupier());
                                             GB.getTable()[ymove*dim+xmove].deOccupy();
@@ -134,7 +146,9 @@ int main(void){
             }
         }
         else{ // ENNEMY TURN
+            cout << "********************" << endl;
             cout << "ENNEMY TURN" << endl;
+            cout << "********************" << endl;
             if(deployPhase){ //DEPLOYMENT PHASE
                 cout << "cartes disponibles: " << endl;
                 for(auto i = ennemyDeck.begin(); i != ennemyDeck.end(); i++){
@@ -149,8 +163,13 @@ int main(void){
                         stay = false;
                         break;
                     case 100:
-                        deployPhase = !deployPhase; 
-                        break;
+                    if(ennemyUnits.size() > 0){
+                            deployPhase = !deployPhase; 
+                            break;
+                        } else { 
+                            cout << "vous avez aucune carte dans votre deck, vous pouvez pas passer, quelle carte voulez vous jouer? " << endl;
+                            cin >> input;
+                            }
                     default:
                         if(input > 0 && (unsigned int)input <= ennemyDeck.size()){
                             if(GB.getTable()[4 * dim + 4].getOccupier() == NULL){
@@ -202,7 +221,9 @@ int main(void){
                                         cout << "position deja occupée par une autre unite, svp reesayer" << endl;
                                     }
                                     else{
+                                        cout << "********************" << endl;
                                         cout << "Initiating battle" << endl;
+                                        cout << "********************" << endl;
                                         if(getUnit(input - 1, ennemyUnits)->battleUnit(GB.getTable()[ymove*dim+xmove].getOccupier())){
                                             playerUnits.remove(*GB.getTable()[ymove*dim+xmove].getOccupier());
                                             GB.getTable()[ymove*dim+xmove].deOccupy();

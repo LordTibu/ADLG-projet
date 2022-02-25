@@ -2,6 +2,11 @@
 #include <SDL2/SDL_image.h>
 #include <iostream>
 
+/*! \class game
+    \brief class qui gère le game
+
+    Cette classe me chuâ los gvos
+*/
 class game
 {
 private:

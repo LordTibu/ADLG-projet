@@ -2,6 +2,12 @@
 #define UNIT_H
 
 #include "cardLib.h"
+
+/*! \class unit
+    \brief class qui gère l'unit
+
+    Cette classe me chuâ los gvos
+*/
 class unit
 {
 private:

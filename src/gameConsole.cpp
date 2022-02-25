@@ -24,7 +24,7 @@ void gameConsole::gameInit(unsigned int xdim, unsigned int ydim){
 }
 
 void gameConsole::gameHandleEvents(){
-    unsigned int y = 1;
+    unsigned int y= 1;
     if(playerTurn){
         cout << "PLAYER 1 TURN" << endl;
         if(deployPhase){ // DEPLOYMENT PHASE (ESTA EN INGLES PQ NO SE COMO DECIRLO EN FRANCES)

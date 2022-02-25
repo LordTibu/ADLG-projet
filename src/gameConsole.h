@@ -3,6 +3,11 @@
 
 #include"gameBoard.h"
 
+/*! \class gameConsole
+    \brief class qui gère le jeu en console
+
+    Cette classe me chuâ los gvos
+*/
 class gameConsole
 {
 private:

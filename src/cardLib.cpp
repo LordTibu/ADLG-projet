@@ -10,8 +10,7 @@ void cardLib::fillLibrary(const std::string & filename){
     assert(fichier.is_open());
     unsigned int id, nhp, natk, nptr;
     string mot1, mot2;
-    for(unsigned int x=0; x<5; ++x){
-        fichier >> mot1 >> mot2 >> id >> nhp >> natk >>nptr;
+    while(fichier >> mot1 >> mot2 >> id >> nhp >> natk >> nptr){
         cardLibrary.push_back(card(mot1, mot2, id, nhp , natk, nptr));
     }
     fichier.close();

@@ -5,6 +5,11 @@
 #include<iostream>
 #include<assert.h>
 
+/*! \class card
+    \brief class qui gère les cards
+
+    Cette classe me chuâ los gvos
+*/
 class card
 {
 private:
