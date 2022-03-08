@@ -45,6 +45,7 @@ int main(void){
                     (*i).afficherConsole();
                     y++;
                 }
+                cout <<"deck size = "<< playerDeck.size() << endl;
                 cout << "quelle carte voulez vous jouer? - tapez 0 pour abandoner le jeu sinon le # de la carte, 100 pour passer" << endl;
                 cin >> input;
                 switch(input){
@@ -84,6 +85,7 @@ int main(void){
                     y++;
                 }
                 cout << "quelle carte voulez vous utiliser? - tapez 0 pour abandoner le jeu sinon le # de la carte" << endl;
+                cout <<"playerdeck size = "<< playerUnits.size() << endl;
                 cin >> input;
                 switch(input){
                     case 0:
@@ -98,7 +100,7 @@ int main(void){
                             if(0 <= xmove && xmove < dim && 0 <= ymove && ymove < dim){
                                 if(GB.getTable()[ymove*dim+xmove].getOccupier() == NULL){ //Si non occupé, on bouge
                                         easeUnit = getUnit(input - 1, playerUnits); // pour lisibilité
-                                        GB.getTable()[easeUnit->getY() * dim + easeUnit->getX()].deOccupy(); //on deOccupe la case anterieur
+                                        GB.getTable()[easeUnit->getY() * dim + easeUnit->getX()].deOccupy(); //on libere la case anterieur
                                         easeUnit->moveTo(xmove, ymove); // on bouge l'unite
                                         GB.getTable()[ymove * dim + xmove].occupy(easeUnit);
                                         actUnit = false;
@@ -156,6 +158,7 @@ int main(void){
                     (*i).afficherConsole();
                     y++;
                 }
+                cout <<"deck size = "<< ennemyDeck.size() << endl;
                 cout << "quelle carte voulez vous jouer? - tapez 0 pour abandoner le jeu sinon le # de la carte, 100 pour passer" << endl;
                 cin >> input;
                 switch(input){
@@ -173,11 +176,11 @@ int main(void){
                     default:
                         if(input > 0 && (unsigned int)input <= ennemyDeck.size()){
                             if(GB.getTable()[4 * dim + 4].getOccupier() == NULL){
-                            ennemyUnits.push_back(*getUnit(input - 1, ennemyDeck));
-                            GB.getTable()[(dim-1)*dim+dim-1].occupy(&ennemyUnits.back()); // insere la piece choisice dans le table de jeu
-                            ennemyUnits.back().moveTo(dim-1,dim-1);
-                            ennemyDeck.erase(std::next(ennemyDeck.begin(), input - 1));
-                            deployPhase = !deployPhase;
+                                ennemyUnits.push_back(*getUnit(input - 1, ennemyDeck));
+                                GB.getTable()[(dim-1)*dim+dim-1].occupy(&ennemyUnits.back()); // insere la piece choisice dans le table de jeu
+                                ennemyUnits.back().moveTo(dim-1,dim-1);
+                                ennemyDeck.erase(std::next(ennemyDeck.begin(), input - 1));
+                                deployPhase = !deployPhase;
                             }
                             else cout << "La base est deja occupée, deployer une unite est impossible" << endl;
                         }
@@ -201,6 +204,7 @@ int main(void){
                         stay = false;
                         break;
                     default:
+                        cout <<"playerdeck size = "<< ennemyUnits.size() << endl;
                         if(input > 0 && (unsigned int)input <= ennemyUnits.size()){
                         while(actUnit){
                             cout << "a quelle case bouger l'unite? (donner x puis y en indice de tab)" << endl;

@@ -8,6 +8,7 @@ game::game() {
 game::~game() {}
 
 void game::game_init() {
+    SDL_Init(SDL_INIT_VIDEO);
     if(SDL_Init(SDL_INIT_VIDEO) < 0) {
         std::cout << "Erreur dans l'init de SDL2_Video: " << SDL_GetError() << std::endl;
         SDL_Quit();
@@ -25,7 +26,8 @@ void game::game_init() {
         SDL_Quit();
         exit(1);
     }
-}
+    
+}   
 
 void game::game_handleEvents() {
     // tant qu'il y a des evenements � traiter (cette boucle n'est pas bloquante)
@@ -47,7 +49,7 @@ void game::game_handleEvents() {
 }
 
 void game::game_update() {
-
+    
 }
 
 void game::game_render() {

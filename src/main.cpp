@@ -12,7 +12,7 @@ int main(void) {
     while(stay){
 
         frameStart = SDL_GetTicks();
-
+        
         ElNegroGoloso.game_update();
         ElNegroGoloso.game_render();
 
@@ -23,5 +23,6 @@ int main(void) {
 
     }
     ElNegroGoloso.game_exit();
+    
     return 0;
 }
