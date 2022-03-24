@@ -1,33 +1,32 @@
 #include "gameSquare.h"
 
 gameSquare::gameSquare(){
-    occupier = NULL;
-    building = NULL;
-    terrain = "";
+    occupier = false;
+    building = false;
+    terrain = "0";
 }
 
-gameSquare::gameSquare(std::string terra, unit* occupy, unit* build){
+gameSquare::gameSquare(std::string terra, bool occupy, bool build){
     occupier = occupy;
     building = build;
     terrain = terra;
 }
 
 gameSquare::~gameSquare(){
-
+    std::cout << "GameSquare destroyed" << std::endl;
 }
 
-unit* gameSquare::getOccupier() {return occupier;}
+bool gameSquare::getOccupier() {return occupier;}
 
-void gameSquare::occupy(unit* Noccupier){
-    occupier = Noccupier;
+void gameSquare::occupy(){
+    occupier = true;
 }
 
 void gameSquare::deOccupy(){
-    occupier = NULL;
+    occupier = false;
 }
 
-void gameSquare::afficherConsole() const{
-    if(occupier == NULL) {std::cout << "#   ";}
-    else {occupier->afficherInitiales();}
+void gameSquare::afficherConsole(){
+    if(!occupier) {std::cout << "#   ";}
 }
 

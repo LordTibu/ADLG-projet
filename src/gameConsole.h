@@ -18,17 +18,16 @@ private:
     bool actUnit = true;
     bool playerTurn = true;
     unsigned int dim = 5;
-    unit* easeUnit; // ptr pour faire plus lisibles les operations
+    unit easeUnit; // ptr pour faire plus lisibles les operations
     gameBoard GB;
     cardLib defaultPieces;
+    std::vector<card> lib; //To acces the lib inside defaultPieces
     //defaultPieces.fillLibrary();
     //list<card>& lib = defaultPieces.getLib();
-    std::list<unit> playerDeck;
-    std::list<unit> playerUnits;
-    std::list<unit> ennemyDeck;
-    std::list<unit> ennemyUnits;
-    std::list<unit>* userDeck;  //ptrs pour condenser la taille du code
-    std::list<unit>* userUnits;
+    std::vector<unit> playerDeck;
+    std::vector<unit> playerUnits;
+    std::vector<unit> ennemyDeck;
+    std::vector<unit> ennemyUnits;
 public:
     gameConsole();
     ~gameConsole();

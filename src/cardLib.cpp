@@ -2,7 +2,9 @@
 using namespace std;
 
 cardLib::cardLib() {}
-cardLib::~cardLib() {}
+cardLib::~cardLib() {
+    cout << "Carlib destroyed" << endl;
+}
 
 
 void cardLib::fillLibrary(const std::string & filename){
@@ -16,6 +18,8 @@ void cardLib::fillLibrary(const std::string & filename){
     fichier.close();
 }
 
-std::list<card>& cardLib::getLib(){
+std::vector<card>& cardLib::getLib(){
     return cardLibrary;
 }
+
+int cardLib::getSize() const {return cardLibrary.size();}

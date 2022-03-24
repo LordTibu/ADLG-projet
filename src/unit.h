@@ -25,8 +25,8 @@ public:
     bool isPlayers() const;
 
 
-    void attackUnit(unit* ennemy);
-    bool battleUnit(unit* ennemy); //returns true in case of a victory, false if not
+    void attackUnit(unit &ennemy);
+    bool battleUnit(unit &ennemy); //returns true in case of a victory, false if not
     void afficherConsole() const;
     void afficherInitiales();
     void afficherPosition();

@@ -2,6 +2,7 @@
 #define CARDLIB_H
 
 #include "card.h"
+#include<vector>
 #include<list>
 #include<fstream>
 #include<string>
@@ -14,12 +15,12 @@
 class cardLib
 {
 private:
-    std::list<card> cardLibrary;
-    unsigned int nbCartes;
+    std::vector<card> cardLibrary;
 public:
     cardLib();
     ~cardLib();
     void fillLibrary(const std::string & filename); //fonction qui remplit la librerie de toutes les cartes disponibles
-    std::list<card>& getLib();
+    std::vector<card>& getLib();
+    int getSize() const;
 };
 #endif

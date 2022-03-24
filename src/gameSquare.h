@@ -10,16 +10,16 @@
 class gameSquare
 {
 private:
-    unit* occupier;
-    unit* building;
+    bool occupier;
+    bool building;
     std::string terrain;
 public:
     gameSquare();
-    gameSquare(std::string terra, unit* occupy, unit* build);
+    gameSquare(std::string terra, bool occupy, bool build);
     ~gameSquare();
-    unit* getOccupier();
-    void occupy(unit* Noccupier);
+    bool getOccupier();
+    void occupy();
     void deOccupy();
-    void afficherConsole() const;
+    void afficherConsole() ;
 };
 #endif

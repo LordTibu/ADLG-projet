@@ -9,31 +9,41 @@ gameBoard::gameBoard(){
 gameBoard::gameBoard(unsigned int Ndimx, unsigned int Ndimy){
     dimx = Ndimx;
     dimy = Ndimy;
-    table = new gameSquare[dimx*dimy];
+    table = new gameSquare[dimx * dimy];
+    cout << "gameBoard created with x = " << dimx << " and y = " << dimy << endl;
 }
 
 gameBoard::~gameBoard(){
     if(table != NULL){
-    delete[] table;
-    table = NULL;
+        delete[] table;
+        table = NULL;
     }
+    cout << "GameBoard succesfully destroyed" << endl;
 }
 
-void gameBoard::afficherConsole(){
+void gameBoard::init(unsigned int x, unsigned int y){
+    assert(table == NULL);
+    dimx = x;
+    dimy = y;
+    table = new gameSquare[dimx * dimy];
+    cout << "gameBoard created with x = " << dimx << " and y = " << dimy << endl;
+}
+
+void gameBoard::afficherConsole() const {
     //bool alternate = false;
     if(table!=NULL){
-        cout << endl;
-        cout << "***** ZONE DE COMBAT *****" << endl;
-        for(unsigned int i = 0; i < 5; i++){
+        cout << "dimensions: " << dimx << dimy << endl;
+        cout << "***** TABLE *****" << endl;
+        for(unsigned int i = 0; i < dimx; i++){
             cout << "[ ";
             //if(alternate) {cout << "  ";}
-            for(unsigned int j = 0; j < 5; j++){
+            for(unsigned int j = 0; j < dimy; j++){
                 table[j * dimx + i].afficherConsole();
             }
             //alternate = !alternate;
             cout << "]" << endl;
         }
-        cout << "***** ZONE DE COMBAT *****" << endl;
+        cout << "***** TABLE *****" << endl;
         cout << endl;
     }
 }

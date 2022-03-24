@@ -17,7 +17,8 @@ public:
     gameBoard();
     gameBoard(unsigned int Ndimx, unsigned int Ndimy);
     ~gameBoard();
-    void afficherConsole();
+    void init(unsigned int x, unsigned int y);
+    void afficherConsole() const;
     gameSquare* getTable();
 };
 #endif
