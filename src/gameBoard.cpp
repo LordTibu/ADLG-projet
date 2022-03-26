@@ -48,6 +48,14 @@ void gameBoard::afficherConsole() const {
     }
 }
 
+unsigned int gameBoard::getX() const{
+    return dimx; 
+}
+
+unsigned int gameBoard::getY() const{
+    return dimy; 
+}
+
 gameSquare* gameBoard::getTable(){
     return table;
 }

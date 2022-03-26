@@ -25,3 +25,8 @@ void card::afficherInitiales() const{
     assert(name != "");
     cout << name.at(0) << name.at(1);
 }
+
+ostream& operator<<(ostream& os, card c){
+    os << c.name << " " << c.description << " " << c.index << " " << c.life << " " << c.attack << " " << c.protection;
+    return os;
+}
