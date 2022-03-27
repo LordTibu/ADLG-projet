@@ -19,6 +19,8 @@ public:
     ~gameBoard();
     void init(unsigned int x, unsigned int y);
     void afficherConsole() const;
+    unsigned int getX() const;
+    unsigned int getY() const;
     gameSquare* getTable();
 };
 #endif

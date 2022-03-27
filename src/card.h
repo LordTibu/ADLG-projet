@@ -22,5 +22,6 @@ public:
     ~card();
     void afficherConsole() const;
     void afficherInitiales() const;
+    friend std::ostream& operator<<(std::ostream& os, card c);
 };
 #endif

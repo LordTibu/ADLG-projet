@@ -26,6 +26,18 @@ void gameConsole::gameInit(unsigned int xdim, unsigned int ydim){
     GB.afficherConsole();
 }
 
+void gameConsole::gameAfficher(){
+    string defLine = "[ "; //Creation d'une ligne du tab en fonction des dimensions
+    for(int i = 0; i < GB.getX(); i++){
+        defLine.append("### ");
+    }
+    //defLine = [ ### ### ### ### ### ]
+    defLine.append("]");
+    for(int j = 0; j < GB.getY(); j++){
+        tableLine = defLine;
+    }
+}
+
 void gameConsole::gameHandleEvents(){
     unsigned int y= 1;
     if(playerTurn){

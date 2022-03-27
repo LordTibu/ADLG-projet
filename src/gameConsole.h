@@ -18,6 +18,7 @@ private:
     bool actUnit = true;
     bool playerTurn = true;
     unsigned int dim = 5;
+    std::string tableLine; // Utile pour afficher le tableu + unites
     unit easeUnit; // ptr pour faire plus lisibles les operations
     gameBoard GB;
     cardLib defaultPieces;
@@ -33,6 +34,7 @@ public:
     ~gameConsole();
     void gameInit(unsigned int xdim, unsigned int ydim);
     void gameUpdate();
+    void gameAfficher();
     void gameHandleEvents();
     bool Stay();
 };

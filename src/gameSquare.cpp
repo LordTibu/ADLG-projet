@@ -28,5 +28,6 @@ void gameSquare::deOccupy(){
 
 void gameSquare::afficherConsole(){
     if(!occupier) {std::cout << "#   ";}
+    else {std::cout << "U   ";}
 }
 
