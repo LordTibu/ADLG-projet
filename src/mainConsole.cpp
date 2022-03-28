@@ -1,4 +1,5 @@
 #include "gameBoard.h"
+
 using namespace std;
 
 int getIndex(int x, int y, vector<unit> v) {

@@ -2,6 +2,8 @@
 #define GAMECONSOLE_H
 
 #include"gameBoard.h"
+#include"server.h"
+#include"client.h"
 
 /*! \class gameConsole
     \brief class qui gère le jeu en console
@@ -29,11 +31,17 @@ private:
     std::vector<unit> playerUnits;
     std::vector<unit> ennemyDeck;
     std::vector<unit> ennemyUnits;
+    server sv;
+    client cl;
 public:
     gameConsole();
     ~gameConsole();
     void gameInit(unsigned int xdim, unsigned int ydim);
+    void gameInitServer(unsigned int xdim, unsigned int ydim);
+    void gameInitClient(unsigned int xdim, unsigned int ydim, char *arg1, char *arg2);
     void gameUpdate();
+    void gameUpdateNET();
+    void gameUpdateNETClient();
     void gameAfficher();
     void gameHandleEvents();
     bool Stay();

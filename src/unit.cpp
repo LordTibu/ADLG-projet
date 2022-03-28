@@ -51,11 +51,55 @@ void unit::attackUnit(unit &ennemy){
     std::this_thread::sleep_for(std::chrono::milliseconds(2000));
 }
 
+void unit::attackUnitNET(unit &ennemy){
+    unsigned int atk_m;
+    if(ennemy.ptr >= atk){
+        ennemy.ptr -= atk;
+    }else { 
+        atk_m= atk - ennemy.ptr;
+        if(ennemy.hp <= atk_m){
+            ennemy.ptr = 0;
+            ennemy.hp = 0;
+        } else {
+            ennemy.ptr = 0;
+            ennemy.hp -= atk_m;
+        }
+    }
+    if(player1){
+        std::cout <<"@PLAYER 1: "<< unitName << " dealt " << atk << " dmg to @ENNEMY : " << ennemy.unitName << std::endl;
+        std::cout <<"#####@PLAYER 2 current stats : " << ennemy.unitName << " hp = " << ennemy.hp << " ptr = "<< ennemy .ptr << std::endl;
+    } else{
+        std::cout <<"@pLAYER 2 : "<< unitName << " dealt " << atk << " dmg to @PLAYER : " << ennemy.unitName << std::endl;
+        std::cout <<"#####@PLAYER 1 current stats : " << ennemy.unitName << " hp = " << ennemy.hp << " ptr = "<< ennemy.ptr << std::endl;
+    }
+    std::this_thread::sleep_for(std::chrono::milliseconds(2000));
+}
+
 bool unit::battleUnit(unit &ennemy){
     bool turn = true;
     while(hp !=0 && ennemy.hp != 0){
         if(turn) attackUnit(ennemy);
         else ennemy.attackUnit(*this);
+        turn = !turn;
+    }
+    if(hp == 0){
+        std::cout << "Mission Failed, we'll get them next time" << std::endl;
+        std::this_thread::sleep_for(std::chrono::milliseconds(2000));
+        return false;
+    }
+    else{
+        std::cout << "Great Success, the Motherland shall be proud of your efforts" << std::endl;
+        std::this_thread::sleep_for(std::chrono::milliseconds(2000));
+        return true;
+    }
+    
+}
+
+bool unit::battleUnitNET(unit &ennemy){
+    bool turn = true;
+    while(hp !=0 && ennemy.hp != 0){
+        if(turn) attackUnitNET(ennemy);
+        else ennemy.attackUnitNET(*this);
         turn = !turn;
     }
     if(hp == 0){
