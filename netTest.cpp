@@ -51,10 +51,11 @@ int main(void){
     //Reading client message
     close(listening);
     char buffer[1024] = {0};
-    int valread;
+    int valread = 0;
     bool clientStay = true;
 
     while(clientStay){
+        std::cout << "Received Before: " << std::string(buffer, 0, valread) << std::endl;
     valread = recv(client_socket, buffer, 1024, 0);
     if(valread == -1){
         std::cout << "Error at reading message from client\n";

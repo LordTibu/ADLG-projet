@@ -51,6 +51,10 @@ void deckBuilder::removeCard(){
     }
 }
 
+void deckBuilder::sortDeck(){
+    
+}
+
 void deckBuilder::run(){
     afficher();
     cout << "Choisir une action: " << endl;
