@@ -7,10 +7,10 @@ SRCS := $(wildcard src/*.cpp)
 OBJS := $(foreach i, $(SRCS), $(patsubst src/%.cpp, obj/%.o, $(i)))
 MAINOBJS := obj/main.o obj/game.o
 MAINCONSOLEOBJS := obj/mainConsole.o obj/gameBoard.o obj/gameSquare.o obj/unit.o obj/cardLib.o obj/card.o
-MAINTESTOBJS := obj/mainGameTest.o obj/gameConsole.o obj/gameBoard.o obj/gameSquare.o obj/unit.o obj/cardLib.o obj/card.o obj/server.o
+MAINTESTOBJS := obj/mainGameTest.o obj/gameConsole.o obj/gameBoard.o obj/gameSquare.o obj/unit.o obj/cardLib.o obj/card.o obj/server.o obj/client.o
 DECKOBJS := obj/deckTest.o obj/deckBuilder.o obj/cardLib.o obj/card.o 
-MAINCLIENTOBJS := obj/mainClient.o obj/client.o
-MAINSERVEROBJS := obj/mainServer.o obj/server.o obj/gameConsole.o obj/gameBoard.o obj/gameSquare.o obj/unit.o obj/cardLib.o obj/card.o 
+MAINCLIENTOBJS := obj/mainClient.o obj/client.o obj/gameConsole.o obj/gameBoard.o obj/gameSquare.o obj/unit.o obj/cardLib.o obj/card.o obj/server.o
+MAINSERVEROBJS := obj/mainServer.o obj/server.o obj/gameConsole.o obj/gameBoard.o obj/gameSquare.o obj/unit.o obj/cardLib.o obj/card.o obj/client.o
 
 all: $(EXECS)
 

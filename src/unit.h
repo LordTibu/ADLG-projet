@@ -26,7 +26,9 @@ public:
 
 
     void attackUnit(unit &ennemy);
+    void attackUnitNET(unit &ennemy);
     bool battleUnit(unit &ennemy); //returns true in case of a victory, false if not
+    bool battleUnitNET(unit &ennemy);
     void afficherConsole() const;
     void afficherInitiales();
     void afficherPosition();

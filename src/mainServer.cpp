@@ -4,7 +4,7 @@ using namespace std;
 int main(void){
     gameConsole jeu;
     cout << "Esta compilando el archivo q es" << endl;
-    jeu.gameInit(5, 5);
+    jeu.gameInitServer(5, 5);
     
     jeu.gameUpdateNET();
     
