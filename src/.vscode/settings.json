@@ -49,6 +49,7 @@
         "thread": "cpp",
         "chrono": "cpp",
         "ctime": "cpp",
-        "ratio": "cpp"
+        "ratio": "cpp",
+        "cstring": "cpp"
     }
 }
