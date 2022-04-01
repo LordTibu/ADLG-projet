@@ -25,6 +25,7 @@ public:
     void supprimerCarte(int index);
     std::vector<card>& getLib();
     void afficher() const;
+    void sortD();
     int getSize() const;
 };
 #endif
