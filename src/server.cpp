@@ -16,7 +16,6 @@ void server::serverInit(){
     if (SDLNet_ResolveHost(&ip, NULL, 5000) < 0) { 
         std::cerr << stderr <<"SDLNet_ResolveHost: "<< SDLNet_GetError()<<std::endl; 
     }
-
 /* Open a connection with the IP provided (listen on the host's port) */ 
     if (!(sd = SDLNet_TCP_Open(&ip))) { 
         std::cerr << stderr << "SDLNet_TCP_Open: " << SDLNet_GetError() <<std::endl; 

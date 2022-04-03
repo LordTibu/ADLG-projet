@@ -26,6 +26,10 @@ void card::afficherInitiales() const{
     cout << name.at(0) << name.at(1);
 }
 
+string card::getName() const{
+    return name;
+}
+
 ostream& operator<<(ostream& os, card c){
     os << c.name << " " << c.description << " " << c.index << " " << c.life << " " << c.attack << " " << c.protection;
     return os;

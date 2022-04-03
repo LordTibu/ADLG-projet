@@ -1,6 +1,6 @@
 CC := g++
 CFLAGS := -Wall
-SDLLIB := -lSDL2 -lSDL2_ttf -lSDL2_image -lSDL2_net
+SDLLIB := -lSDL2 -lSDL2_ttf -lSDL2_image -lSDL_net
 EXECS_PATH := ./bin
 EXECS := $(EXECS_PATH)/main $(EXECS_PATH)/mainConsole $(EXECS_PATH)/mainTest $(EXECS_PATH)/deckTest $(EXECS_PATH)/mainServer $(EXECS_PATH)/mainClient
 SRCS := $(wildcard src/*.cpp)

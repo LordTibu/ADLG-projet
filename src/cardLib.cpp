@@ -1,9 +1,14 @@
 #include "cardLib.h"
+#include <bits/stdc++.h>
 using namespace std;
 
 cardLib::cardLib() {}
 cardLib::~cardLib() {
     cout << "Carlib destroyed" << endl;
+}
+
+bool compCard(const card &c, const card& d){
+    return (c.getName() < d.getName());
 }
 
 
@@ -32,6 +37,10 @@ void cardLib::afficher() const {
         cout << i + 1 <<". ";
         cardLibrary[i].afficherConsole();
     }
+}
+
+void cardLib::sortD(){
+    sort(cardLibrary.begin(), cardLibrary.end(), compCard);
 }
 
 void cardLib::ajouterCarte(const card &c){

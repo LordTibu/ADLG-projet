@@ -34,6 +34,7 @@ void deckBuilder::addCard(){
         cout << "Input non reconnu, svp reessayer" << endl;
         cout << "************************" << endl;
     }
+    sortDeck();
 }
 
 void deckBuilder::removeCard(){
@@ -49,6 +50,10 @@ void deckBuilder::removeCard(){
         cout << "Input non reconnu, svp reessayer" << endl;
         cout << "************************" << endl;
     }
+}
+
+void deckBuilder::sortDeck(){
+    userDeck.sortD();
 }
 
 void deckBuilder::run(){
@@ -88,6 +93,7 @@ void deckBuilder::run(){
 }
 
 void deckBuilder::saveDeck(){
+    sortDeck();
     userDeck.saveToFile("./assets/userDeck.txt");
     cout << "Le Deck a été enregistré" << endl;
     cout << "************************" << endl;

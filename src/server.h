@@ -2,7 +2,7 @@
 #define SERVER_H
 
 #include<iostream>
-#include<SDL2/SDL_net.h>
+#include<SDL/SDL_net.h>
 #include<cstring>
 #include<string>
 
