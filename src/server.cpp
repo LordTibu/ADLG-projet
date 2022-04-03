@@ -59,7 +59,7 @@ void server::Communication(){
         /* Get the remote address */ 
             if ((remoteIP = SDLNet_TCP_GetPeerAddress(csd1))) 
             /* Print the address, converting in the host format */ 
-           std::cout << "Host connected: " << SDLNet_Read32(&remoteIP->host) << std::endl;
+           std::cout << "Host connected: " << SDLNet_Read32(&remoteIP->host) << SDLNet_Read16(&remoteIP->port) << std::endl;
             else std::cerr << stderr << "SDLNet_TCP_GetPeerAddress: " << SDLNet_GetError() << std::endl;
             
            /* SDLNet_TCP_Send(csd1, buffer2, strlen(buffer2)+1);*/

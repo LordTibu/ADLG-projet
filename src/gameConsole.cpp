@@ -42,7 +42,7 @@ void gameConsole::gameInitServer(unsigned int xdim, unsigned int ydim){
     sv.serverInit();
 }
 
-void gameConsole::gameInitClient(unsigned int xdim, unsigned int ydim, char *arg1, char *arg2){
+void gameConsole::gameInitClient(unsigned int xdim, unsigned int ydim, char *arg1, int arg2){
     
     GB.init(5,5); //creation du tableau de jeu
     defaultPieces.fillLibrary("./assets/units.txt"); 

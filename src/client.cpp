@@ -7,13 +7,13 @@ client::client(){
 client::~client(){
 }
 
-void client::clientInit( char *arg1, char *arg2){
+void client::clientInit( char *arg1, int arg2){
     if (SDLNet_Init() < 0) { 
         std::cerr << stderr <<"SDLNet_Init: " << SDLNet_GetError() <<"\n";
     }
 
     /* Resolve the host we are connecting to */ 
-    if (SDLNet_ResolveHost(&ip, arg1, atoi(arg2)) < 0) { 
+    if (SDLNet_ResolveHost(&ip, arg1, arg2) < 0) { 
         std::cerr << stderr <<"SDLNet_ResolveHost: " << SDLNet_GetError() << "\n";
     }
     

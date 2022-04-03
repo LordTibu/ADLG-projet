@@ -38,7 +38,7 @@ public:
     ~gameConsole();
     void gameInit(unsigned int xdim, unsigned int ydim);
     void gameInitServer(unsigned int xdim, unsigned int ydim);
-    void gameInitClient(unsigned int xdim, unsigned int ydim, char *arg1, char *arg2);
+    void gameInitClient(unsigned int xdim, unsigned int ydim, char *arg1, int arg2);
     void gameUpdate();
     void gameUpdateNET();
     void gameUpdateNETClient();
