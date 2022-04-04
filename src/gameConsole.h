@@ -44,6 +44,7 @@ public:
     void gameUpdateNETClient();
     void gameAfficher();
     void gameHandleEvents();
+    void gameEnd();
     bool Stay();
 };
 #endif
