@@ -2,7 +2,7 @@
 #define CLIENT_H
 
 #include <iostream>
-#include<SDL/SDL_net.h>
+#include<SDL2/SDL_net.h>
 #include<cstring>
 
 /*! \class client
@@ -24,7 +24,7 @@ public:
 
     client();
     ~client();
-    void clientInit(char *arg1, char *arg2 );
+    void clientInit(char *arg1, int arg2 );
     void Send();
     void Receive();
     void Communication(char *arg1);
