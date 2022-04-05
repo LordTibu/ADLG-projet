@@ -12,22 +12,25 @@ gameSquare::gameSquare(std::string terra, bool occupy, bool build){
     terrain = terra;
 }
 
-gameSquare::~gameSquare(){
-    std::cout << "GameSquare destroyed" << std::endl;
-}
+gameSquare::~gameSquare(){}
 
 bool gameSquare::getOccupier() {return occupier;}
 
-void gameSquare::occupy(){
+void gameSquare::occupy(const unit& u){
     occupier = true;
+    unitName = u.getName();
 }
 
 void gameSquare::deOccupy(){
     occupier = false;
 }
 
+void gameSquare::setName(const std::string& s){
+    unitName = s;
+}
+
 void gameSquare::afficherConsole(){
-    if(!occupier) {std::cout << "#   ";}
-    else {std::cout << "U   ";}
+    if(!occupier) {std::cout << "###  ";}
+    else {std::cout << unitName << "  ";}
 }
 

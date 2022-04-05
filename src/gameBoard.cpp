@@ -18,7 +18,6 @@ gameBoard::~gameBoard(){
         delete[] table;
         table = NULL;
     }
-    cout << "GameBoard succesfully destroyed" << endl;
 }
 
 void gameBoard::init(unsigned int x, unsigned int y){

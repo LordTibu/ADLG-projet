@@ -11,7 +11,7 @@
 class unit
 {
 private:
-std::string unitName;
+    std::string unitName;
     card* cardIndex; // cardIndex relie l'unite a la carte qui lui donne ses stats et effets defaults
     unsigned int hp, atk, ptr, xpos, ypos; // les pos indiquent la position dans de le tableau du jeu
     bool player1; // bool pour savoir auquel jouer appartient l'unite
@@ -22,6 +22,7 @@ public:
 
     unsigned int getX() const;
     unsigned int getY() const;
+    std::string getName() const;
     bool isPlayers() const;
 
 

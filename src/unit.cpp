@@ -20,11 +20,17 @@ unit::unit(card& Ncard, bool play){
 
 unit::~unit(){
     cardIndex = NULL;
-    std::cout << "Unit destroyed" << std::endl;
 }
 
 unsigned int unit::getX() const {return xpos;}
 unsigned int unit::getY() const {return ypos;}
+std::string unit::getName() const {
+    std::string r;
+    r.push_back(unitName.at(0));
+    r.push_back(unitName.at(1));
+    if(player1) r.push_back('P');
+    else r.push_back('E');
+    return r;}
 bool unit::isPlayers() const {return player1;}
 
 void unit::attackUnit(unit &ennemy){

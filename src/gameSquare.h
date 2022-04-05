@@ -13,13 +13,15 @@ private:
     bool occupier;
     bool building;
     std::string terrain;
+    std::string unitName;
 public:
     gameSquare();
     gameSquare(std::string terra, bool occupy, bool build);
     ~gameSquare();
     bool getOccupier();
-    void occupy();
+    void occupy(const unit& u);
     void deOccupy();
-    void afficherConsole() ;
+    void afficherConsole();
+    void setName(const std::string& s);
 };
 #endif
