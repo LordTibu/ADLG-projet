@@ -29,8 +29,8 @@ private:
     //list<card>& lib = defaultPieces.getLib();
     std::vector<unit> playerDeck;
     std::vector<unit> playerUnits;
-    std::vector<unit> ennemyDeck;
-    std::vector<unit> ennemyUnits;
+    std::vector<unit> ennemyDeck; //cartes
+    std::vector<unit> ennemyUnits; //unites de combat
     server sv;
     client cl;
 public:

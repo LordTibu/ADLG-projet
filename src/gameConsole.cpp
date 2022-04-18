@@ -290,7 +290,7 @@ void gameConsole::gameUpdate(){
                             cin >> input;
                             }
                     default:
-                        if(input > 0 && (unsigned int)input < ennemyDeck.size()){
+                        if(input > 0 && (unsigned int)input <= ennemyDeck.size()){
                             if(!GB.getTable()[4 * dim + 4].getOccupier()){
                                 ennemyUnits.push_back(ennemyDeck[input - 1]);
                                 GB.getTable()[(dim-1)*dim+dim-1].occupy(ennemyUnits.back()); // insere la piece choisice dans le table de jeu
