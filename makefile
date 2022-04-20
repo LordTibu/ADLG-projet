@@ -2,7 +2,7 @@ CC := g++
 CFLAGS := -Wall
 SDLLIB := -lSDL2 -lSDL2_ttf -lSDL2_image -lSDL2_net
 EXECS_PATH := ./bin
-EXECS := $(EXECS_PATH)/main $(EXECS_PATH)/mainTest $(EXECS_PATH)/deckTest $(EXECS_PATH)/mainServer $(EXECS_PATH)/mainClient $(EXECS_PATH)/main2D
+EXECS := $(EXECS_PATH)/main $(EXECS_PATH)/mainTest $(EXECS_PATH)/deckTest $(EXECS_PATH)/main2D
 SRCS := $(wildcard src/*.cpp)
 OBJS := $(foreach i, $(SRCS), $(patsubst src/%.cpp, obj/%.o, $(i)))
 MAINOBJS := obj/main.o obj/game.o
@@ -18,11 +18,11 @@ all: $(EXECS)
 $(EXECS_PATH)/main: $(MAINOBJS)
 	$(CC) $(CFLAGS) -g $^ $(SDLLIB) -o $@
 
-$(EXECS_PATH)/mainServer: $(MAINSERVEROBJS)
-	$(CC) $(CFLAGS) -g $^ $(SDLLIB) -o $@
+#$(EXECS_PATH)/mainServer: $(MAINSERVEROBJS)
+#	$(CC) $(CFLAGS) -g $^ $(SDLLIB) -o $@
 
-$(EXECS_PATH)/mainClient: $(MAINCLIENTOBJS)
-	$(CC) $(CFLAGS) -g $^ $(SDLLIB) -o $@
+#$(EXECS_PATH)/mainClient: $(MAINCLIENTOBJS)
+#	$(CC) $(CFLAGS) -g $^ $(SDLLIB) -o $@
 
 $(EXECS_PATH)/main2D: $(MAIN2D)
 	$(CC) $(CFLAGS) -g $^ $(SDLLIB) -o $@

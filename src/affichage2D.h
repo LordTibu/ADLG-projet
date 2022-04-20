@@ -7,15 +7,16 @@
 class affichage2D
 {
 private:
-    int SCREEN_WIDTH;
-    int SCREEN_HEIGHT;
-public:
-    SDL_Window* window;
-    SDL_Surface* screenSurface;
+    SDL_Window * window;
+    SDL_Renderer * renderer;
 
+public:
+    int SCREEN_WIDTH, SCREEN_HEIGHT;
+    bool isRun;
     affichage2D();
-    void affichage2DInit();
-    void Close();
+    void init2D();
+    void menu2D();
+    void clean2D();
     ~affichage2D();
 };
 
