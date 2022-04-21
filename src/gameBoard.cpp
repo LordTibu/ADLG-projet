@@ -47,6 +47,19 @@ void gameBoard::afficherConsole() const {
     }
 }
 
+vec2 gameBoard::offToAx(int x, int y) const{
+    vec2 v;
+    v.q = y - (x - (x&1)) / 2; //Si x pair, x&1 = 0, sinon x&1 = 1
+    v.r = x;
+    return v;
+}
+vec2 gameBoard::axToOff(int q, int r) const{
+    vec2 v;
+    v.r = q + (r - (r&1)) / 2;
+    v.q = r;
+    return v;  // q holds the value for the X coord and s for Y coord
+}
+
 unsigned int gameBoard::getX() const{
     return dimx; 
 }

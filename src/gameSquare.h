@@ -7,6 +7,10 @@
 
     Cette classe me chuâ los gvos
 */
+struct vec2{
+    int q, r;
+};
+
 class gameSquare
 {
 private:

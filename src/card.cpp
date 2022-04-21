@@ -6,13 +6,16 @@ card::card(){
     index = life = attack = 0;
 }
 
-card::card(std::string Nname, std::string Ndesc, unsigned int Nindex, unsigned int Nlife, unsigned int Nattack, unsigned int Nprotection){
+card::card(std::string Nname, std::string Ndesc, unsigned int Nindex, unsigned int Nlife, unsigned int Nattack, unsigned int Nprotection, 
+           unsigned int nRange, unsigned int nAtkRange){
     name = Nname;
     description = Ndesc;
     index = Nindex;
     life = Nlife;
     attack = Nattack;
     protection = Nprotection;
+    movRange = nRange;
+    atkRange = nAtkRange;
 }
 
 card::~card(){}

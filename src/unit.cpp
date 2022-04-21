@@ -14,6 +14,8 @@ unit::unit(card& Ncard, bool play){
     atk = Ncard.attack;
     ptr = Ncard.protection;
     player1 = play;
+    movRange = Ncard.movRange;
+    atkRange = Ncard.atkRange;
     if(player1) {xpos = ypos = -1;}
     else {xpos = ypos = -1;}
 }

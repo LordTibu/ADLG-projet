@@ -15,10 +15,10 @@ bool compCard(const card &c, const card& d){
 void cardLib::fillLibrary(const std::string & filename){
     ifstream fichier (filename.c_str());
     assert(fichier.is_open());
-    unsigned int id, nhp, natk, nptr;
+    unsigned int id, nhp, natk, nptr, nmov, natkr;
     string name, desc;
-    while(fichier >> name >> desc >> id >> nhp >> natk >> nptr){
-        cardLibrary.push_back(card(name, desc, id, nhp , natk, nptr));
+    while(fichier >> name >> desc >> id >> nhp >> natk >> nptr >> nmov >> natkr){
+        cardLibrary.push_back(card(name, desc, id, nhp , natk, nptr, nmov, natkr));
     }
     fichier.close();
 }
