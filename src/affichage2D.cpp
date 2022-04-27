@@ -23,59 +23,32 @@ void affichage2D::init2D(){
         std::cerr <<" se fue todo a la proronga " << SDL_GetError();
         isRun = false;
     }
-}
 
-void affichage2D::menu2D(){
-    SDL_Event event;
-    SDL_Rect rectToDraw2 = {SCREEN_WIDTH/2-(SCREEN_HEIGHT/2+SCREEN_HEIGHT/10)/2
+    //menu squares
+    rectToDraw2 = {SCREEN_WIDTH/2-(SCREEN_HEIGHT/2+SCREEN_HEIGHT/10)/2
                             ,SCREEN_HEIGHT/2,
                             SCREEN_HEIGHT/2+SCREEN_HEIGHT/10
                             , SCREEN_WIDTH/20};
 
-    SDL_Rect rectToDraw1= {SCREEN_WIDTH/2-(SCREEN_HEIGHT/2+SCREEN_HEIGHT/10)/2
+    rectToDraw1= {SCREEN_WIDTH/2-(SCREEN_HEIGHT/2+SCREEN_HEIGHT/10)/2
                             ,SCREEN_HEIGHT/3,
                             SCREEN_HEIGHT/2+SCREEN_HEIGHT/10
                             , SCREEN_WIDTH/20};
 
-    SDL_Rect rectToDraw3={SCREEN_WIDTH/2-(SCREEN_HEIGHT/2+SCREEN_HEIGHT/10)/2
+    rectToDraw3={SCREEN_WIDTH/2-(SCREEN_HEIGHT/2+SCREEN_HEIGHT/10)/2
                             ,SCREEN_HEIGHT-SCREEN_HEIGHT/3 ,
                             SCREEN_HEIGHT/2+SCREEN_HEIGHT/10 
                             , SCREEN_WIDTH/20};
 
-    SDL_Rect rectToDraw4={SCREEN_WIDTH/2-(SCREEN_HEIGHT/2+SCREEN_HEIGHT/10)/2
+    rectToDraw4={SCREEN_WIDTH/2-(SCREEN_HEIGHT/2+SCREEN_HEIGHT/10)/2
                             ,SCREEN_HEIGHT-SCREEN_HEIGHT/6,
                             SCREEN_HEIGHT/2+SCREEN_HEIGHT/10
                             , SCREEN_WIDTH/20};
-    SDL_PollEvent (&event);
-    switch (event.type){
-        case SDL_QUIT:
-            isRun = false;
-            break;
-        case SDL_MOUSEBUTTONDOWN:
-            if (float(event.motion.x) >= rectToDraw1.x && float(event.motion.x) <=(rectToDraw1.x+rectToDraw1.w)
-        && float(event.motion.y) >= rectToDraw1.y && float(event.motion.y)<= (rectToDraw1.y+rectToDraw1.h)){
-            std::cout << "rect 1 \n";
-            }  
-            if (float(event.motion.x) >= rectToDraw2.x && float(event.motion.x) <=(rectToDraw2.x+rectToDraw2.w)
-        && float(event.motion.y) >= rectToDraw2.y && float(event.motion.y)<= (rectToDraw2.y+rectToDraw2.h)){
-            std::cout << "rect 2 \n";
-            } 
-            if (float(event.motion.x) >= rectToDraw3.x && float(event.motion.x) <=(rectToDraw3.x+rectToDraw3.w)
-        && float(event.motion.y) >= rectToDraw3.y&& float(event.motion.y)<= (rectToDraw3.y +rectToDraw3.h)){
-            std::cout << "rect 3 \n";
-            } 
-            if (float(event.motion.x) >= rectToDraw4.x && float(event.motion.x) <=(rectToDraw4.x+rectToDraw4.w)
-        && float(event.motion.y) >= rectToDraw4.y && float(event.motion.y)<= (rectToDraw4.y+rectToDraw4.h)){
-            std::cout << "rect 4 \n";
-            }  
-            std::cout << " ya se acabo\n";
-            
-            //std::cout<< event.motion.x << " , "<<event.motion.y<<std::endl;
-            break;
-        default:
-            break;
+}
 
-    }
+void affichage2D::menu2D(){
+    SDL_PollEvent (&event);
+    
     SDL_SetRenderDrawColor(renderer, 255,0,255,255);
     SDL_RenderClear(renderer);
     //aqui agrego vainas
@@ -102,8 +75,9 @@ void affichage2D::menu2D(){
 }
 
 void affichage2D::clean2D(){
-    SDL_DestroyWindow(window);
     SDL_DestroyRenderer(renderer);
+    SDL_DestroyWindow(window);
+    
     SDL_Quit();
 }
 

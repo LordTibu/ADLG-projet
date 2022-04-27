@@ -1,13 +1,14 @@
-#include "affichage2D.h"
+#include "game2D.h"
 
 int main(){
-    affichage2D *dd;
-    dd = new affichage2D();
-    dd->init2D();
-    while(dd->isRun){
-        dd->menu2D();
-    }
-    dd->clean2D();
-    dd = NULL;
+    game2D * world;
+    world = new game2D();
+    world->initgame2D();
+    world->updategame2D();
+    world->cleangame2D();
+   
+   
+    delete world;
+    world = NULL;
     return 0;
 }
