@@ -10,6 +10,8 @@ public:
     affichage2D * aff;
     gameConsole jeu;
     int input;
+    bool isNOInit;
+    int tailleG;
     game2D();
     void initgame2D();
     void updategame2D();

@@ -36,12 +36,16 @@ private:
 public:
     gameConsole();
     ~gameConsole();
+    std::vector<unit> getplayerdeck() const;
     void gameInit(unsigned int xdim, unsigned int ydim);
     void gameInitServer(unsigned int xdim, unsigned int ydim);
     void gameInitClient(unsigned int xdim, unsigned int ydim, char *arg1, int arg2);
     void gameUpdate();
     void gameUpdateNET();
     void gameUpdateNETClient();
+    void gameUpdateNO();
+    void gameUpdateNETNO();
+    void gameUpdateNETClientNO();
     void gameAfficher();
     void gameHandleEvents();
     void gameEnd();

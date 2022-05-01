@@ -8,27 +8,24 @@ void game2D::initgame2D(){
     aff=new affichage2D();
     aff->init2D();
     input = NULL;
+    isNOInit= true;
+    tailleG=5;
 }
 
 void game2D::local(){
-    jeu.gameInit(5, 5);
-        while(jeu.Stay()){
-            jeu.gameUpdate();
-        }
+    
+    jeu.gameUpdateNO();
+        
 }
 
 void game2D::mulplayerserver(){
-    jeu.gameInitServer(5, 5);
-    jeu.gameUpdateNET();
+     
+    jeu.gameUpdateNETNO();
 }
 
 void game2D::connectmultiplayer(){
-    std::string argv1;
-    std::cout << "saisir l'ip du server :";
-    std::cin>>argv1;
 
-    jeu.gameInitClient(5,5,(char*)argv1.c_str(),5000);
-    jeu.gameUpdateNETClient();
+    jeu.gameUpdateNETClientNO();
 }
 
 void game2D::typegame(){
@@ -59,30 +56,53 @@ void game2D::menu2D(){
             aff->isRun = false;
             break;
         case SDL_MOUSEBUTTONDOWN:
-        if(input == NULL){
+        if(input == NULL && aff->isMenu){
                 if (float(aff->event.motion.x) >= aff->rectToDraw1.x && float(aff->event.motion.x) <=(aff->rectToDraw1.x+aff->rectToDraw1.w)
             && float(aff->event.motion.y) >= aff->rectToDraw1.y && float(aff->event.motion.y)<= (aff->rectToDraw1.y+aff->rectToDraw1.h)){
                 std::cout << "rect 1 \n";
+                jeu.gameInit(tailleG, tailleG);
+                aff->initdeck2D(jeu.getplayerdeck().size());
                 input=1;
+                aff->erasemenu2D();
+                isNOInit = false;
                 }  
                 if (float(aff->event.motion.x) >= aff->rectToDraw2.x && float(aff->event.motion.x) <=(aff->rectToDraw2.x+aff->rectToDraw2.w)
             && float(aff->event.motion.y) >= aff->rectToDraw2.y && float(aff->event.motion.y)<= (aff->rectToDraw2.y+aff->rectToDraw2.h)){
                 std::cout << "rect 2 \n";
+                jeu.gameInitServer(tailleG, tailleG);
+                aff->initdeck2D(jeu.getplayerdeck().size());
                 input=2;
+                aff->erasemenu2D();
+                isNOInit = false;
                 } 
                 if (float(aff->event.motion.x) >= aff->rectToDraw3.x && float(aff->event.motion.x) <=(aff->rectToDraw3.x+aff->rectToDraw3.w)
             && float(aff->event.motion.y) >= aff->rectToDraw3.y&& float(aff->event.motion.y)<= (aff->rectToDraw3.y +aff->rectToDraw3.h)){
                 std::cout << "rect 3 \n";
+                std::string argv1;
+                std::cout << "saisir l'ip du server :";
+                std::cin>>argv1;
+
+                jeu.gameInitClient(tailleG,tailleG,(char*)argv1.c_str(),5000);
+                aff->initdeck2D(jeu.getplayerdeck().size());
                 input=3;
+                aff->erasemenu2D();
+                isNOInit = false;
                 } 
                 if (float(aff->event.motion.x) >= aff->rectToDraw4.x && float(aff->event.motion.x) <=(aff->rectToDraw4.x+aff->rectToDraw4.w)
             && float(aff->event.motion.y) >= aff->rectToDraw4.y && float(aff->event.motion.y)<= (aff->rectToDraw4.y+aff->rectToDraw4.h)){
                 std::cout << "rect 4 \n";
+                std::cout<<"deck builder";
                 input=4;
+                aff->erasemenu2D();
+                isNOInit = false;
                 }  
                 std::cout << " ya se acabo\n";
         }
-            //std::cout<< event.motion.x << " , "<<event.motion.y<<std::endl;
+
+        /*if(input != NULL && !aff->isMenu){
+            
+        }*/
+            std::cout<< aff->event.motion.x << " , "<<aff->event.motion.y<<std::endl;
             break;
         default:
             break;
@@ -93,8 +113,9 @@ void game2D::menu2D(){
 void game2D::updategame2D(){
     while(aff->isRun){
         menu2D();
-        typegame();
         aff->menu2D();
+        aff->drawGame(tailleG,jeu.getplayerdeck().size());
+        //if(!isNOInit)typegame();
     }
 }
 
