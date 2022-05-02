@@ -9,7 +9,7 @@ void game2D::initgame2D(){
     aff->init2D();
     input = NULL;
     isNOInit= true;
-    tailleG=5;
+    tailleG=8;
 }
 
 void game2D::local(){
@@ -61,7 +61,7 @@ void game2D::menu2D(){
             && float(aff->event.motion.y) >= aff->rectToDraw1.y && float(aff->event.motion.y)<= (aff->rectToDraw1.y+aff->rectToDraw1.h)){
                 std::cout << "rect 1 \n";
                 jeu.gameInit(tailleG, tailleG);
-                aff->initdeck2D(jeu.getplayerdeck().size());
+                aff->initdeck2D(jeu.getplayerdeck().size(),tailleG);
                 input=1;
                 aff->erasemenu2D();
                 isNOInit = false;
@@ -70,7 +70,7 @@ void game2D::menu2D(){
             && float(aff->event.motion.y) >= aff->rectToDraw2.y && float(aff->event.motion.y)<= (aff->rectToDraw2.y+aff->rectToDraw2.h)){
                 std::cout << "rect 2 \n";
                 jeu.gameInitServer(tailleG, tailleG);
-                aff->initdeck2D(jeu.getplayerdeck().size());
+                aff->initdeck2D(jeu.getplayerdeck().size(),tailleG);
                 input=2;
                 aff->erasemenu2D();
                 isNOInit = false;
@@ -83,7 +83,7 @@ void game2D::menu2D(){
                 std::cin>>argv1;
 
                 jeu.gameInitClient(tailleG,tailleG,(char*)argv1.c_str(),5000);
-                aff->initdeck2D(jeu.getplayerdeck().size());
+                aff->initdeck2D(jeu.getplayerdeck().size(),tailleG);
                 input=3;
                 aff->erasemenu2D();
                 isNOInit = false;
@@ -120,7 +120,7 @@ void game2D::updategame2D(){
 }
 
 void game2D::cleangame2D(){
-    aff->clean2D();
+    aff->clean2D(jeu.getplayerdeck().size());
     
     delete aff;
     aff = NULL;

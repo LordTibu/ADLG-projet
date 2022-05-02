@@ -52,13 +52,31 @@ void affichage2D::init2D(){
     
 }
 
-void affichage2D::initdeck2D(int n){
-    cartes= new SDL_Rect {rectPlayer.w +(SCREEN_WIDTH/40),SCREEN_HEIGHT-SCREEN_HEIGHT/10,
+void affichage2D::initdeck2D(int n, int d){
+
+    cartes = new SDL_Rect [5];
+
+    cartes[0]= {rectPlayer.w +(SCREEN_WIDTH/40),SCREEN_HEIGHT-SCREEN_HEIGHT/10,
             SCREEN_WIDTH/20,SCREEN_HEIGHT/6};
+    
     for(int i=1;i<n;i++){
-        cartes= new SDL_Rect {cartes[i-1].x+i*3*(SCREEN_WIDTH/40) ,SCREEN_HEIGHT-SCREEN_HEIGHT/10,
+        cartes[i]= {(cartes[i-1].x+3*(SCREEN_WIDTH/40)) ,SCREEN_HEIGHT-SCREEN_HEIGHT/10,
             SCREEN_WIDTH/20,SCREEN_HEIGHT/6};   
-            std::cout<<cartes[i-1].x<<std::endl; 
+    }
+
+    table = new SDL_Rect* [d];
+
+    for(int z = 0; z < d; ++z) {
+        table[z] = new SDL_Rect[d];
+    }
+
+    for(int i = 0; i < d; ++i) {
+        for(int j = 0; j < d; ++j) {
+            table[i][j]= {int(SCREEN_WIDTH/8+0.1*SCREEN_WIDTH + i*(SCREEN_WIDTH/6+n*0.1*SCREEN_WIDTH)/5), 
+            int(SCREEN_HEIGHT/20+0.1*SCREEN_HEIGHT + j*(SCREEN_HEIGHT/24+0.1*SCREEN_HEIGHT)),
+        int((SCREEN_WIDTH/10+n*0.1*SCREEN_WIDTH)/5), int(SCREEN_HEIGHT/20+n*0.1*SCREEN_HEIGHT)/n};
+
+        }
     }
 }
 
@@ -99,29 +117,40 @@ void affichage2D::drawTable(int n){
 
     SDL_SetRenderDrawColor(renderer, 0,0,200,200);
     SDL_RenderClear(renderer);
-
-    SDL_SetRenderDrawColor(renderer, 0,255,0,255);
-    for(int i=1; i<=n;i++){
-        SDL_RenderDrawLine(renderer,SCREEN_WIDTH/6+0.1*SCREEN_WIDTH,SCREEN_HEIGHT/6+i*0.1*SCREEN_HEIGHT,
-        SCREEN_WIDTH/6+n*0.1*SCREEN_WIDTH,SCREEN_HEIGHT/6+i*0.1*SCREEN_HEIGHT);
-        SDL_RenderDrawLine(renderer,SCREEN_WIDTH/6+i*0.1*SCREEN_WIDTH,SCREEN_HEIGHT/6+0.1*SCREEN_HEIGHT,
-        SCREEN_WIDTH/6+i*0.1*SCREEN_WIDTH, SCREEN_HEIGHT/6+n*0.1*SCREEN_HEIGHT);
-    }
     
+    SDL_SetRenderDrawColor(renderer, 0,255,0,255);
+
+    /*for(int i=1; i<=n;i++){
+        SDL_RenderDrawLine(renderer, SCREEN_WIDTH/6+0.1*SCREEN_WIDTH, SCREEN_HEIGHT/6+i*0.1*SCREEN_HEIGHT,
+        SCREEN_WIDTH/6+n*0.1*SCREEN_WIDTH, SCREEN_HEIGHT/6+i*0.1*SCREEN_HEIGHT);
+        SDL_RenderDrawLine(renderer, SCREEN_WIDTH/6+i*0.1*SCREEN_WIDTH, SCREEN_HEIGHT/6+0.1*SCREEN_HEIGHT,
+        SCREEN_WIDTH/6+i*0.1*SCREEN_WIDTH, SCREEN_HEIGHT/6+n*0.1*SCREEN_HEIGHT);
+    } */
+
+    bool pedo = true;
+    for(int x=0; x<n;x++){
+        for(int y=0;y<n;y++){
+            if(pedo){SDL_SetRenderDrawColor(renderer, 255,255,255,255);}
+            else { SDL_SetRenderDrawColor(renderer, 255,255,0,255);}
+
+            SDL_RenderFillRect(renderer, &table[x][y]);
+            pedo = !pedo;
+        }
+    }
 }
 
 void affichage2D::drawDeck(int n){
     SDL_SetRenderDrawColor(renderer, 255,0,255,255);
     SDL_RenderFillRect(renderer, &rectPlayer);
     
-    SDL_SetRenderDrawColor(renderer, 0,0,0,255);
+    SDL_SetRenderDrawColor(renderer, 255,0,0,0);
     for(int i=0;i<n;i++){
       SDL_RenderFillRect(renderer, &cartes[i]);        
     }
     
 }
 
-void affichage2D::drawGame(int n,int d){
+void affichage2D::drawGame(int n, int d){
     if(!isMenu){
         drawTable(n);
         drawDeck(d);
@@ -135,10 +164,15 @@ void affichage2D::drawGame(int n,int d){
     }
 }
 
-void affichage2D::clean2D(){
+void affichage2D::clean2D(int n){
     SDL_DestroyRenderer(renderer);
     SDL_DestroyWindow(window);
+
+    for(int i = 0; i < n; ++i) {
+        delete table[i];
+    }
     delete [] cartes;
+    delete [] table;
     SDL_Quit();
 }
 

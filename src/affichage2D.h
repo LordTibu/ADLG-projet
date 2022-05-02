@@ -19,6 +19,7 @@ public:
 
     SDL_Rect rectPlayer;
 
+    SDL_Rect ** table;
     SDL_Rect * cartes;
     SDL_Event event;
     
@@ -28,13 +29,14 @@ public:
     bool isCreate;
     affichage2D();
     void init2D();
-    void initdeck2D(int n);
+    void initdeck2D(int n, int d);
     void menu2D();
     void erasemenu2D();
+    void inittable2D(int n);
     void drawTable(int n);
     void drawDeck(int n);
     void drawGame(int n, int d);
-    void clean2D();
+    void clean2D(int n);
     ~affichage2D();
 };
 
