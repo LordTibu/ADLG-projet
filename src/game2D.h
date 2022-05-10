@@ -12,6 +12,7 @@ public:
     int input;
     bool isNOInit;
     int tailleG;
+    bool cartSelect;
     game2D();
     void initgame2D();
     void updategame2D();

@@ -120,21 +120,9 @@ void affichage2D::drawTable(int n){
     
     SDL_SetRenderDrawColor(renderer, 0,255,0,255);
 
-    /*for(int i=1; i<=n;i++){
-        SDL_RenderDrawLine(renderer, SCREEN_WIDTH/6+0.1*SCREEN_WIDTH, SCREEN_HEIGHT/6+i*0.1*SCREEN_HEIGHT,
-        SCREEN_WIDTH/6+n*0.1*SCREEN_WIDTH, SCREEN_HEIGHT/6+i*0.1*SCREEN_HEIGHT);
-        SDL_RenderDrawLine(renderer, SCREEN_WIDTH/6+i*0.1*SCREEN_WIDTH, SCREEN_HEIGHT/6+0.1*SCREEN_HEIGHT,
-        SCREEN_WIDTH/6+i*0.1*SCREEN_WIDTH, SCREEN_HEIGHT/6+n*0.1*SCREEN_HEIGHT);
-    } */
-
-    bool pedo = true;
     for(int x=0; x<n;x++){
         for(int y=0;y<n;y++){
-            if(pedo){SDL_SetRenderDrawColor(renderer, 255,255,255,255);}
-            else { SDL_SetRenderDrawColor(renderer, 255,255,0,255);}
-
             SDL_RenderFillRect(renderer, &table[x][y]);
-            pedo = !pedo;
         }
     }
 }
@@ -147,16 +135,26 @@ void affichage2D::drawDeck(int n){
     for(int i=0;i<n;i++){
       SDL_RenderFillRect(renderer, &cartes[i]);        
     }
-    
 }
 
-void affichage2D::drawGame(int n, int d){
+void affichage2D::drawCart(bool cart){
+    SDL_Rect pos= {0,SCREEN_HEIGHT/2-150,200,300};
+    if(cart){
+        SDL_SetRenderDrawColor(renderer, 255,0,255,255);
+        SDL_RenderFillRect(renderer, &pos);
+    }else{
+        SDL_SetRenderDrawColor(renderer, 0,0,200,200);
+        SDL_RenderFillRect(renderer, &pos);
+    }    
+}
+
+void affichage2D::drawGame(int n, int d, bool cart){
     if(!isMenu){
         drawTable(n);
         drawDeck(d);
+        drawCart(cart);
 
 
-        
         SDL_SetRenderDrawColor(renderer, 0,0,0,255);
         SDL_Rect rectToDraw = {event.motion.x,event.motion.y,10,10};
         SDL_RenderFillRect(renderer, &rectToDraw);
