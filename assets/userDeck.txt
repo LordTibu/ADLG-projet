@@ -1,6 +1,6 @@
-Jesucristo " 1 1 1 777 5 1
-archer " 2 1 1 1 3 2
-peasant " 3 1 1 3 3 1
-peasant " 3 1 1 3 3 1
-peasant " 3 1 1 3 3 1
-shinobi " 4 1 3 3 3 1
+Jesucristo " 1 1 1 777 5 1 1
+archer " 2 1 1 1 3 2 0
+peasant " 3 1 1 3 3 1 0
+peasant " 3 1 1 3 3 1 0
+peasant " 3 1 1 3 3 1 0
+shinobi " 4 1 3 3 3 1 0

@@ -16,9 +16,10 @@ void cardLib::fillLibrary(const std::string & filename){
     ifstream fichier (filename.c_str());
     assert(fichier.is_open());
     unsigned int id, nhp, natk, nptr, nmov, natkr;
+    bool champ;
     string name, desc;
-    while(fichier >> name >> desc >> id >> nhp >> natk >> nptr >> nmov >> natkr){
-        cardLibrary.push_back(card(name, desc, id, nhp , natk, nptr, nmov, natkr));
+    while(fichier >> name >> desc >> id >> nhp >> natk >> nptr >> nmov >> natkr >> champ){
+        cardLibrary.push_back(card(name, desc, id, nhp , natk, nptr, nmov, natkr, champ));
     }
     fichier.close();
 }

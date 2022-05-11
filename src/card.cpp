@@ -7,7 +7,7 @@ card::card(){
 }
 
 card::card(std::string Nname, std::string Ndesc, unsigned int Nindex, unsigned int Nlife, unsigned int Nattack, unsigned int Nprotection, 
-           unsigned int nRange, unsigned int nAtkRange){
+    unsigned int nRange, unsigned int nAtkRange, bool champ){
     name = Nname;
     description = Ndesc;
     index = Nindex;
@@ -16,11 +16,13 @@ card::card(std::string Nname, std::string Ndesc, unsigned int Nindex, unsigned i
     protection = Nprotection;
     movRange = nRange;
     atkRange = nAtkRange;
+    isChamp = champ;
 }
 
 card::~card(){}
 
 void card::afficherConsole() const{
+    if(isChamp){cout << "CHAMPION ";}
     cout << name << "(atk = " << attack << "; life = " << life <<"; ptr = " << protection << ")" << endl;
 }
 

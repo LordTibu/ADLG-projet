@@ -16,6 +16,7 @@ unit::unit(card& Ncard, bool play){
     player1 = play;
     movRange = Ncard.movRange;
     atkRange = Ncard.atkRange;
+    isChamp = Ncard.isChamp;
     if(player1) {xpos = ypos = -1;}
     else {xpos = ypos = -1;}
 }

@@ -93,7 +93,6 @@ void deckBuilder::run(){
 }
 
 void deckBuilder::saveDeck(){
-    sortDeck();
     userDeck.saveToFile("./assets/userDeck.txt");
     cout << "Le Deck a été enregistré" << endl;
     cout << "************************" << endl;
