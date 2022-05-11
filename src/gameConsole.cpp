@@ -2,6 +2,102 @@
 #include<vector>
 using namespace std;
 
+void gameConsole::deployUnitPlayer(int input){
+    if(!GB.getTable()[0].getOccupier()){
+        playerUnits.push_back(playerDeck[input - 1]); // on insere la carte dans le tab d'unites
+        GB.getTable()[0].occupy(playerUnits.back()); // indique que la case est occupée (utile pour affichage console)
+        playerUnits.back().moveTo(0,0); // on initialise la position de l'unite
+        //vector<unit>::iterator it = playerDeck.begin();
+        playerDeck.erase(playerDeck.begin() + (input - 1)); // on elimine la carte du deck
+        deployPhase = !deployPhase;
+    }
+    else cout << "La base est deja occupée, deployer une unite est impossible" << endl;
+}
+void gameConsole::deployUnitEnnemy(int input){
+    if(!GB.getTable()[4 * dim + 4].getOccupier()){
+        ennemyUnits.push_back(ennemyDeck[input - 1]);
+        GB.getTable()[(dim-1)*dim+dim-1].occupy(ennemyUnits.back()); // insere la piece choisice dans le table de jeu
+        ennemyUnits.back().moveTo(dim-1,dim-1);
+        ennemyDeck.erase(std::next(ennemyDeck.begin(), input - 1));
+        deployPhase = !deployPhase;
+    }
+    else cout << "La base est deja occupée, deployer une unite est impossible" << endl;
+}
+
+void gameConsole::moveUnitPlayer(int input){
+    easeUnit = playerUnits[input - 1]; // pour lisibilité
+    GB.getTable()[easeUnit.getY() * dim + easeUnit.getX()].deOccupy(); //on libere la case anterieur
+    playerUnits[input - 1].moveTo(xmove, ymove); // on bouge l'unite
+    GB.getTable()[ymove * dim + xmove].occupy(playerUnits[input - 1]);
+    actUnit = false;
+    deployPhase = !deployPhase;
+    playerTurn = !playerTurn;
+}
+
+void gameConsole::moveUnitEnnemy(int input){
+    easeUnit = ennemyUnits[input - 1]; // pour lisibilité
+    GB.getTable()[easeUnit.getY() * dim + easeUnit.getX()].deOccupy(); //on deOccupe la case anterieur
+    ennemyUnits[input - 1].moveTo(xmove, ymove); // on bouge l'unite
+    GB.getTable()[ymove * dim + xmove].occupy(ennemyUnits[input - 1]);
+    actUnit = false;
+    deployPhase = !deployPhase;
+    playerTurn = !playerTurn;
+}
+
+void gameConsole::attackByPlayer(int input){
+    int index = getIndex(xmove, ymove, playerUnits);
+    if(index > 0) { // Si l'unite est une unite alliée
+    cout << "position deja occupée par une autre unite, svp reesayer" << endl;
+    }
+    else{
+        index = getIndex(xmove, ymove, ennemyUnits);
+        cout << endl;
+        cout << "********************" << endl;
+        cout << "Initiating battle" << endl;
+        cout << "********************" << endl;
+        cout << endl;
+        if(playerUnits[input - 1].battleUnit(ennemyUnits[index])){ // Si victoire alliée
+            ennemyUnits.erase(ennemyUnits.begin() + index); // On elimine l'unite ennemie
+            GB.getTable()[playerUnits[input - 1].getY() * dim + playerUnits[input - 1].getX()].deOccupy(); //on deOccupe la case anterieur
+            GB.getTable()[ymove * dim + xmove].occupy(playerUnits[input - 1]);
+            playerUnits[input - 1].moveTo(xmove, ymove); // on update xpos et ypos l'unite
+        }
+        else{ // En cas de defaite
+            GB.getTable()[playerUnits[input - 1].getY() * dim + playerUnits[input - 1].getX()].deOccupy();
+            playerUnits.erase(std::next(playerUnits.begin(), input - 1));
+        }
+        actUnit = false;
+        deployPhase = !deployPhase;
+        playerTurn = !playerTurn;
+    }
+}
+
+void gameConsole::attackByEnnemy(int input){
+    int index = getIndex(xmove, ymove, ennemyUnits);
+    if(index > 0) { // Si l'unite est une unite alliée
+    cout << "position deja occupée par une autre unite, svp reesayer" << endl;
+    }
+    else{
+        index = getIndex(xmove, ymove, playerUnits);
+        cout << "********************" << endl;
+        cout << "Initiating battle" << endl;
+        cout << "********************" << endl;
+        if(ennemyUnits[input - 1].battleUnit(playerUnits[index])){ // Si victoire alliée
+            playerUnits.erase(playerUnits.begin() + index); // On elimine l'unite ennemie
+            GB.getTable()[ennemyUnits[input - 1].getY() * dim + ennemyUnits[input - 1].getX()].deOccupy(); //on deOccupe la case anterieur
+            GB.getTable()[ymove * dim + xmove].occupy(ennemyUnits[input - 1]);
+            ennemyUnits[input - 1].moveTo(xmove, ymove); // on update xpos et ypos l'unite
+        }
+        else{ // En cas de defaite
+            GB.getTable()[ennemyUnits[input - 1].getY() * dim + ennemyUnits[input - 1].getX()].deOccupy();
+            ennemyUnits.erase(std::next(playerUnits.begin(), input - 1));
+        }
+        actUnit = false;
+        deployPhase = !deployPhase;
+        playerTurn = !playerTurn;
+    }
+}
+
 std::vector<unit> gameConsole::getplayerdeck() const{
     return playerDeck;
 }

@@ -25,7 +25,8 @@ public:
     std::string getName() const;
     bool isPlayers() const;
 
-
+    bool isInRange(unsigned int x, unsigned int y) const;
+    bool isInAtkRange(unsigned int x, unsigned int y) const;
     void attackUnit(unit &ennemy);
     void attackUnitNET(unit &ennemy);
     bool battleUnit(unit &ennemy); //returns true in case of a victory, false if not
@@ -33,7 +34,7 @@ public:
     void afficherConsole() const;
     void afficherInitiales();
     void afficherPosition();
-    void moveTo(unsigned int x, unsigned int y);
+    bool moveTo(unsigned int x, unsigned int y);
 
     bool operator==(const unit &u);
 };

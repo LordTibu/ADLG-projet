@@ -49,6 +49,12 @@ public:
     void gameAfficher();
     void gameHandleEvents();
     void gameEnd();
+    void deployUnitPlayer(int input);
+    void deployUnitEnnemy(int input);
+    void moveUnitPlayer(int input);
+    void moveUnitEnnemy(int input);
+    void attackByPlayer(int input);
+    void attackByEnnemy(int input);
     bool Stay();
 };
 #endif

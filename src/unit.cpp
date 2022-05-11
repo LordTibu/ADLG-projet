@@ -36,6 +36,7 @@ std::string unit::getName() const {
 bool unit::isPlayers() const {return player1;}
 
 void unit::attackUnit(unit &ennemy){
+    if(isInAtkRange(ennemy.xpos, ennemy.ypos)){
     unsigned int atk_m;
     if(ennemy.ptr >= atk){
         ennemy.ptr -= atk;
@@ -57,6 +58,10 @@ void unit::attackUnit(unit &ennemy){
         std::cout <<"#####@PLAYER current stats : " << ennemy.unitName << " hp = " << ennemy.hp << " ptr = "<< ennemy.ptr << std::endl;
     }
     std::this_thread::sleep_for(std::chrono::milliseconds(2000));
+    }
+    else{
+        std::cout << "Ennemy outside of attack range" << std::endl;
+    }
 }
 
 void unit::attackUnitNET(unit &ennemy){
@@ -137,9 +142,22 @@ void unit::afficherPosition(){
     std::cout << "pos: " << xpos  << ";" << ypos << std::endl;
 }
 
-void unit::moveTo(unsigned int x, unsigned int y){
+bool unit::moveTo(unsigned int x, unsigned int y){
+    if(isInRange(x, y)){
     xpos = x;
     ypos = y;
+    return true;
+    }
+    std::cout << "Position out of move range" << std::endl;
+    return false;
+}
+
+bool unit::isInRange(unsigned int x, unsigned int y) const {
+    return x - xpos + y - ypos <= movRange;
+}
+
+bool unit::isInAtkRange(unsigned int x, unsigned int y) const {
+    return x - xpos + y - ypos <= movRange + atkRange;
 }
 
 bool unit::operator==(const unit &u){
