@@ -37,8 +37,5 @@ int main(void){
     if(input==0){
         cout <<"Close";
     }
-
-    
-    cout << "SegFault after main" << endl;
     return 0;
 }

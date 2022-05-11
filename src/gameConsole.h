@@ -24,7 +24,7 @@ private:
     unit easeUnit; // ptr pour faire plus lisibles les operations
     gameBoard GB;
     cardLib defaultPieces;
-    std::vector<card> lib; //To acces the lib inside defaultPieces
+    std::vector<card> lib, xd; //To acces the lib inside defaultPieces
     //defaultPieces.fillLibrary();
     //list<card>& lib = defaultPieces.getLib();
     std::vector<unit> playerDeck;
