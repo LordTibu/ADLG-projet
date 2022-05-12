@@ -37,6 +37,8 @@ public:
     gameConsole();
     ~gameConsole();
     std::vector<unit> getplayerdeck() const;
+    std::vector<unit> getplayerunits() const;
+    bool getdeployphase() const;
     void gameInit(unsigned int xdim, unsigned int ydim);
     void gameInitServer(unsigned int xdim, unsigned int ydim);
     void gameInitClient(unsigned int xdim, unsigned int ydim, char *arg1, int arg2);

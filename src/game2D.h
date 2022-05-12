@@ -6,13 +6,20 @@
 
 class game2D
 {
+private:
+    bool deployPhase = true;
+    bool actUnit = true;
+    bool playerTurn = true;
 public:
     affichage2D * aff;
     gameConsole jeu;
+    unsigned int lastTime = 0, currentTime;
+    int Speed = 250;
     int input;
+    int inputgame;
     bool isNOInit;
     int tailleG;
-    bool cartSelect;
+    bool cartSelect=false;
     game2D();
     void initgame2D();
     void updategame2D();

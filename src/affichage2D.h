@@ -34,8 +34,8 @@ public:
     void erasemenu2D();
     void inittable2D(int n);
     void drawTable(int n);
-    void drawDeck(int n);
-    void drawGame(int n, int d,bool cart);
+    void drawDeck(int n, bool player);
+    void drawGame(int n, int d,bool cart,bool player);
     void drawCart(bool cart);
     void clean2D(int n);
     ~affichage2D();

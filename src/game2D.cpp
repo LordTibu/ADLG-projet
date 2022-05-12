@@ -14,7 +14,84 @@ void game2D::initgame2D(){
 
 void game2D::local(){
     
-    jeu.gameUpdateNO();
+    //jeu.gameUpdateNO();
+
+    SDL_PollEvent (&aff->event);
+
+    if(!aff->isMenu){
+        currentTime = SDL_GetTicks();
+        if (currentTime > lastTime + Speed){
+            //affichage de cart
+                if (cartSelect && aff->event.type == SDL_MOUSEBUTTONDOWN){
+                    cartSelect=false;
+                }
+                for(int i=2;i<jeu.getplayerdeck().size()+2;i++){
+                    if (aff->event.type == SDL_MOUSEBUTTONDOWN && float(aff->event.motion.x) >= aff->cartes[i].x && float(aff->event.motion.x) <=(aff->cartes[i].x+aff->cartes[i].w)
+                    && float(aff->event.motion.y) >= aff->cartes[i].y && float(aff->event.motion.y)<= (aff->cartes[i].y+aff->cartes[i].h)){
+                        cartSelect=true;
+                    }
+                }
+
+                if(playerTurn){
+                    //std::cout << "PLAYER TURN" << std::endl;
+                    if(deployPhase){ //DEPLOYMENT PHASE
+                    //std::cout <<"deck size = "<< jeu.getplayerdeck().size() << std::endl;
+                    //std::cout << "quelle carte voulez vous jouer? - tapez 0 pour abandoner le jeu sinon le # de la carte, 100 pour passer" << std::endl;
+                        for(int i=2;i<jeu.getplayerdeck().size()+2;i++){
+                            if (aff->event.type == SDL_MOUSEBUTTONDOWN && float(aff->event.motion.x) >= aff->cartes[i].x && float(aff->event.motion.x) <=(aff->cartes[i].x+aff->cartes[i].w)
+                            && float(aff->event.motion.y) >= aff->cartes[i].y && float(aff->event.motion.y)<= (aff->cartes[i].y+aff->cartes[i].h)){
+                                inputgame=i-1;
+                                std::cout<<"you play the card "<< inputgame<<std::endl;
+                                if(input > 0 && (unsigned int)inputgame <= jeu.getplayerdeck().size()){
+                                    jeu.deployUnitPlayer(inputgame);
+                                    deployPhase = !deployPhase;
+                                }else {std::cout << "input non reconnu, svp ressayer" << std::endl;}
+
+                            }
+                        }
+                        if(aff->event.type == SDL_MOUSEBUTTONDOWN && float(aff->event.motion.x) >= aff->cartes[0].x && float(aff->event.motion.x) <=(aff->cartes[0].x+aff->cartes[0].w)
+                            && float(aff->event.motion.y) >= aff->cartes[0].y && float(aff->event.motion.y)<= (aff->cartes[0].y+aff->cartes[0].h)){
+                            inputgame=100;
+                            std::cout<<"PASS "<< inputgame<<std::endl;
+                            if(jeu.getplayerunits().size() > 0){
+                                deployPhase = !deployPhase; 
+                                }else { 
+                                    std::cout << "vous avez aucune carte dans votre deck, vous pouvez pas passer, quelle carte voulez vous jouer? " << std::endl;
+                                    }
+                            }
+
+                        if(aff->event.type == SDL_MOUSEBUTTONDOWN && float(aff->event.motion.x) >= aff->cartes[1].x && float(aff->event.motion.x) <=(aff->cartes[1].x+aff->cartes[1].w)
+                            && float(aff->event.motion.y) >= aff->cartes[1].y && float(aff->event.motion.y)<= (aff->cartes[1].y+aff->cartes[1].h)){
+                            inputgame=0;
+                            std::cout<<"QUIT "<< inputgame<<std::endl;
+                            }
+                    }else{//PHASE DE BATAILLE
+                        if(aff->event.type == SDL_MOUSEBUTTONDOWN && float(aff->event.motion.x) >= aff->cartes[1].x && float(aff->event.motion.x) <=(aff->cartes[1].x+aff->cartes[1].w)
+                                && float(aff->event.motion.y) >= aff->cartes[1].y && float(aff->event.motion.y)<= (aff->cartes[1].y+aff->cartes[1].h)){
+                                inputgame=0;
+                                std::cout<<"QUIT "<< inputgame<<std::endl;
+                                }
+                        //esta boucle lee las casillas 
+                        for(int ii = 0; ii < tailleG; ++ii) {
+                            for(int jj = 0; jj < tailleG; ++jj) {
+                                if (aff->event.type == SDL_MOUSEBUTTONDOWN && float(aff->event.motion.x) >= aff->table[ii][jj].x && float(aff->event.motion.x) <=(aff->table[ii][jj].x+aff->table[ii][jj].w)
+                                    && float(aff->event.motion.y) >= aff->table[ii][jj].y && float(aff->event.motion.y)<= (aff->table[ii][jj].y+aff->table[ii][jj].h)){
+                                        
+                                        std::cout<< "x = "<<ii<<"  y = "<<jj<<std::endl;
+
+                                        }
+                                    }
+                                }       
+                    }
+                         
+
+                    
+                }
+                
+                lastTime = currentTime; //necessary
+                //std::cout<< aff->event.motion.x << " , "<<aff->event.motion.y<<std::endl;
+            }
+    } 
         
 }
 
@@ -57,10 +134,14 @@ void game2D::menu2D(){
             break;
         case SDL_MOUSEBUTTONDOWN:
             if(input == NULL && aff->isMenu){
+            currentTime = SDL_GetTicks();
+			if (currentTime > lastTime + Speed)
+			{
                     if (float(aff->event.motion.x) >= aff->rectToDraw1.x && float(aff->event.motion.x) <=(aff->rectToDraw1.x+aff->rectToDraw1.w)
                 && float(aff->event.motion.y) >= aff->rectToDraw1.y && float(aff->event.motion.y)<= (aff->rectToDraw1.y+aff->rectToDraw1.h)){
                     std::cout << "rect 1 \n";
                     jeu.gameInit(tailleG, tailleG);
+                    std::cout<< jeu.getplayerdeck().size() << " esto era una el tamano"<<std::endl;
                     aff->initdeck2D(jeu.getplayerdeck().size(),tailleG);
                     input=1;
                     aff->erasemenu2D();
@@ -97,19 +178,10 @@ void game2D::menu2D(){
                     isNOInit = false;
                     }  
                     std::cout << " ya se acabo\n";
+                    lastTime = currentTime; //necessary
+                }               
             }
-            
-            if(input !=NULL && !aff->isMenu){
-                for(int i=0;i<jeu.getplayerdeck().size();i++){
-                    if (float(aff->event.motion.x) >= aff->cartes[i].x && float(aff->event.motion.x) <=(aff->cartes[i].x+aff->cartes[i].w)
-                && float(aff->event.motion.y) >= aff->cartes[i].y && float(aff->event.motion.y)<= (aff->cartes[i].y+aff->cartes[i].h)){
-                    std::cout<<"oprime en carta" << i;
-                    cartSelect=true;
-                    }
-                }
-            }
-                std::cout<< aff->event.motion.x << " , "<<aff->event.motion.y<<std::endl;
-                break;
+            break;
         default:
             break;
      
@@ -120,9 +192,8 @@ void game2D::updategame2D(){
     while(aff->isRun){
         menu2D();
         aff->menu2D();
-        std::cout << int(cartSelect)<<std::endl;
-        aff->drawGame(tailleG,jeu.getplayerdeck().size(),cartSelect);
-        //if(!isNOInit)typegame();
+        aff->drawGame(tailleG,jeu.getplayerdeck().size(),cartSelect,playerTurn);
+        if(!isNOInit)typegame();
     }
 }
 
