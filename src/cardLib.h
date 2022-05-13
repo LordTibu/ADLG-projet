@@ -24,8 +24,11 @@ public:
     void ajouterCarte(const card &c);
     void supprimerCarte(int index);
     std::vector<card>& getLib();
+    card& operator[](int index);
     void afficher() const;
     void sortD();
+    bool hasChamp() const;
+    int getChampIndex() const;
     int getSize() const;
 };
 #endif

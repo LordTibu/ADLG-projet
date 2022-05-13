@@ -23,6 +23,7 @@ public:
     ~card();
     void afficherConsole() const;
     void afficherInitiales() const;
+    bool itsChamp() const;
     std::string getName() const;
     friend std::ostream& operator<<(std::ostream& os, card c);
 };

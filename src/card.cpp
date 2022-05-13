@@ -35,7 +35,13 @@ string card::getName() const{
     return name;
 }
 
+bool card::itsChamp() const{
+    return isChamp;
+}
+
 ostream& operator<<(ostream& os, card c){
-    os << c.name << " " << c.description << " " << c.index << " " << c.life << " " << c.attack << " " << c.protection;
+    os << c.name << " " << c.description << " " << c.index << " " << c.life <<
+    " " << c.attack << " " << c.protection << " " << c.movRange << " " <<
+    c.atkRange << " " << c.isChamp;
     return os;
 }

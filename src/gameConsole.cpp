@@ -130,7 +130,7 @@ gameConsole::~gameConsole(){}
 void gameConsole::gameInit(unsigned int xdim, unsigned int ydim){
     
     GB.init(5,5); //creation du tableau de jeu
-    defaultPieces.fillLibrary("./assets/units.txt");
+    defaultPieces.fillLibrary("./assets/userDeck.txt");
     cardLib playerTxt;
     playerTxt.fillLibrary("./assets/userDeck.txt"); 
     lib = defaultPieces.getLib();

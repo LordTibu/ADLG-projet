@@ -11,6 +11,7 @@ void deckBuilder::init(){
     stay = true;
     defLib.fillLibrary("./assets/units.txt");
     userDeck.fillLibrary("./assets/userDeck.txt");
+    gotChamp = userDeck.hasChamp();
 }
 
 void deckBuilder::afficher() const {
@@ -26,9 +27,19 @@ void deckBuilder::addCard(){
     defLib.afficher();
     cin >> input;
     if(input > 0 && input <= defLib.getSize()){
-        userDeck.ajouterCarte(defLib.getLib()[input - 1]);
-        cout << "La carte a été ajoutée a votre Deck" << endl;
-        cout << "************************" << endl;
+        if(defLib[input - 1].itsChamp()){
+            if(gotChamp){ //Si il y a deja un champ. dans le userDeck
+                cout << "Vous avez deja un champion dans votre deck, supprimer le precedent avant d'ajouter un nouveau" << endl;
+                cout << "************************" << endl;
+            }
+            else{
+                gotChamp = true;
+                userDeck.ajouterCarte(defLib[input - 1]);
+                cout << "La carte a été ajoutée a votre Deck" << endl;
+                cout << "************************" << endl;
+                saved = false;
+            }
+        }
     }
     else{
         cout << "Input non reconnu, svp reessayer" << endl;
@@ -42,6 +53,7 @@ void deckBuilder::removeCard(){
     userDeck.afficher();
     cin >> input;
     if(input > 0 && input <= defLib.getSize()){
+        if(userDeck[input - 1].itsChamp()) gotChamp = false;
         userDeck.supprimerCarte(input - 1);
         cout << "La carte a été supprime de votre Deck" << endl;
         cout << "************************" << endl;
@@ -49,6 +61,7 @@ void deckBuilder::removeCard(){
     else{
         cout << "Input non reconnu, svp reessayer" << endl;
         cout << "************************" << endl;
+        saved = false;
     }
 }
 
@@ -68,13 +81,23 @@ void deckBuilder::run(){
     switch (input)
     {
     case 0:
-        stay = false;
-        if(!saved){
-            cout << "Vous avez pas enregistré vos changements:" << endl;
-            cout << "1. Sauvegarder et quitter" << endl;
+        if(gotChamp){
+            stay = false;
+            if(!saved){
+                cout << "Vous avez pas enregistré vos changements:" << endl;
+                cout << "1. Sauvegarder et quitter" << endl;
+                cout << "2. Quitter" << endl;
+                cin >> input;
+                if(input == 1) saveDeck();
+            }
+        }
+        else{
+            cout << "Vous n'avez pas de champion dans votre deck, vos changements ne seront pas sauvegardés" << endl;
+            cout << "Quitter tout de meme?" << endl;
+            cout << "1. Revenir en arriere" << endl;
             cout << "2. Quitter" << endl;
             cin >> input;
-            if(input == 1) saveDeck();
+            if(input == 2) stay = false;
         }
         break;
     case 1:
@@ -93,7 +116,12 @@ void deckBuilder::run(){
 }
 
 void deckBuilder::saveDeck(){
-    userDeck.saveToFile("./assets/userDeck.txt");
-    cout << "Le Deck a été enregistré" << endl;
-    cout << "************************" << endl;
+    if(userDeck.hasChamp()){
+        userDeck.saveToFile("./assets/userDeck.txt");
+        cout << "Le Deck a été enregistré" << endl;
+        cout << "************************" << endl;
+    }
+    else{
+        cout << "Vous ne pouvez pas enregistrer un deck sans champion" << endl;
+    }
 }

@@ -6,7 +6,7 @@ class deckBuilder
 {
 private:
     int input;
-    bool stay, saved;
+    bool stay, saved, gotChamp;
     cardLib userDeck;
     cardLib defLib; //default library, to house all cards
 public:

@@ -11,6 +11,10 @@ bool compCard(const card &c, const card& d){
     return (c.getName() < d.getName());
 }
 
+card& cardLib::operator[](int index){
+    return cardLibrary[index];
+}
+
 
 void cardLib::fillLibrary(const std::string & filename){
     ifstream fichier (filename.c_str());
@@ -54,6 +58,19 @@ void cardLib::supprimerCarte(int index){
 
 std::vector<card>& cardLib::getLib(){
     return cardLibrary;
+}
+
+bool cardLib::hasChamp() const{
+    for(int i = 0; i < cardLibrary.size(); i++){
+        if(cardLibrary[i].itsChamp()) return true;
+    }
+    return false;
+}
+
+int cardLib::getChampIndex() const{
+    for(int i = 0; i < cardLibrary.size(); i++){
+        if(cardLibrary[i].itsChamp()) return i;
+    }
 }
 
 int cardLib::getSize() const {return cardLibrary.size();}
