@@ -116,34 +116,23 @@ void gameConsole::attackByEnnemy(int input){
     }
 }
 
-std::vector<unit> gameConsole::getplayerdeck() const{
-    return playerDeck;
-}
-
-std::vector<unit> gameConsole::getplayerunits() const{
-    return playerUnits;
-}
-
 gameConsole::gameConsole(){}
 gameConsole::~gameConsole(){}
 
 void gameConsole::gameInit(unsigned int xdim, unsigned int ydim){
     
     GB.init(5,5); //creation du tableau de jeu
-    defaultPieces.fillLibrary("./assets/userDeck.txt");
-    cardLib playerTxt;
-    playerTxt.fillLibrary("./assets/userDeck.txt"); 
-    lib = defaultPieces.getLib();
-    xd = playerTxt.getLib();
-    cout << "Size of lib = " << playerTxt.getSize() << endl;
-    cout << "Size of lib = " << defaultPieces.getSize() << endl;
-    for(int i = 0; i < playerTxt.getSize(); i++){ //Creation des decks a partir des cartes dans la librairie
-        playerDeck.push_back(unit(xd[i], playerTurn));
-    }
-    for(int i = 0; i < defaultPieces.getSize(); i++){ //Creation des decks a partir des cartes dans la librairie
-        ennemyDeck.push_back(unit(lib[i], !playerTurn));
-    }
+    defaultPieces.fillLibrary("./assets/units.txt");
+    playerDeck.fillLibrary("./assets/userDeck.txt");
+    ennemyDeck.fillLibrary("./assets/userDeck.txt");
+    cout << "Size of playerDeck = " << playerDeck.getSize() << endl;
+    cout << "Size of defaultLib = " << defaultPieces.getSize() << endl;
     std::cout << "Creation des Decks et du tableau de Jeu fait" << std::endl;
+    int champIndex = playerDeck.getChampIndex();
+    playerUnits.push_back(unit(playerDeck[champIndex], playerTurn));
+    playerDeck.supprimerCarte(champIndex);
+    ennemyUnits.push_back(unit(playerDeck[champIndex], !playerTurn));
+    ennemyDeck.supprimerCarte(champIndex);
     GB.afficherConsole();
 }
 
