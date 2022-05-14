@@ -60,6 +60,10 @@ vec2 gameBoard::axToOff(int q, int r) const{
     return v;  // q holds the value for the X coord and s for Y coord
 }
 
+gameSquare& gameBoard::operator[](int index){
+    return table[index];
+}
+
 unsigned int gameBoard::getX() const{
     return dimx; 
 }

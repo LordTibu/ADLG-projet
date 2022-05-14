@@ -34,7 +34,9 @@ public:
     void afficherConsole() const;
     void afficherInitiales();
     void afficherPosition();
+    bool itsChamp() const;
     bool moveTo(unsigned int x, unsigned int y);
+    void setTo(int x, int y);
 
     bool operator==(const unit &u);
 };

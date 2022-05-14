@@ -21,6 +21,7 @@ public:
     vec2 axToOff(int q, int s) const;
     void init(unsigned int x, unsigned int y);
     void afficherConsole() const;
+    gameSquare& operator[](int index);
     unsigned int getX() const;
     unsigned int getY() const;
     gameSquare* getTable();

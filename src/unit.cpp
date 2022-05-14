@@ -130,7 +130,7 @@ bool unit::battleUnitNET(unit &ennemy){
 }
 
 void unit::afficherConsole() const{
-    std::cout << cardIndex->name << ": " << "current atk: " <<atk << "; current hp: " << hp << "; current ptr: "<<ptr <<std::endl;
+    std::cout << unitName << ": " << "current atk: " << atk << "; current hp: " << hp << "; current ptr: "<< ptr <<std::endl;
 }
 
 void unit::afficherInitiales(){
@@ -153,12 +153,21 @@ bool unit::moveTo(unsigned int x, unsigned int y){
     return false;
 }
 
+void unit::setTo(int x, int y){
+    xpos = x;
+    ypos = y;
+}
+
 bool unit::isInRange(unsigned int x, unsigned int y) const {
-    return x - xpos + y - ypos <= movRange;
+    return  abs(x - xpos) + abs( y - ypos) <= movRange;
 }
 
 bool unit::isInAtkRange(unsigned int x, unsigned int y) const {
-    return x - xpos + y - ypos <= movRange + atkRange;
+    return abs(x - xpos) + abs(y - ypos) <= movRange + atkRange;
+}
+
+bool unit::itsChamp() const{
+    return isChamp;
 }
 
 bool unit::operator==(const unit &u){

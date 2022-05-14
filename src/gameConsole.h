@@ -53,6 +53,9 @@ public:
     void moveUnitEnnemy(int input);
     void attackByPlayer(int input);
     void attackByEnnemy(int input);
+    void checkForGameEnd();
+    void triggerVictory(bool player);
+    void triggerDraw();
     bool Stay();
 };
 #endif

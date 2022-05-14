@@ -3,9 +3,7 @@
 using namespace std;
 
 cardLib::cardLib() {}
-cardLib::~cardLib() {
-    cout << "Carlib destroyed" << endl;
-}
+cardLib::~cardLib() {}
 
 bool compCard(const card &c, const card& d){
     return (c.getName() < d.getName());
@@ -71,6 +69,7 @@ int cardLib::getChampIndex() const{
     for(int i = 0; i < cardLibrary.size(); i++){
         if(cardLibrary[i].itsChamp()) return i;
     }
+    return -1;
 }
 
 int cardLib::getSize() const {return cardLibrary.size();}
