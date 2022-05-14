@@ -449,16 +449,8 @@ void gameConsole::gameUpdateNET(){
                                     }
                                 break;
                             default:
-                                if(input > 0 && (unsigned int)input <= playerDeck.size()){
-                                    if(!GB.getTable()[0].getOccupier()){
-                                        playerUnits.push_back(playerDeck[input - 1]); // on insere la carte dans le tab d'unites
-                                        GB.getTable()[0].occupy(playerUnits.back()); // indique que la case est occupée (utile pour affichage console)
-                                        playerUnits.back().moveTo(0,0); // on initialise la position de l'unite
-                                        //vector<unit>::iterator it = playerDeck.begin();
-                                        playerDeck.erase(playerDeck.begin() + (input - 1)); // on elimine la carte du deck
-                                        deployPhase = !deployPhase;
-                                    }
-                                    else cout << "La base est deja occupée, deployer une unite est impossible" << endl;
+                                if(input > 0 && (unsigned int)input <= playerDeck.getSize()){
+                                    deployUnitPlayer(input);
                                 }
                                 else {cout << "input non reconnu, svp ressayer" << endl;}
                                 GB.afficherConsole();
@@ -495,45 +487,15 @@ void gameConsole::gameUpdateNET(){
                                     sv.Send();
                                     if(0 <= xmove && xmove < dim && 0 <= ymove && ymove < dim){
                                         if(!GB.getTable()[ymove*dim+xmove].getOccupier()){ //Si non occupé, on bouge
-                                                easeUnit = playerUnits[input - 1]; // pour lisibilité
-                                                GB.getTable()[easeUnit.getY() * dim + easeUnit.getX()].deOccupy(); //on libere la case anterieur
-                                                playerUnits[input - 1].moveTo(xmove, ymove); // on bouge l'unite
-                                                GB.getTable()[ymove * dim + xmove].occupy(playerUnits[input - 1]);
-                                                actUnit = false;
-                                                deployPhase = !deployPhase;
-                                                playerTurn = !playerTurn;
+                                                moveUnitPlayer(input);
                                         }
                                         else {
-                                                int index = getIndex(xmove, ymove, playerUnits);
-                                                if(index > 0) { // Si l'unite est une unite alliée
-                                                cout << "position deja occupée par une autre unite, svp reesayer" << endl;
-                                                }
-                                                else{
-                                                    index = getIndex(xmove, ymove, ennemyUnits);
-                                                    cout << endl;
-                                                    cout << "********************" << endl;
-                                                    cout << "Initiating battle" << endl;
-                                                    cout << "********************" << endl;
-                                                    cout << endl;
-                                                    if(playerUnits[input - 1].battleUnitNET(ennemyUnits[index])){ // Si victoire alliée
-                                                        ennemyUnits.erase(ennemyUnits.begin() + index); // On elimine l'unite ennemie
-                                                        GB.getTable()[playerUnits[input - 1].getY() * dim + playerUnits[input - 1].getX()].deOccupy(); //on deOccupe la case anterieur
-                                                        GB.getTable()[ymove * dim + xmove].occupy(playerUnits[input - 1]);
-                                                        playerUnits[input - 1].moveTo(xmove, ymove); // on update xpos et ypos l'unite
-                                                    }
-                                                    else{ // En cas de defaite
-                                                        GB.getTable()[playerUnits[input - 1].getY() * dim + playerUnits[input - 1].getX()].deOccupy();
-                                                        playerUnits.erase(std::next(playerUnits.begin(), input - 1));
-                                                    }
-                                                    actUnit = false;
-                                                    deployPhase = !deployPhase;
-                                                    playerTurn = !playerTurn;
-                                                }
-                                            
+                                                attackByPlayer(input);
                                         }
+                                            
                                     }
                                     else {cout << "position non valide dans le tableau, svp reesayer" << endl;}
-                                    } 
+                                } 
                                 }
                                 else {cout << "input non reconnu, svp ressayer" << endl;}
                                 actUnit = true;
@@ -548,15 +510,6 @@ void gameConsole::gameUpdateNET(){
                     cout << "Player 2" << endl;
                     cout << "********************" << endl;
                     if(deployPhase){ //DEPLOYMENT PHASE
-                        /*cout << "cartes disponibles: " << endl;
-                        for(auto i = ennemyDeck.begin(); i != ennemyDeck.end(); i++){
-                            cout << y << ". ";
-                            (*i).afficherConsole();
-                            y++;
-                        }
-                        cout <<"deck size = "<< ennemyDeck.size() << endl;
-                        cout << "quelle carte voulez vous jouer? - tapez 0 pour abandoner le jeu sinon le # de la carte, 100 pour passer" << endl;
-                        */
                         sv.Receive();
                         input = (int)*sv.buffer1-48;
                         switch(input){
@@ -574,13 +527,9 @@ void gameConsole::gameUpdateNET(){
                                     input = (int)*sv.buffer1-48;
                                     }
                             default:
-                                if(input > 0 && (unsigned int)input <= ennemyDeck.size()){
+                                if(input > 0 && (unsigned int)input <= ennemyDeck.getSize()){
                                     if(!GB.getTable()[4 * dim + 4].getOccupier()){
-                                        ennemyUnits.push_back(ennemyDeck[input - 1]);
-                                        GB.getTable()[(dim-1)*dim+dim-1].occupy(ennemyUnits.back()); // insere la piece choisice dans le table de jeu
-                                        ennemyUnits.back().moveTo(dim-1,dim-1);
-                                        ennemyDeck.erase(std::next(ennemyDeck.begin(), input - 1));
-                                        deployPhase = !deployPhase;
+                                        deployUnitEnnemy(input);
                                     }
                                     else cout << "Waiting for the client..." << endl;
                                 }
@@ -591,14 +540,6 @@ void gameConsole::gameUpdateNET(){
                         y = 1;
                     }
                     else{ //PHASE DE BATAILLE
-                        /*cout << "unites disponibles: " << endl;
-                        for(auto i = ennemyUnits.begin(); i != ennemyUnits.end(); i++){
-                            cout << y << ". ";
-                            (*i).afficherConsole();
-                            y++;
-                        }
-                        cout << "quelle carte voulez vous utiliser? - tapez 0 pour abandoner le jeu sinon le # de la carte" << endl;
-                        */
                         sv.Receive();
                         input = (int)*sv.buffer1-48;
                         switch(input){
@@ -607,49 +548,18 @@ void gameConsole::gameUpdateNET(){
                                 stay = false;
                                 break;
                             default:
-                                //cout <<"playerdeck size = "<< ennemyUnits.size() << endl;
                                 if(input > 0 && (unsigned int)input <= ennemyUnits.size()){
                                 while(actUnit){
-                                    //cout << "a quelle case bouger l'unite? (donner x puis y en indice de tab)" << endl;
                                     sv.Receive();
                                     xmove = (int)*sv.buffer1-48;
                                     sv.Receive();
                                     ymove = (int)*sv.buffer1-48;
                                     if(0 <= xmove && xmove < dim && 0 <= ymove && ymove < dim){
                                         if(!GB.getTable()[ymove*dim+xmove].getOccupier()){ //Si case vide
-                                                easeUnit = ennemyUnits[input - 1]; // pour lisibilité
-                                                GB.getTable()[easeUnit.getY() * dim + easeUnit.getX()].deOccupy(); //on deOccupe la case anterieur
-                                                ennemyUnits[input - 1].moveTo(xmove, ymove); // on bouge l'unite
-                                                GB.getTable()[ymove * dim + xmove].occupy(ennemyUnits[input - 1]);
-                                                actUnit = false;
-                                                deployPhase = !deployPhase;
-                                                playerTurn = !playerTurn;
+                                               moveUnitEnnemy(input);
                                         }
                                         else {
-                                                //cout << "made it here" << endl;
-                                                int index = getIndex(xmove, ymove, ennemyUnits);
-                                                if(index > 0) { // Si l'unite est une unite alliée
-                                                //cout << "position deja occupée par une autre unite, svp reesayer" << endl;
-                                                }
-                                                else{
-                                                    index = getIndex(xmove, ymove, playerUnits);
-                                                    cout << "********************" << endl;
-                                                    cout << "Initiating battle" << endl;
-                                                    cout << "********************" << endl;
-                                                    if(ennemyUnits[input - 1].battleUnitNET(playerUnits[index])){ // Si victoire alliée
-                                                        playerUnits.erase(playerUnits.begin() + index); // On elimine l'unite ennemie
-                                                        GB.getTable()[ennemyUnits[input - 1].getY() * dim + ennemyUnits[input - 1].getX()].deOccupy(); //on deOccupe la case anterieur
-                                                        GB.getTable()[ymove * dim + xmove].occupy(ennemyUnits[input - 1]);
-                                                        ennemyUnits[input - 1].moveTo(xmove, ymove); // on update xpos et ypos l'unite
-                                                    }
-                                                    else{ // En cas de defaite
-                                                        GB.getTable()[ennemyUnits[input - 1].getY() * dim + ennemyUnits[input - 1].getX()].deOccupy();
-                                                        ennemyUnits.erase(std::next(playerUnits.begin(), input - 1));
-                                                    }
-                                                    actUnit = false;
-                                                    deployPhase = !deployPhase;
-                                                    playerTurn = !playerTurn;
-                                                }
+                                                attackByEnnemy(input);
                                         }
                                     }
                                     else {cout << "Waiting for the client..." << endl;}
@@ -682,15 +592,6 @@ void gameConsole::gameUpdateNETClient(){
             cout << "********************" << endl;
             cout << endl;
             if(deployPhase){ //DEPLOYMENT PHASE
-                /*cout << "cartes disponibles: " << endl;
-                for(int i = 0; i < playerDeck.size(); i++){
-                    cout << y << ". ";
-                    lib[i].afficherConsole();
-                    y++;
-                }
-                cout <<"deck size = "<< playerDeck.size() << endl;
-                cout << "quelle carte voulez vous jouer? - tapez 0 pour abandoner le jeu sinon le # de la carte, 100 pour passer" << endl;
-                */
                 cl.Receive();
                 input = (int)*cl.buffer2-48;
                 switch(input){
@@ -707,16 +608,8 @@ void gameConsole::gameUpdateNETClient(){
                             }
                         break;
                     default:
-                        if(input > 0 && (unsigned int)input <= playerDeck.size()){
-                            if(!GB.getTable()[0].getOccupier()){
-                                playerUnits.push_back(playerDeck[input - 1]); // on insere la carte dans le tab d'unites
-                                GB.getTable()[0].occupy(playerUnits.back()); // indique que la case est occupée (utile pour affichage console)
-                                playerUnits.back().moveTo(0,0); // on initialise la position de l'unite
-                                //vector<unit>::iterator it = playerDeck.begin();
-                                playerDeck.erase(playerDeck.begin() + (input - 1)); // on elimine la carte du deck
-                                deployPhase = !deployPhase;
-                            }
-                            else cout << "Waiting for the server..." << endl;
+                        if(input > 0 && (unsigned int)input <= playerDeck.getSize()){
+                            deployUnitPlayer(input);
                         }
                         else {cout << "Waiting for the server..." << endl;}
                         GB.afficherConsole();
@@ -725,15 +618,6 @@ void gameConsole::gameUpdateNETClient(){
                 y = 1;
             }
             else{ // PHASE DE BATAILLE
-                /*cout << "unites disponibles: " << endl;
-                for(auto i = playerUnits.begin(); i != playerUnits.end(); i++){
-                    cout << y << ". ";
-                    (*i).afficherConsole();
-                    y++;
-                }
-                cout << "quelle carte voulez vous utiliser? - tapez 0 pour abandoner le jeu sinon le # de la carte" << endl;
-                cout <<"playerdeck size = "<< playerUnits.size() << endl;
-                */
                 cl.Receive();
                 input = (int)*cl.buffer2-48;
                 switch(input){
@@ -750,41 +634,10 @@ void gameConsole::gameUpdateNETClient(){
                             ymove = (int)*cl.buffer2-48;
                             if(0 <= xmove && xmove < dim && 0 <= ymove && ymove < dim){
                                 if(!GB.getTable()[ymove*dim+xmove].getOccupier()){ //Si non occupé, on bouge
-                                        easeUnit = playerUnits[input - 1]; // pour lisibilité
-                                        GB.getTable()[easeUnit.getY() * dim + easeUnit.getX()].deOccupy(); //on libere la case anterieur
-                                        playerUnits[input - 1].moveTo(xmove, ymove); // on bouge l'unite
-                                        GB.getTable()[ymove * dim + xmove].occupy(playerUnits[input - 1]);
-                                        actUnit = false;
-                                        deployPhase = !deployPhase;
-                                        playerTurn = !playerTurn;
+                                        moveUnitPlayer(input);
                                 }
                                 else {
-                                        int index = getIndex(xmove, ymove, playerUnits);
-                                        if(index > 0) { // Si l'unite est une unite alliée
-                                        //cout << "position deja occupée par une autre unite, svp reesayer" << endl;
-                                        }
-                                        else{
-                                            index = getIndex(xmove, ymove, ennemyUnits);
-                                            cout << endl;
-                                            cout << "********************" << endl;
-                                            cout << "Initiating battle" << endl;
-                                            cout << "********************" << endl;
-                                            cout << endl;
-                                            if(playerUnits[input - 1].battleUnitNET(ennemyUnits[index])){ // Si victoire alliée
-                                                ennemyUnits.erase(ennemyUnits.begin() + index); // On elimine l'unite ennemie
-                                                GB.getTable()[playerUnits[input - 1].getY() * dim + playerUnits[input - 1].getX()].deOccupy(); //on deOccupe la case anterieur
-                                                GB.getTable()[ymove * dim + xmove].occupy(playerUnits[input - 1]);
-                                                playerUnits[input - 1].moveTo(xmove, ymove); // on update xpos et ypos l'unite
-                                            }
-                                            else{ // En cas de defaite
-                                                GB.getTable()[playerUnits[input - 1].getY() * dim + playerUnits[input - 1].getX()].deOccupy();
-                                                playerUnits.erase(std::next(playerUnits.begin(), input - 1));
-                                            }
-                                            actUnit = false;
-                                            deployPhase = !deployPhase;
-                                            playerTurn = !playerTurn;
-                                        }
-                                    
+                                        attackByPlayer(input);
                                 }
                             }
                             else {cout << "Waiting for the server..." << endl;}
@@ -804,12 +657,12 @@ void gameConsole::gameUpdateNETClient(){
             cout << "********************" << endl;
             if(deployPhase){ //DEPLOYMENT PHASE
                 cout << "cartes disponibles: " << endl;
-                for(auto i = ennemyDeck.begin(); i != ennemyDeck.end(); i++){
+                for(int i = 0; i < ennemyDeck.getSize(); i++){
                     cout << y << ". ";
-                    (*i).afficherConsole();
+                    ennemyDeck[i].afficherConsole();
                     y++;
                 }
-                cout <<"deck size = "<< ennemyDeck.size() << endl;
+                cout <<"deck size = "<< ennemyDeck.getSize() << endl;
                 cout << "quelle carte voulez vous jouer? - tapez 0 pour abandoner le jeu sinon le # de la carte, 100 pour passer" << endl;
                 cin >> cl.buffer;
                 input = (int)*cl.buffer-48;
@@ -829,13 +682,9 @@ void gameConsole::gameUpdateNETClient(){
                             cl.Send();
                             }
                     default:
-                        if(input > 0 && (unsigned int)input <= ennemyDeck.size()){
+                        if(input > 0 && (unsigned int)input <= ennemyDeck.getSize()){
                             if(!GB.getTable()[4 * dim + 4].getOccupier()){
-                                ennemyUnits.push_back(ennemyDeck[input - 1]);
-                                GB.getTable()[(dim-1)*dim+dim-1].occupy(ennemyUnits.back()); // insere la piece choisice dans le table de jeu
-                                ennemyUnits.back().moveTo(dim-1,dim-1);
-                                ennemyDeck.erase(std::next(ennemyDeck.begin(), input - 1));
-                                deployPhase = !deployPhase;
+                                deployUnitEnnemy(input);
                             }
                             else cout << "La base est deja occupée, deployer une unite est impossible" << endl;
                         }
@@ -873,39 +722,10 @@ void gameConsole::gameUpdateNETClient(){
                             cl.Send();
                             if(0 <= xmove && xmove < dim && 0 <= ymove && ymove < dim){
                                 if(!GB.getTable()[ymove*dim+xmove].getOccupier()){ //Si case vide
-                                        easeUnit = ennemyUnits[input - 1]; // pour lisibilité
-                                        GB.getTable()[easeUnit.getY() * dim + easeUnit.getX()].deOccupy(); //on deOccupe la case anterieur
-                                        ennemyUnits[input - 1].moveTo(xmove, ymove); // on bouge l'unite
-                                        GB.getTable()[ymove * dim + xmove].occupy(ennemyUnits[input - 1]);
-                                        actUnit = false;
-                                        deployPhase = !deployPhase;
-                                        playerTurn = !playerTurn;
+                                        moveUnitEnnemy(input);
                                 }
                                 else {
-                                        cout << "made it here" << endl;
-                                        int index = getIndex(xmove, ymove, ennemyUnits);
-                                        if(index > 0) { // Si l'unite est une unite alliée
-                                        cout << "position deja occupée par une autre unite, svp reesayer" << endl;
-                                        }
-                                        else{
-                                            index = getIndex(xmove, ymove, playerUnits);
-                                            cout << "********************" << endl;
-                                            cout << "Initiating battle" << endl;
-                                            cout << "********************" << endl;
-                                            if(ennemyUnits[input - 1].battleUnitNET(playerUnits[index])){ // Si victoire alliée
-                                                playerUnits.erase(playerUnits.begin() + index); // On elimine l'unite ennemie
-                                                GB.getTable()[ennemyUnits[input - 1].getY() * dim + ennemyUnits[input - 1].getX()].deOccupy(); //on deOccupe la case anterieur
-                                                GB.getTable()[ymove * dim + xmove].occupy(ennemyUnits[input - 1]);
-                                                ennemyUnits[input - 1].moveTo(xmove, ymove); // on update xpos et ypos l'unite
-                                            }
-                                            else{ // En cas de defaite
-                                                GB.getTable()[ennemyUnits[input - 1].getY() * dim + ennemyUnits[input - 1].getX()].deOccupy();
-                                                ennemyUnits.erase(std::next(playerUnits.begin(), input - 1));
-                                            }
-                                            actUnit = false;
-                                            deployPhase = !deployPhase;
-                                            playerTurn = !playerTurn;
-                                        }
+                                    attackByEnnemy(input);
                                 }
                             }
                             else {cout << "position non valide dans le tableau, svp reesayer" << endl;}
@@ -931,20 +751,19 @@ bool gameConsole::Stay(){return stay;}
 void gameConsole::gameUpdateNO(){
     unsigned int y = 1;
     GB.afficherConsole();
-    while(stay){
-        if(playerTurn){
+    if(playerTurn){
             cout << "********************" << endl;
             cout << "PLAYER TURN" << endl;
             cout << "********************" << endl;
             cout << endl;
             if(deployPhase){ //DEPLOYMENT PHASE
                 cout << "cartes disponibles: " << endl;
-                for(int i = 0; i < playerDeck.size(); i++){
+                for(int i = 0; i < playerDeck.getSize(); i++){
                     cout << y << ". ";
-                    xd[i].afficherConsole();
+                    playerDeck[i].afficherConsole();
                     y++;
                 }
-                cout <<"deck size = "<< playerDeck.size() << endl;
+                cout <<"deck size = "<< playerDeck.getSize() << endl;
                 cout << "quelle carte voulez vous jouer? - tapez 0 pour abandoner le jeu sinon le # de la carte, 100 pour passer" << endl;
                 cin >> input;
                 switch(input){
@@ -960,7 +779,7 @@ void gameConsole::gameUpdateNO(){
                             }
                         break;
                     default:
-                        if(input > 0 && (unsigned int)input <= playerDeck.size()){
+                        if(input > 0 && (unsigned int)input <= playerDeck.getSize()){
                             deployUnitPlayer(input);
                         }
                         else {cout << "input non reconnu, svp ressayer" << endl;}
@@ -1014,12 +833,12 @@ void gameConsole::gameUpdateNO(){
             cout << "********************" << endl;
             if(deployPhase){ //DEPLOYMENT PHASE
                 cout << "cartes disponibles: " << endl;
-                for(auto i = ennemyDeck.begin(); i != ennemyDeck.end(); i++){
+                for(int i = 0; i < ennemyDeck.getSize(); i++){
                     cout << y << ". ";
-                    (*i).afficherConsole();
+                    ennemyDeck[i].afficherConsole();
                     y++;
                 }
-                cout <<"deck size = "<< ennemyDeck.size() << endl;
+                cout <<"deck size = "<< ennemyDeck.getSize() << endl;
                 cout << "quelle carte voulez vous jouer? - tapez 0 pour abandoner le jeu sinon le # de la carte, 100 pour passer" << endl;
                 cin >> input;
                 switch(input){
@@ -1035,7 +854,7 @@ void gameConsole::gameUpdateNO(){
                             cin >> input;
                             }
                     default:
-                        if(input > 0 && (unsigned int)input <= ennemyDeck.size()){
+                        if(input > 0 && (unsigned int)input <= ennemyDeck.getSize()){
                             if(!GB.getTable()[4 * dim + 4].getOccupier()){
                                 deployUnitEnnemy(input);
                             }
@@ -1086,7 +905,6 @@ void gameConsole::gameUpdateNO(){
                 y = 1;
             }
         }
-    }
     GB.afficherConsole();
 }
 
@@ -1114,12 +932,12 @@ void gameConsole::gameUpdateNETNO(){
                     cout << endl;
                     if(deployPhase){ //DEPLOYMENT PHASE
                         cout << "cartes disponibles: " << endl;
-                        for(int i = 0; i < playerDeck.size(); i++){
+                        for(int i = 0; i < playerDeck.getSize(); i++){
                             cout << y << ". ";
-                            lib[i].afficherConsole();
+                            playerDeck[i].afficherConsole();
                             y++;
                         }
-                        cout <<"deck size = "<< playerDeck.size() << endl;
+                        cout <<"deck size = "<< playerDeck.getSize() << endl;
                         cout << "quelle carte voulez vous jouer? - tapez 0 pour abandoner le jeu sinon le # de la carte, 100 pour passer" << endl;
                         cin >> sv.buffer2;
                         input=(int)*sv.buffer2 - 48;
@@ -1141,16 +959,8 @@ void gameConsole::gameUpdateNETNO(){
                                     }
                                 break;
                             default:
-                                if(input > 0 && (unsigned int)input <= playerDeck.size()){
-                                    if(!GB.getTable()[0].getOccupier()){
-                                        playerUnits.push_back(playerDeck[input - 1]); // on insere la carte dans le tab d'unites
-                                        GB.getTable()[0].occupy(playerUnits.back()); // indique que la case est occupée (utile pour affichage console)
-                                        playerUnits.back().moveTo(0,0); // on initialise la position de l'unite
-                                        //vector<unit>::iterator it = playerDeck.begin();
-                                        playerDeck.erase(playerDeck.begin() + (input - 1)); // on elimine la carte du deck
-                                        deployPhase = !deployPhase;
-                                    }
-                                    else cout << "La base est deja occupée, deployer une unite est impossible" << endl;
+                                if(input > 0 && (unsigned int)input <= playerDeck.getSize()){
+                                    deployUnitPlayer(input);
                                 }
                                 else {cout << "input non reconnu, svp ressayer" << endl;}
                                 GB.afficherConsole();
@@ -1187,45 +997,15 @@ void gameConsole::gameUpdateNETNO(){
                                     sv.Send();
                                     if(0 <= xmove && xmove < dim && 0 <= ymove && ymove < dim){
                                         if(!GB.getTable()[ymove*dim+xmove].getOccupier()){ //Si non occupé, on bouge
-                                                easeUnit = playerUnits[input - 1]; // pour lisibilité
-                                                GB.getTable()[easeUnit.getY() * dim + easeUnit.getX()].deOccupy(); //on libere la case anterieur
-                                                playerUnits[input - 1].moveTo(xmove, ymove); // on bouge l'unite
-                                                GB.getTable()[ymove * dim + xmove].occupy(playerUnits[input - 1]);
-                                                actUnit = false;
-                                                deployPhase = !deployPhase;
-                                                playerTurn = !playerTurn;
+                                                moveUnitPlayer(input);
                                         }
                                         else {
-                                                int index = getIndex(xmove, ymove, playerUnits);
-                                                if(index > 0) { // Si l'unite est une unite alliée
-                                                cout << "position deja occupée par une autre unite, svp reesayer" << endl;
-                                                }
-                                                else{
-                                                    index = getIndex(xmove, ymove, ennemyUnits);
-                                                    cout << endl;
-                                                    cout << "********************" << endl;
-                                                    cout << "Initiating battle" << endl;
-                                                    cout << "********************" << endl;
-                                                    cout << endl;
-                                                    if(playerUnits[input - 1].battleUnitNET(ennemyUnits[index])){ // Si victoire alliée
-                                                        ennemyUnits.erase(ennemyUnits.begin() + index); // On elimine l'unite ennemie
-                                                        GB.getTable()[playerUnits[input - 1].getY() * dim + playerUnits[input - 1].getX()].deOccupy(); //on deOccupe la case anterieur
-                                                        GB.getTable()[ymove * dim + xmove].occupy(playerUnits[input - 1]);
-                                                        playerUnits[input - 1].moveTo(xmove, ymove); // on update xpos et ypos l'unite
-                                                    }
-                                                    else{ // En cas de defaite
-                                                        GB.getTable()[playerUnits[input - 1].getY() * dim + playerUnits[input - 1].getX()].deOccupy();
-                                                        playerUnits.erase(std::next(playerUnits.begin(), input - 1));
-                                                    }
-                                                    actUnit = false;
-                                                    deployPhase = !deployPhase;
-                                                    playerTurn = !playerTurn;
-                                                }
-                                            
+                                                attackByPlayer(input);
                                         }
+                                            
                                     }
                                     else {cout << "position non valide dans le tableau, svp reesayer" << endl;}
-                                    } 
+                                } 
                                 }
                                 else {cout << "input non reconnu, svp ressayer" << endl;}
                                 actUnit = true;
@@ -1240,15 +1020,6 @@ void gameConsole::gameUpdateNETNO(){
                     cout << "Player 2" << endl;
                     cout << "********************" << endl;
                     if(deployPhase){ //DEPLOYMENT PHASE
-                        /*cout << "cartes disponibles: " << endl;
-                        for(auto i = ennemyDeck.begin(); i != ennemyDeck.end(); i++){
-                            cout << y << ". ";
-                            (*i).afficherConsole();
-                            y++;
-                        }
-                        cout <<"deck size = "<< ennemyDeck.size() << endl;
-                        cout << "quelle carte voulez vous jouer? - tapez 0 pour abandoner le jeu sinon le # de la carte, 100 pour passer" << endl;
-                        */
                         sv.Receive();
                         input = (int)*sv.buffer1-48;
                         switch(input){
@@ -1266,13 +1037,9 @@ void gameConsole::gameUpdateNETNO(){
                                     input = (int)*sv.buffer1-48;
                                     }
                             default:
-                                if(input > 0 && (unsigned int)input <= ennemyDeck.size()){
+                                if(input > 0 && (unsigned int)input <= ennemyDeck.getSize()){
                                     if(!GB.getTable()[4 * dim + 4].getOccupier()){
-                                        ennemyUnits.push_back(ennemyDeck[input - 1]);
-                                        GB.getTable()[(dim-1)*dim+dim-1].occupy(ennemyUnits.back()); // insere la piece choisice dans le table de jeu
-                                        ennemyUnits.back().moveTo(dim-1,dim-1);
-                                        ennemyDeck.erase(std::next(ennemyDeck.begin(), input - 1));
-                                        deployPhase = !deployPhase;
+                                        deployUnitEnnemy(input);
                                     }
                                     else cout << "Waiting for the client..." << endl;
                                 }
@@ -1283,14 +1050,6 @@ void gameConsole::gameUpdateNETNO(){
                         y = 1;
                     }
                     else{ //PHASE DE BATAILLE
-                        /*cout << "unites disponibles: " << endl;
-                        for(auto i = ennemyUnits.begin(); i != ennemyUnits.end(); i++){
-                            cout << y << ". ";
-                            (*i).afficherConsole();
-                            y++;
-                        }
-                        cout << "quelle carte voulez vous utiliser? - tapez 0 pour abandoner le jeu sinon le # de la carte" << endl;
-                        */
                         sv.Receive();
                         input = (int)*sv.buffer1-48;
                         switch(input){
@@ -1299,49 +1058,18 @@ void gameConsole::gameUpdateNETNO(){
                                 stay = false;
                                 break;
                             default:
-                                //cout <<"playerdeck size = "<< ennemyUnits.size() << endl;
                                 if(input > 0 && (unsigned int)input <= ennemyUnits.size()){
                                 while(actUnit){
-                                    //cout << "a quelle case bouger l'unite? (donner x puis y en indice de tab)" << endl;
                                     sv.Receive();
                                     xmove = (int)*sv.buffer1-48;
                                     sv.Receive();
                                     ymove = (int)*sv.buffer1-48;
                                     if(0 <= xmove && xmove < dim && 0 <= ymove && ymove < dim){
                                         if(!GB.getTable()[ymove*dim+xmove].getOccupier()){ //Si case vide
-                                                easeUnit = ennemyUnits[input - 1]; // pour lisibilité
-                                                GB.getTable()[easeUnit.getY() * dim + easeUnit.getX()].deOccupy(); //on deOccupe la case anterieur
-                                                ennemyUnits[input - 1].moveTo(xmove, ymove); // on bouge l'unite
-                                                GB.getTable()[ymove * dim + xmove].occupy(ennemyUnits[input - 1]);
-                                                actUnit = false;
-                                                deployPhase = !deployPhase;
-                                                playerTurn = !playerTurn;
+                                               moveUnitEnnemy(input);
                                         }
                                         else {
-                                                //cout << "made it here" << endl;
-                                                int index = getIndex(xmove, ymove, ennemyUnits);
-                                                if(index > 0) { // Si l'unite est une unite alliée
-                                                //cout << "position deja occupée par une autre unite, svp reesayer" << endl;
-                                                }
-                                                else{
-                                                    index = getIndex(xmove, ymove, playerUnits);
-                                                    cout << "********************" << endl;
-                                                    cout << "Initiating battle" << endl;
-                                                    cout << "********************" << endl;
-                                                    if(ennemyUnits[input - 1].battleUnitNET(playerUnits[index])){ // Si victoire alliée
-                                                        playerUnits.erase(playerUnits.begin() + index); // On elimine l'unite ennemie
-                                                        GB.getTable()[ennemyUnits[input - 1].getY() * dim + ennemyUnits[input - 1].getX()].deOccupy(); //on deOccupe la case anterieur
-                                                        GB.getTable()[ymove * dim + xmove].occupy(ennemyUnits[input - 1]);
-                                                        ennemyUnits[input - 1].moveTo(xmove, ymove); // on update xpos et ypos l'unite
-                                                    }
-                                                    else{ // En cas de defaite
-                                                        GB.getTable()[ennemyUnits[input - 1].getY() * dim + ennemyUnits[input - 1].getX()].deOccupy();
-                                                        ennemyUnits.erase(std::next(playerUnits.begin(), input - 1));
-                                                    }
-                                                    actUnit = false;
-                                                    deployPhase = !deployPhase;
-                                                    playerTurn = !playerTurn;
-                                                }
+                                                attackByEnnemy(input);
                                         }
                                     }
                                     else {cout << "Waiting for the client..." << endl;}
@@ -1373,15 +1101,6 @@ void gameConsole::gameUpdateNETClientNO(){
             cout << "********************" << endl;
             cout << endl;
             if(deployPhase){ //DEPLOYMENT PHASE
-                /*cout << "cartes disponibles: " << endl;
-                for(int i = 0; i < playerDeck.size(); i++){
-                    cout << y << ". ";
-                    lib[i].afficherConsole();
-                    y++;
-                }
-                cout <<"deck size = "<< playerDeck.size() << endl;
-                cout << "quelle carte voulez vous jouer? - tapez 0 pour abandoner le jeu sinon le # de la carte, 100 pour passer" << endl;
-                */
                 cl.Receive();
                 input = (int)*cl.buffer2-48;
                 switch(input){
@@ -1398,16 +1117,8 @@ void gameConsole::gameUpdateNETClientNO(){
                             }
                         break;
                     default:
-                        if(input > 0 && (unsigned int)input <= playerDeck.size()){
-                            if(!GB.getTable()[0].getOccupier()){
-                                playerUnits.push_back(playerDeck[input - 1]); // on insere la carte dans le tab d'unites
-                                GB.getTable()[0].occupy(playerUnits.back()); // indique que la case est occupée (utile pour affichage console)
-                                playerUnits.back().moveTo(0,0); // on initialise la position de l'unite
-                                //vector<unit>::iterator it = playerDeck.begin();
-                                playerDeck.erase(playerDeck.begin() + (input - 1)); // on elimine la carte du deck
-                                deployPhase = !deployPhase;
-                            }
-                            else cout << "Waiting for the server..." << endl;
+                        if(input > 0 && (unsigned int)input <= playerDeck.getSize()){
+                            deployUnitPlayer(input);
                         }
                         else {cout << "Waiting for the server..." << endl;}
                         GB.afficherConsole();
@@ -1416,15 +1127,6 @@ void gameConsole::gameUpdateNETClientNO(){
                 y = 1;
             }
             else{ // PHASE DE BATAILLE
-                /*cout << "unites disponibles: " << endl;
-                for(auto i = playerUnits.begin(); i != playerUnits.end(); i++){
-                    cout << y << ". ";
-                    (*i).afficherConsole();
-                    y++;
-                }
-                cout << "quelle carte voulez vous utiliser? - tapez 0 pour abandoner le jeu sinon le # de la carte" << endl;
-                cout <<"playerdeck size = "<< playerUnits.size() << endl;
-                */
                 cl.Receive();
                 input = (int)*cl.buffer2-48;
                 switch(input){
@@ -1441,41 +1143,10 @@ void gameConsole::gameUpdateNETClientNO(){
                             ymove = (int)*cl.buffer2-48;
                             if(0 <= xmove && xmove < dim && 0 <= ymove && ymove < dim){
                                 if(!GB.getTable()[ymove*dim+xmove].getOccupier()){ //Si non occupé, on bouge
-                                        easeUnit = playerUnits[input - 1]; // pour lisibilité
-                                        GB.getTable()[easeUnit.getY() * dim + easeUnit.getX()].deOccupy(); //on libere la case anterieur
-                                        playerUnits[input - 1].moveTo(xmove, ymove); // on bouge l'unite
-                                        GB.getTable()[ymove * dim + xmove].occupy(playerUnits[input - 1]);
-                                        actUnit = false;
-                                        deployPhase = !deployPhase;
-                                        playerTurn = !playerTurn;
+                                        moveUnitPlayer(input);
                                 }
                                 else {
-                                        int index = getIndex(xmove, ymove, playerUnits);
-                                        if(index > 0) { // Si l'unite est une unite alliée
-                                        //cout << "position deja occupée par une autre unite, svp reesayer" << endl;
-                                        }
-                                        else{
-                                            index = getIndex(xmove, ymove, ennemyUnits);
-                                            cout << endl;
-                                            cout << "********************" << endl;
-                                            cout << "Initiating battle" << endl;
-                                            cout << "********************" << endl;
-                                            cout << endl;
-                                            if(playerUnits[input - 1].battleUnitNET(ennemyUnits[index])){ // Si victoire alliée
-                                                ennemyUnits.erase(ennemyUnits.begin() + index); // On elimine l'unite ennemie
-                                                GB.getTable()[playerUnits[input - 1].getY() * dim + playerUnits[input - 1].getX()].deOccupy(); //on deOccupe la case anterieur
-                                                GB.getTable()[ymove * dim + xmove].occupy(playerUnits[input - 1]);
-                                                playerUnits[input - 1].moveTo(xmove, ymove); // on update xpos et ypos l'unite
-                                            }
-                                            else{ // En cas de defaite
-                                                GB.getTable()[playerUnits[input - 1].getY() * dim + playerUnits[input - 1].getX()].deOccupy();
-                                                playerUnits.erase(std::next(playerUnits.begin(), input - 1));
-                                            }
-                                            actUnit = false;
-                                            deployPhase = !deployPhase;
-                                            playerTurn = !playerTurn;
-                                        }
-                                    
+                                        attackByPlayer(input);
                                 }
                             }
                             else {cout << "Waiting for the server..." << endl;}
@@ -1495,12 +1166,12 @@ void gameConsole::gameUpdateNETClientNO(){
             cout << "********************" << endl;
             if(deployPhase){ //DEPLOYMENT PHASE
                 cout << "cartes disponibles: " << endl;
-                for(auto i = ennemyDeck.begin(); i != ennemyDeck.end(); i++){
+                for(int i = 0; i < ennemyDeck.getSize(); i++){
                     cout << y << ". ";
-                    (*i).afficherConsole();
+                    ennemyDeck[i].afficherConsole();
                     y++;
                 }
-                cout <<"deck size = "<< ennemyDeck.size() << endl;
+                cout <<"deck size = "<< ennemyDeck.getSize() << endl;
                 cout << "quelle carte voulez vous jouer? - tapez 0 pour abandoner le jeu sinon le # de la carte, 100 pour passer" << endl;
                 cin >> cl.buffer;
                 input = (int)*cl.buffer-48;
@@ -1520,13 +1191,9 @@ void gameConsole::gameUpdateNETClientNO(){
                             cl.Send();
                             }
                     default:
-                        if(input > 0 && (unsigned int)input <= ennemyDeck.size()){
+                        if(input > 0 && (unsigned int)input <= ennemyDeck.getSize()){
                             if(!GB.getTable()[4 * dim + 4].getOccupier()){
-                                ennemyUnits.push_back(ennemyDeck[input - 1]);
-                                GB.getTable()[(dim-1)*dim+dim-1].occupy(ennemyUnits.back()); // insere la piece choisice dans le table de jeu
-                                ennemyUnits.back().moveTo(dim-1,dim-1);
-                                ennemyDeck.erase(std::next(ennemyDeck.begin(), input - 1));
-                                deployPhase = !deployPhase;
+                                deployUnitEnnemy(input);
                             }
                             else cout << "La base est deja occupée, deployer une unite est impossible" << endl;
                         }
@@ -1564,39 +1231,10 @@ void gameConsole::gameUpdateNETClientNO(){
                             cl.Send();
                             if(0 <= xmove && xmove < dim && 0 <= ymove && ymove < dim){
                                 if(!GB.getTable()[ymove*dim+xmove].getOccupier()){ //Si case vide
-                                        easeUnit = ennemyUnits[input - 1]; // pour lisibilité
-                                        GB.getTable()[easeUnit.getY() * dim + easeUnit.getX()].deOccupy(); //on deOccupe la case anterieur
-                                        ennemyUnits[input - 1].moveTo(xmove, ymove); // on bouge l'unite
-                                        GB.getTable()[ymove * dim + xmove].occupy(ennemyUnits[input - 1]);
-                                        actUnit = false;
-                                        deployPhase = !deployPhase;
-                                        playerTurn = !playerTurn;
+                                        moveUnitEnnemy(input);
                                 }
                                 else {
-                                        cout << "made it here" << endl;
-                                        int index = getIndex(xmove, ymove, ennemyUnits);
-                                        if(index > 0) { // Si l'unite est une unite alliée
-                                        cout << "position deja occupée par une autre unite, svp reesayer" << endl;
-                                        }
-                                        else{
-                                            index = getIndex(xmove, ymove, playerUnits);
-                                            cout << "********************" << endl;
-                                            cout << "Initiating battle" << endl;
-                                            cout << "********************" << endl;
-                                            if(ennemyUnits[input - 1].battleUnitNET(playerUnits[index])){ // Si victoire alliée
-                                                playerUnits.erase(playerUnits.begin() + index); // On elimine l'unite ennemie
-                                                GB.getTable()[ennemyUnits[input - 1].getY() * dim + ennemyUnits[input - 1].getX()].deOccupy(); //on deOccupe la case anterieur
-                                                GB.getTable()[ymove * dim + xmove].occupy(ennemyUnits[input - 1]);
-                                                ennemyUnits[input - 1].moveTo(xmove, ymove); // on update xpos et ypos l'unite
-                                            }
-                                            else{ // En cas de defaite
-                                                GB.getTable()[ennemyUnits[input - 1].getY() * dim + ennemyUnits[input - 1].getX()].deOccupy();
-                                                ennemyUnits.erase(std::next(playerUnits.begin(), input - 1));
-                                            }
-                                            actUnit = false;
-                                            deployPhase = !deployPhase;
-                                            playerTurn = !playerTurn;
-                                        }
+                                    attackByEnnemy(input);
                                 }
                             }
                             else {cout << "position non valide dans le tableau, svp reesayer" << endl;}

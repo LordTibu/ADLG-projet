@@ -15,7 +15,7 @@ void game2D::initgame2D(){
 void game2D::local(){
     
     //jeu.gameUpdateNO();
-
+    
     SDL_PollEvent (&aff->event);
 
     if(!aff->isMenu){
@@ -25,7 +25,7 @@ void game2D::local(){
                 if (cartSelect && aff->event.type == SDL_MOUSEBUTTONDOWN){
                     cartSelect=false;
                 }
-                for(int i=2;i<jeu.getplayerdeck().size()+2;i++){
+                for(int i=2;i<jeu.playerDeck.getSize()+2;i++){
                     if (aff->event.type == SDL_MOUSEBUTTONDOWN && float(aff->event.motion.x) >= aff->cartes[i].x && float(aff->event.motion.x) <=(aff->cartes[i].x+aff->cartes[i].w)
                     && float(aff->event.motion.y) >= aff->cartes[i].y && float(aff->event.motion.y)<= (aff->cartes[i].y+aff->cartes[i].h)){
                         cartSelect=true;
@@ -37,12 +37,12 @@ void game2D::local(){
                     if(deployPhase){ //DEPLOYMENT PHASE
                     //std::cout <<"deck size = "<< jeu.getplayerdeck().size() << std::endl;
                     //std::cout << "quelle carte voulez vous jouer? - tapez 0 pour abandoner le jeu sinon le # de la carte, 100 pour passer" << std::endl;
-                        for(int i=2;i<jeu.getplayerdeck().size()+2;i++){
+                        for(int i=2;i<jeu.playerDeck.getSize()+2;i++){
                             if (aff->event.type == SDL_MOUSEBUTTONDOWN && float(aff->event.motion.x) >= aff->cartes[i].x && float(aff->event.motion.x) <=(aff->cartes[i].x+aff->cartes[i].w)
                             && float(aff->event.motion.y) >= aff->cartes[i].y && float(aff->event.motion.y)<= (aff->cartes[i].y+aff->cartes[i].h)){
                                 inputgame=i-1;
                                 std::cout<<"you play the card "<< inputgame<<std::endl;
-                                if(input > 0 && (unsigned int)inputgame <= jeu.getplayerdeck().size()){
+                                if(input > 0 && (unsigned int)inputgame <= jeu.playerDeck.getSize()){
                                     jeu.deployUnitPlayer(inputgame);
                                     deployPhase = !deployPhase;
                                 }else {std::cout << "input non reconnu, svp ressayer" << std::endl;}
@@ -53,7 +53,7 @@ void game2D::local(){
                             && float(aff->event.motion.y) >= aff->cartes[0].y && float(aff->event.motion.y)<= (aff->cartes[0].y+aff->cartes[0].h)){
                             inputgame=100;
                             std::cout<<"PASS "<< inputgame<<std::endl;
-                            if(jeu.getplayerunits().size() > 0){
+                            if(jeu.playerDeck.getSize() > 0){
                                 deployPhase = !deployPhase; 
                                 }else { 
                                     std::cout << "vous avez aucune carte dans votre deck, vous pouvez pas passer, quelle carte voulez vous jouer? " << std::endl;
@@ -83,8 +83,6 @@ void game2D::local(){
                                     }
                                 }       
                     }
-                         
-
                     
                 }
                 
@@ -141,8 +139,8 @@ void game2D::menu2D(){
                 && float(aff->event.motion.y) >= aff->rectToDraw1.y && float(aff->event.motion.y)<= (aff->rectToDraw1.y+aff->rectToDraw1.h)){
                     std::cout << "rect 1 \n";
                     jeu.gameInit(tailleG, tailleG);
-                    std::cout<< jeu.getplayerdeck().size() << " esto era una el tamano"<<std::endl;
-                    aff->initdeck2D(jeu.getplayerdeck().size(),tailleG);
+                    std::cout<< jeu.playerDeck.getSize()  << " esto era una el tamano"<<std::endl;
+                    aff->initdeck2D(jeu.playerDeck.getSize() ,tailleG);
                     input=1;
                     aff->erasemenu2D();
                     isNOInit = false;
@@ -151,7 +149,7 @@ void game2D::menu2D(){
                 && float(aff->event.motion.y) >= aff->rectToDraw2.y && float(aff->event.motion.y)<= (aff->rectToDraw2.y+aff->rectToDraw2.h)){
                     std::cout << "rect 2 \n";
                     jeu.gameInitServer(tailleG, tailleG);
-                    aff->initdeck2D(jeu.getplayerdeck().size(),tailleG);
+                    aff->initdeck2D(jeu.playerDeck.getSize() ,tailleG);
                     input=2;
                     aff->erasemenu2D();
                     isNOInit = false;
@@ -164,7 +162,7 @@ void game2D::menu2D(){
                     std::cin>>argv1;
 
                     jeu.gameInitClient(tailleG,tailleG,(char*)argv1.c_str(),5000);
-                    aff->initdeck2D(jeu.getplayerdeck().size(),tailleG);
+                    aff->initdeck2D(jeu.playerDeck.getSize() ,tailleG);
                     input=3;
                     aff->erasemenu2D();
                     isNOInit = false;
@@ -192,13 +190,13 @@ void game2D::updategame2D(){
     while(aff->isRun){
         menu2D();
         aff->menu2D();
-        aff->drawGame(tailleG,jeu.getplayerdeck().size(),cartSelect,playerTurn);
+        aff->drawGame(tailleG,jeu.playerDeck.getSize(),cartSelect,playerTurn);
         if(!isNOInit)typegame();
     }
 }
 
 void game2D::cleangame2D(){
-    aff->clean2D(jeu.getplayerdeck().size());
+    aff->clean2D(jeu.playerDeck.getSize() );
     
     delete aff;
     aff = NULL;

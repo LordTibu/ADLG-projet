@@ -30,11 +30,10 @@ private:
     std::vector<unit> ennemyUnits; //unites de combat
     server sv;
     client cl;
+    friend class game2D;
 public:
     gameConsole();
     ~gameConsole();
-    std::vector<unit> getplayerdeck() const;
-    std::vector<unit> getplayerunits() const;
     bool getdeployphase() const;
     void gameInit(unsigned int xdim, unsigned int ydim);
     void gameInitServer(unsigned int xdim, unsigned int ydim);
