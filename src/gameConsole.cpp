@@ -16,21 +16,20 @@ int getIndex(int x, int y, vector<unit> v) {
 
 void gameConsole::deployUnitPlayer(int input){
     if(!GB.getTable()[0].getOccupier()){
-        playerUnits.push_back(playerDeck[input - 1]); // on insere la carte dans le tab d'unites
+        playerUnits.push_back(unit(playerDeck[input - 1], true)); // on insere la carte dans le tab d'unites
         GB.getTable()[0].occupy(playerUnits.back()); // indique que la case est occupée (utile pour affichage console)
         playerUnits.back().moveTo(0,0); // on initialise la position de l'unite
-        //vector<unit>::iterator it = playerDeck.begin();
-        playerDeck.erase(playerDeck.begin() + (input - 1)); // on elimine la carte du deck
+        playerDeck.supprimerCarte(input - 1); // on elimine la carte du deck
         deployPhase = !deployPhase;
     }
     else cout << "La base est deja occupée, deployer une unite est impossible" << endl;
 }
 void gameConsole::deployUnitEnnemy(int input){
     if(!GB.getTable()[4 * dim + 4].getOccupier()){
-        ennemyUnits.push_back(ennemyDeck[input - 1]);
+        ennemyUnits.push_back(unit(ennemyDeck[input - 1], false));
         GB.getTable()[(dim-1)*dim+dim-1].occupy(ennemyUnits.back()); // insere la piece choisice dans le table de jeu
         ennemyUnits.back().moveTo(dim-1,dim-1);
-        ennemyDeck.erase(std::next(ennemyDeck.begin(), input - 1));
+        ennemyDeck.supprimerCarte(input - 1);
         deployPhase = !deployPhase;
     }
     else cout << "La base est deja occupée, deployer une unite est impossible" << endl;
@@ -140,13 +139,13 @@ void gameConsole::gameInitServer(unsigned int xdim, unsigned int ydim){
     
     GB.init(5,5); //creation du tableau de jeu
     defaultPieces.fillLibrary("./assets/units.txt"); 
-    lib = defaultPieces.getLib();
-    cout << "Size of lib = " << defaultPieces.getSize() << endl;
-    for(int i = 0; i < defaultPieces.getSize(); i++){ //Creation des decks a partir des cartes dans la librairie
-        playerDeck.push_back(unit(lib[i], playerTurn));
-        ennemyDeck.push_back(unit(lib[i], !playerTurn));
-    }
-    std::cout << "Creation des Decks et du tableau de Jeu fait" << std::endl;
+    playerDeck.fillLibrary("./assets/userDeck.txt");
+    ennemyDeck.fillLibrary("./assets/userDeck.txt");
+    int champIndex = playerDeck.getChampIndex();
+    playerUnits.push_back(unit(playerDeck[champIndex], playerTurn));
+    playerDeck.supprimerCarte(champIndex);
+    ennemyUnits.push_back(unit(playerDeck[champIndex], !playerTurn));
+    ennemyDeck.supprimerCarte(champIndex);
     GB.afficherConsole();
     sv.serverInit();
 }
@@ -155,13 +154,13 @@ void gameConsole::gameInitClient(unsigned int xdim, unsigned int ydim, char *arg
     
     GB.init(5,5); //creation du tableau de jeu
     defaultPieces.fillLibrary("./assets/units.txt"); 
-    lib = defaultPieces.getLib();
-    cout << "Size of lib = " << defaultPieces.getSize() << endl;
-    for(int i = 0; i < defaultPieces.getSize(); i++){ //Creation des decks a partir des cartes dans la librairie
-        playerDeck.push_back(unit(lib[i], playerTurn));
-        ennemyDeck.push_back(unit(lib[i], !playerTurn));
-    }
-    std::cout << "Creation des Decks et du tableau de Jeu fait" << std::endl;
+    playerDeck.fillLibrary("./assets/userDeck.txt");
+    ennemyDeck.fillLibrary("./assets/userDeck.txt");
+    int champIndex = playerDeck.getChampIndex();
+    playerUnits.push_back(unit(playerDeck[champIndex], playerTurn));
+    playerDeck.supprimerCarte(champIndex);
+    ennemyUnits.push_back(unit(playerDeck[champIndex], !playerTurn));
+    ennemyDeck.supprimerCarte(champIndex);
     GB.afficherConsole();
     cl.clientInit(arg1,arg2);
 }
@@ -179,17 +178,13 @@ void gameConsole::gameAfficher(){
 }
 
 //Esto no sirve pa na
-void gameConsole::gameHandleEvents(){
+/*void gameConsole::gameHandleEvents(){
     unsigned int y= 1;
     if(playerTurn){
         cout << "PLAYER 1 TURN" << endl;
         if(deployPhase){ // DEPLOYMENT PHASE (ESTA EN INGLES PQ NO SE COMO DECIRLO EN FRANCES)
             cout << "cartes disponibles: " << endl;
-            for(auto i = playerDeck.begin(); i != playerDeck.end(); i++){
-                cout << y << ". ";
-                (*i).afficherConsole();
-                y++;
-            }
+            playerDeck.afficher();
             cout << "quelle carte voulez vous jouer? - tapez 0 pour abandoner le jeu sinon le # de la carte, 100 pour passer" << endl;
             cin >> input;
         }
@@ -249,7 +244,7 @@ void gameConsole::gameHandleEvents(){
             }while(actUnit);
         }
     }
-}
+}*/
 //funcion inutil ^
 // eh hpta q si funciona no necesitamos copiar y pegar las 400 lineas de codigo de mierda
 
@@ -264,12 +259,8 @@ void gameConsole::gameUpdate(){
             cout << endl;
             if(deployPhase){ //DEPLOYMENT PHASE
                 cout << "cartes disponibles: " << endl;
-                for(int i = 0; i < playerDeck.size(); i++){
-                    cout << y << ". ";
-                    xd[i].afficherConsole();
-                    y++;
-                }
-                cout <<"deck size = "<< playerDeck.size() << endl;
+                playerDeck.afficher();
+                cout <<"deck size = "<< playerDeck.getSize() << endl;
                 cout << "quelle carte voulez vous jouer? - tapez 0 pour abandoner le jeu sinon le # de la carte, 100 pour passer" << endl;
                 cin >> input;
                 switch(input){
@@ -285,7 +276,7 @@ void gameConsole::gameUpdate(){
                             }
                         break;
                     default:
-                        if(input > 0 && (unsigned int)input <= playerDeck.size()){
+                        if(input > 0 && (unsigned int)input <= playerDeck.getSize()){
                             deployUnitPlayer(input);
                         }
                         else {cout << "input non reconnu, svp ressayer" << endl;}
@@ -339,12 +330,8 @@ void gameConsole::gameUpdate(){
             cout << "********************" << endl;
             if(deployPhase){ //DEPLOYMENT PHASE
                 cout << "cartes disponibles: " << endl;
-                for(auto i = ennemyDeck.begin(); i != ennemyDeck.end(); i++){
-                    cout << y << ". ";
-                    (*i).afficherConsole();
-                    y++;
-                }
-                cout <<"deck size = "<< ennemyDeck.size() << endl;
+                ennemyDeck.afficher();
+                cout <<"deck size = "<< ennemyDeck.getSize() << endl;
                 cout << "quelle carte voulez vous jouer? - tapez 0 pour abandoner le jeu sinon le # de la carte, 100 pour passer" << endl;
                 cin >> input;
                 switch(input){
@@ -360,7 +347,7 @@ void gameConsole::gameUpdate(){
                             cin >> input;
                             }
                     default:
-                        if(input > 0 && (unsigned int)input <= ennemyDeck.size()){
+                        if(input > 0 && (unsigned int)input <= ennemyDeck.getSize()){
                             if(!GB.getTable()[4 * dim + 4].getOccupier()){
                                 deployUnitEnnemy(input);
                             }
@@ -439,12 +426,8 @@ void gameConsole::gameUpdateNET(){
                     cout << endl;
                     if(deployPhase){ //DEPLOYMENT PHASE
                         cout << "cartes disponibles: " << endl;
-                        for(int i = 0; i < playerDeck.size(); i++){
-                            cout << y << ". ";
-                            lib[i].afficherConsole();
-                            y++;
-                        }
-                        cout <<"deck size = "<< playerDeck.size() << endl;
+                        playerDeck.afficher();
+                        cout <<"deck size = "<< playerDeck.getSize() << endl;
                         cout << "quelle carte voulez vous jouer? - tapez 0 pour abandoner le jeu sinon le # de la carte, 100 pour passer" << endl;
                         cin >> sv.buffer2;
                         input=(int)*sv.buffer2 - 48;
