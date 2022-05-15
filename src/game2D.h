@@ -14,6 +14,10 @@ public:
     affichage2D * aff;
     gameConsole jeu;
     int input;
+    const int FPS=60;
+    const int frameDelay=1000/FPS;
+    Uint32 frameStart;
+    int frameTime;
     int inputgame;
     bool isNOInit;
     int tailleG;
