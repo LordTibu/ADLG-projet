@@ -13,15 +13,15 @@ class unit
 private:
     std::string unitName;
     card* cardIndex; // cardIndex relie l'unite a la carte qui lui donne ses stats et effets defaults
-    unsigned int hp, atk, ptr, xpos, ypos, movRange, atkRange; // les pos indiquent la position dans de le tableau du jeu
+    int hp, atk, ptr, xpos, ypos, movRange, atkRange; // les pos indiquent la position dans de le tableau du jeu
     bool player1, isChamp; // bool pour savoir auquel jouer appartient l'unite
 public:
     unit();
     unit(card& Ncard, bool play);
     ~unit();
 
-    unsigned int getX() const;
-    unsigned int getY() const;
+    int getX() const;
+    int getY() const;
     std::string getName() const;
     bool isPlayers() const;
 

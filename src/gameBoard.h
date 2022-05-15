@@ -11,7 +11,7 @@
 class gameBoard
 {
 private:
-    unsigned int dimx, dimy;
+    int dimx, dimy;
     gameSquare* table;
 public:
     gameBoard();
@@ -22,8 +22,8 @@ public:
     void init(unsigned int x, unsigned int y);
     void afficherConsole() const;
     gameSquare& operator[](int index);
-    unsigned int getX() const;
-    unsigned int getY() const;
+    int getX() const;
+    int getY() const;
     gameSquare* getTable();
 };
 #endif

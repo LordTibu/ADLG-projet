@@ -7,7 +7,7 @@ game2D::game2D(){
 void game2D::initgame2D(){
     aff=new affichage2D();
     aff->init2D();
-    input = NULL;
+    input = -1;
     isNOInit= true;
     tailleG=5;
 }
@@ -42,7 +42,7 @@ void game2D::local(){
                             && float(aff->event.motion.y) >= aff->cartes[i].y && float(aff->event.motion.y)<= (aff->cartes[i].y+aff->cartes[i].h)){
                                 inputgame=i-1;
                                 std::cout<<"you play the card "<< inputgame<<std::endl;
-                                if(input > 0 && (unsigned int)inputgame <= jeu.playerDeck.getSize()){
+                                if(input > 0 && inputgame <= jeu.playerDeck.getSize()){
                                     jeu.deployUnitPlayer(inputgame);
                                     deployPhase = !deployPhase;
                                 }else {std::cout << "input non reconnu, svp ressayer" << std::endl;}
@@ -131,7 +131,7 @@ void game2D::menu2D(){
             aff->isRun = false;
             break;
         case SDL_MOUSEBUTTONDOWN:
-            if(input == NULL && aff->isMenu){
+            if(input == -1 && aff->isMenu){
             currentTime = SDL_GetTicks();
 			if (currentTime > lastTime + Speed)
 			{

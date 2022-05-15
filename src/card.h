@@ -14,7 +14,7 @@ class card
 {
 private:
     std::string name, description;
-    unsigned int index, life, attack, protection, movRange, atkRange, isChamp;
+    int index, life, attack, protection, movRange, atkRange, isChamp;
     friend class unit; // Les unites ont access aux données des cartes pour utiliser ses stats
 public:
     card();

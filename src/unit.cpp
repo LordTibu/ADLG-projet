@@ -25,8 +25,8 @@ unit::~unit(){
     cardIndex = NULL;
 }
 
-unsigned int unit::getX() const {return xpos;}
-unsigned int unit::getY() const {return ypos;}
+int unit::getX() const {return xpos;}
+int unit::getY() const {return ypos;}
 std::string unit::getName() const {
     std::string r;
     r.push_back(unitName.at(0));
@@ -38,11 +38,11 @@ bool unit::isPlayers() const {return player1;}
 
 void unit::attackUnit(unit &ennemy){
     if(isInAtkRange(ennemy.xpos, ennemy.ypos)){
-    unsigned int atk_m;
+    int atk_m;
     if(ennemy.ptr >= atk){
         ennemy.ptr -= atk;
     }else { 
-        atk_m= atk - ennemy.ptr;
+        atk_m = atk - ennemy.ptr;
         if(ennemy.hp <= atk_m){
             ennemy.ptr = 0;
             ennemy.hp = 0;
@@ -66,7 +66,7 @@ void unit::attackUnit(unit &ennemy){
 }
 
 void unit::attackUnitNET(unit &ennemy){
-    unsigned int atk_m;
+    int atk_m;
     if(ennemy.ptr >= atk){
         ennemy.ptr -= atk;
     }else { 

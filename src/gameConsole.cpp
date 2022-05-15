@@ -8,8 +8,8 @@ bool gameConsole::getdeployphase() const{
 
 int getIndex(int x, int y, vector<unit> v) {
     int u = -1;
-    for(int i = 0; i < v.size(); i++) {
-    if(v[i].getX() == x && v[i].getY() == y) {u = i;}
+    for( long unsigned int i = 0; i < v.size(); i++) {
+    if(v[i].getX() == x && v[i].getY() == y) {u = i;} //
     }
     return u;
 }
@@ -63,7 +63,7 @@ void gameConsole::attackByPlayer(int input){
     cout << "position deja occupée par une autre unite, svp reesayer" << endl;
     }
     else{
-        if(playerUnits[input - 1].isInAtkRange(xmove, ymove)){
+        if(playerUnits[input - 1].isInAtkRange(xmove, ymove)){ //vergas
             index = getIndex(xmove, ymove, ennemyUnits);
             cout << endl;
             cout << "********************" << endl;
@@ -309,7 +309,7 @@ void gameConsole::gameUpdate(){
                         }
                         break;
                     default:
-                        if(input > 0 && (unsigned int)input <= playerDeck.getSize()){
+                        if(input > 0 && input <= playerDeck.getSize()){
                             deployUnitPlayer(input);
                         }
                         else {cout << "input non reconnu, svp ressayer" << endl;}
@@ -380,7 +380,7 @@ void gameConsole::gameUpdate(){
                             cin >> input;
                             }
                     default:
-                        if(input > 0 && (unsigned int)input <= ennemyDeck.getSize()){
+                        if(input > 0 && input <= ennemyDeck.getSize()){
                             if(!GB.getTable()[4 * dim + 4].getOccupier()){
                                 deployUnitEnnemy(input);
                             }
@@ -482,7 +482,7 @@ void gameConsole::gameUpdateNET(){
                                     }
                                 break;
                             default:
-                                if(input > 0 && (unsigned int)input <= playerDeck.getSize()){
+                                if(input > 0 && input <= playerDeck.getSize()){
                                     deployUnitPlayer(input);
                                 }
                                 else {cout << "input non reconnu, svp ressayer" << endl;}
@@ -560,7 +560,7 @@ void gameConsole::gameUpdateNET(){
                                     input = (int)*sv.buffer1-48;
                                     }
                             default:
-                                if(input > 0 && (unsigned int)input <= ennemyDeck.getSize()){
+                                if(input > 0 && input <= ennemyDeck.getSize()){
                                     if(!GB.getTable()[4 * dim + 4].getOccupier()){
                                         deployUnitEnnemy(input);
                                     }
@@ -641,7 +641,7 @@ void gameConsole::gameUpdateNETClient(){
                             }
                         break;
                     default:
-                        if(input > 0 && (unsigned int)input <= playerDeck.getSize()){
+                        if(input > 0 && input <= playerDeck.getSize()){
                             deployUnitPlayer(input);
                         }
                         else {cout << "Waiting for the server..." << endl;}
@@ -715,7 +715,7 @@ void gameConsole::gameUpdateNETClient(){
                             cl.Send();
                             }
                     default:
-                        if(input > 0 && (unsigned int)input <= ennemyDeck.getSize()){
+                        if(input > 0 && input <= ennemyDeck.getSize()){
                             if(!GB.getTable()[4 * dim + 4].getOccupier()){
                                 deployUnitEnnemy(input);
                             }
@@ -812,7 +812,7 @@ void gameConsole::gameUpdateNO(){
                             }
                         break;
                     default:
-                        if(input > 0 && (unsigned int)input <= playerDeck.getSize()){
+                        if(input > 0 && input <= playerDeck.getSize()){
                             deployUnitPlayer(input);
                         }
                         else {cout << "input non reconnu, svp ressayer" << endl;}
@@ -887,7 +887,7 @@ void gameConsole::gameUpdateNO(){
                             cin >> input;
                             }
                     default:
-                        if(input > 0 && (unsigned int)input <= ennemyDeck.getSize()){
+                        if(input > 0 && input <= ennemyDeck.getSize()){
                             if(!GB.getTable()[4 * dim + 4].getOccupier()){
                                 deployUnitEnnemy(input);
                             }
@@ -992,7 +992,7 @@ void gameConsole::gameUpdateNETNO(){
                                     }
                                 break;
                             default:
-                                if(input > 0 && (unsigned int)input <= playerDeck.getSize()){
+                                if(input > 0 && input <= playerDeck.getSize()){
                                     deployUnitPlayer(input);
                                 }
                                 else {cout << "input non reconnu, svp ressayer" << endl;}
@@ -1070,7 +1070,7 @@ void gameConsole::gameUpdateNETNO(){
                                     input = (int)*sv.buffer1-48;
                                     }
                             default:
-                                if(input > 0 && (unsigned int)input <= ennemyDeck.getSize()){
+                                if(input > 0 && input <= ennemyDeck.getSize()){
                                     if(!GB.getTable()[4 * dim + 4].getOccupier()){
                                         deployUnitEnnemy(input);
                                     }
@@ -1150,7 +1150,7 @@ void gameConsole::gameUpdateNETClientNO(){
                             }
                         break;
                     default:
-                        if(input > 0 && (unsigned int)input <= playerDeck.getSize()){
+                        if(input > 0 && input <= playerDeck.getSize()){
                             deployUnitPlayer(input);
                         }
                         else {cout << "Waiting for the server..." << endl;}
@@ -1224,7 +1224,7 @@ void gameConsole::gameUpdateNETClientNO(){
                             cl.Send();
                             }
                     default:
-                        if(input > 0 && (unsigned int)input <= ennemyDeck.getSize()){
+                        if(input > 0 && input <= ennemyDeck.getSize()){
                             if(!GB.getTable()[4 * dim + 4].getOccupier()){
                                 deployUnitEnnemy(input);
                             }

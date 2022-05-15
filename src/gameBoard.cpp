@@ -33,10 +33,10 @@ void gameBoard::afficherConsole() const {
     if(table!=NULL){
         cout << "dimensions: " << dimx << dimy << endl;
         cout << "***** TABLE *****" << endl;
-        for(unsigned int i = 0; i < dimx; i++){
+        for(int i = 0; i < dimx; i++){
             cout << "[ ";
             //if(alternate) {cout << "  ";}
-            for(unsigned int j = 0; j < dimy; j++){
+            for(int j = 0; j < dimy; j++){
                 table[j * dimx + i].afficherConsole();
             }
             //alternate = !alternate;
@@ -64,11 +64,11 @@ gameSquare& gameBoard::operator[](int index){
     return table[index];
 }
 
-unsigned int gameBoard::getX() const{
+int gameBoard::getX() const{
     return dimx; 
 }
 
-unsigned int gameBoard::getY() const{
+int gameBoard::getY() const{
     return dimy; 
 }
 

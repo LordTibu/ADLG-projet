@@ -36,7 +36,7 @@ void cardLib::saveToFile(const std::string & filename){
 }
 
 void cardLib::afficher() const {
-    for(int i = 0; i < cardLibrary.size(); i++){
+    for(int i = 0; i < (int)cardLibrary.size(); i++){
         cout << i + 1 <<". ";
         cardLibrary[i].afficherConsole();
     }
@@ -59,14 +59,14 @@ std::vector<card>& cardLib::getLib(){
 }
 
 bool cardLib::hasChamp() const{
-    for(int i = 0; i < cardLibrary.size(); i++){
+    for(int i = 0; i < (int)cardLibrary.size(); i++){
         if(cardLibrary[i].itsChamp()) return true;
     }
     return false;
 }
 
 int cardLib::getChampIndex() const{
-    for(int i = 0; i < cardLibrary.size(); i++){
+    for(int i = 0; i < (int)cardLibrary.size(); i++){
         if(cardLibrary[i].itsChamp()) return i;
     }
     return -1;
