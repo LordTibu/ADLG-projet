@@ -140,13 +140,17 @@ void affichage2D::drawDeck(int n, bool player){
     SDL_SetRenderDrawColor(renderer, 160,160,160,255);
     SDL_RenderFillRect(renderer, &cartes[1]);
 
-    SDL_SetRenderDrawColor(renderer, 255,0,0,0);
     for(int i=2;i<n+2;i++){
+        if(i==idCard)SDL_SetRenderDrawColor(renderer, 51,255,51,255);
+        else SDL_SetRenderDrawColor(renderer, 255,0,0,0);
       SDL_RenderFillRect(renderer, &cartes[i]);        
     }
 
-   
-
+}
+void affichage2D::drawUnit(int posx,int posy){
+    SDL_SetRenderDrawColor(renderer, 255,0,0,0);
+    SDL_Rect pos= {table[posx][posy].x+20,table[posx][posy].y+20,20,20};
+    SDL_RenderFillRect(renderer, &pos);
 }
 
 void affichage2D::drawCart(bool cart){
@@ -154,7 +158,7 @@ void affichage2D::drawCart(bool cart){
     if(cart){
         SDL_SetRenderDrawColor(renderer, 255,0,255,255);
     }else{
-        SDL_SetRenderDrawColor(renderer, 0,0,200,200);
+        SDL_SetRenderDrawColor(renderer, 0,0,200,255);
     }  
 
   SDL_RenderFillRect(renderer, &pos);
@@ -165,6 +169,7 @@ void affichage2D::drawGame(int n, int d, bool cart,bool player){
         drawTable(n);
         drawDeck(d,player);
         drawCart(cart);
+        drawUnit(0,0);
 
 
         SDL_SetRenderDrawColor(renderer, 0,0,0,255);

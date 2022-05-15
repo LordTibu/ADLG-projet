@@ -469,6 +469,7 @@ void gameConsole::gameUpdateNET(){
                         switch(input){
                             case 0:
                                 sv.quit2 = 1;
+                                sv.Close();
                                 stay = false;
                                 break;
                             case 100:
@@ -506,6 +507,7 @@ void gameConsole::gameUpdateNET(){
                         switch(input){
                             case 0:
                                 sv.quit2 = 1;
+                                sv.Close();
                                 stay = false;
                                 break;
                             default:
@@ -548,6 +550,7 @@ void gameConsole::gameUpdateNET(){
                         switch(input){
                             case 0:
                                 sv.quit2 = 1;
+                                sv.Close();
                                 stay = false;
                                 break;
                             case 100:
@@ -578,6 +581,7 @@ void gameConsole::gameUpdateNET(){
                         switch(input){
                             case 0:
                                 sv.quit2 = 1;
+                                sv.Close();
                                 stay = false;
                                 break;
                             default:
@@ -630,6 +634,7 @@ void gameConsole::gameUpdateNETClient(){
                 switch(input){
                     case 0:
                         stay = false;
+                        sv.Close();
                         break;
                     case 100:
                         if(playerUnits.size() > 0){
@@ -655,6 +660,7 @@ void gameConsole::gameUpdateNETClient(){
                 input = (int)*cl.buffer2-48;
                 switch(input){
                     case 0:
+                        sv.Close();
                         stay = false;
                         break;
                     default:
@@ -702,6 +708,7 @@ void gameConsole::gameUpdateNETClient(){
                 cl.Send();
                 switch(input){
                     case 0:
+                        sv.Close();
                         stay = false;
                         break;
                     case 100:
@@ -740,6 +747,7 @@ void gameConsole::gameUpdateNETClient(){
                 cl.Send();
                 switch(input){
                     case 0:
+                        sv.Close();
                         stay = false;
                         break;
                     default:

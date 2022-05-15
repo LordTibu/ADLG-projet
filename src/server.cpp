@@ -97,6 +97,7 @@ void server::Communication(){
 }*/
 
 void server::Close(){
+    SDLNet_TCP_Close(csd1); 
     SDLNet_TCP_Close(sd); 
     SDLNet_Quit();
 }

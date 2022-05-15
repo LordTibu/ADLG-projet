@@ -9,6 +9,7 @@ class affichage2D
 private:
     SDL_Window * window;
     SDL_Renderer * renderer;
+    friend class game2D;
 
 public:
     //Rect de las casillas del menu
@@ -27,6 +28,7 @@ public:
     bool isMenu;
     bool isRun;
     bool isCreate;
+    int idCard=0;
     affichage2D();
     void init2D();
     void initdeck2D(int n, int d);
@@ -37,6 +39,7 @@ public:
     void drawDeck(int n, bool player);
     void drawGame(int n, int d,bool cart,bool player);
     void drawCart(bool cart);
+    void drawUnit(int posx, int posy);
     void clean2D(int n);
     ~affichage2D();
 };

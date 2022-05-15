@@ -13,8 +13,6 @@ private:
 public:
     affichage2D * aff;
     gameConsole jeu;
-    unsigned int lastTime = 0, currentTime;
-    int Speed = 150;
     int input;
     int inputgame;
     bool isNOInit;
