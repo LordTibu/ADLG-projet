@@ -59,6 +59,7 @@ void gameConsole::moveUnitEnnemy(int input){
 
 void gameConsole::attackByPlayer(int input){
     int index = getIndex(xmove, ymove, playerUnits);
+    cout<<"esto vale el index" <<index<<endl;
     if(index > 0) { // Si l'unite est une unite alliée
     cout << "position deja occupée par une autre unite, svp reesayer" << endl;
     }
@@ -90,6 +91,7 @@ void gameConsole::attackByPlayer(int input){
 
 void gameConsole::attackByEnnemy(int input){
     int index = getIndex(xmove, ymove, ennemyUnits);
+    cout<<"esto vale el index" <<index<<endl;
     if(index > 0) { // Si l'unite est une unite alliée
     cout << "position deja occupée par une autre unite, svp reesayer" << endl;
     }

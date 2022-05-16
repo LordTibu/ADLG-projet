@@ -22,6 +22,7 @@ public:
     bool isNOInit;
     int tailleG;
     bool cartSelect=false;
+    bool isUnits = false;
     game2D();
     void initgame2D();
     void updategame2D();

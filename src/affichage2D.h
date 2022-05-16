@@ -22,8 +22,12 @@ public:
 
     SDL_Rect ** table;
     SDL_Rect * cartes;
+    SDL_Rect * PlayerUnits;
+    SDL_Rect * EnnemyUnits;
     SDL_Event event;
     
+    bool cardDisplayed = false;
+    int posx, posy;
     int SCREEN_WIDTH, SCREEN_HEIGHT;
     bool isMenu;
     bool isRun;

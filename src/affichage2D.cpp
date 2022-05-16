@@ -49,6 +49,7 @@ void affichage2D::init2D(){
 
     rectPlayer = {0,SCREEN_HEIGHT-SCREEN_HEIGHT/5,
                     SCREEN_WIDTH/10,SCREEN_HEIGHT/5};
+
     
 }
 
@@ -78,6 +79,9 @@ void affichage2D::initdeck2D(int n, int d){
 
         }
     }
+
+    PlayerUnits= new SDL_Rect[n];
+    EnnemyUnits = new SDL_Rect[n];
 }
 
 void affichage2D::erasemenu2D(){
@@ -113,24 +117,31 @@ void affichage2D::menu2D(){
 
 }
 
+void affichage2D::drawUnit(int posx,int posy){
+    SDL_Rect pos= {table[posx][posy].x+20,table[posx][posy].y+20,20,20};
+    SDL_RenderFillRect(renderer, &pos);
+}
+
 void affichage2D::drawTable(int n){
 
     SDL_SetRenderDrawColor(renderer, 0,0,200,200);
     SDL_RenderClear(renderer);
     
-    SDL_SetRenderDrawColor(renderer, 0,255,0,255);
+    
 
     for(int x=0; x<n;x++){
         for(int y=0;y<n;y++){
+            SDL_SetRenderDrawColor(renderer, 0,255,0,255);
             SDL_RenderFillRect(renderer, &table[x][y]);
+            SDL_SetRenderDrawColor(renderer, 153,0,153,255);
         }
     }
 }
 
 void affichage2D::drawDeck(int n, bool player){
     if(player){
-    SDL_SetRenderDrawColor(renderer, 0,204,102,255);
-    }else{SDL_SetRenderDrawColor(renderer, 204,0,0,255);}
+    SDL_SetRenderDrawColor(renderer, 153,0,0,255);
+    }else{SDL_SetRenderDrawColor(renderer, 0,0,0,255);}
     SDL_RenderFillRect(renderer, &rectPlayer);
 
     //PASS
@@ -140,17 +151,19 @@ void affichage2D::drawDeck(int n, bool player){
     SDL_SetRenderDrawColor(renderer, 160,160,160,255);
     SDL_RenderFillRect(renderer, &cartes[1]);
 
+    for(int i=0;i<n;i++){
+        SDL_SetRenderDrawColor(renderer, 153,0,153,255);
+        SDL_RenderFillRect(renderer, &PlayerUnits[i]);        
+    }
+
     for(int i=2;i<n+2;i++){
         if(i==idCard)SDL_SetRenderDrawColor(renderer, 51,255,51,255);
         else SDL_SetRenderDrawColor(renderer, 255,0,0,0);
       SDL_RenderFillRect(renderer, &cartes[i]);        
     }
 
-}
-void affichage2D::drawUnit(int posx,int posy){
-    SDL_SetRenderDrawColor(renderer, 255,0,0,0);
-    SDL_Rect pos= {table[posx][posy].x+20,table[posx][posy].y+20,20,20};
-    SDL_RenderFillRect(renderer, &pos);
+    
+
 }
 
 void affichage2D::drawCart(bool cart){
@@ -169,8 +182,6 @@ void affichage2D::drawGame(int n, int d, bool cart,bool player){
         drawTable(n);
         drawDeck(d,player);
         drawCart(cart);
-        drawUnit(0,0);
-
 
         SDL_SetRenderDrawColor(renderer, 0,0,0,255);
         SDL_Rect rectToDraw = {event.motion.x,event.motion.y,10,10};
@@ -188,6 +199,8 @@ void affichage2D::clean2D(int n){
     }
     delete [] cartes;
     delete [] table;
+    delete [] PlayerUnits;
+    delete [] EnnemyUnits;
     SDL_Quit();
 }
 
