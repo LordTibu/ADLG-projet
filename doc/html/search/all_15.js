@@ -1,10 +1,5 @@
 var searchData=
 [
-  ['_7ecard_92',['~card',['../classcard.html#acbacc99b12f8705aa4b99ae98504e7eb',1,'card']]],
-  ['_7ecardlib_93',['~cardLib',['../classcardLib.html#a31f89689a6f3394e9c02e418ce4afa72',1,'cardLib']]],
-  ['_7egame_94',['~game',['../classgame.html#ae87abd20c4d8a7906fa48e690a5f1d07',1,'game']]],
-  ['_7egameboard_95',['~gameBoard',['../classgameBoard.html#a02cdb766d1071dc9b1c6e27023aea7cd',1,'gameBoard']]],
-  ['_7egameconsole_96',['~gameConsole',['../classgameConsole.html#aa7c59c85b26b9631d2a61aa76cd377b3',1,'gameConsole']]],
-  ['_7egamesquare_97',['~gameSquare',['../classgameSquare.html#a861a3a41dfe8f36050868218d3ae8855',1,'gameSquare']]],
-  ['_7eunit_98',['~unit',['../classunit.html#a77adf9984db5764e2948b4c3184f2982',1,'unit']]]
+  ['window_263',['window',['../classaffichage2D.html#a94f456f11459eb730cd83655777a8fa5',1,'affichage2D::window()'],['../classgame.html#aab9ba59bc971d662d4a20cfc9f122a32',1,'game::window()']]],
+  ['writemove_264',['WriteMove',['../classserver.html#a2768a8030663bb1190c0bd65829f2623',1,'server']]]
 ];

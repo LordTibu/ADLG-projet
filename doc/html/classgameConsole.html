@@ -64,13 +64,14 @@ $(function() {
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
+<a href="#friends">Friends</a> &#124;
 <a href="classgameConsole-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">gameConsole Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>class qui gère le jeu en console  
+<p>Classe qui gère le jeu en version console.  
  <a href="classgameConsole.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="gameConsole_8h_source.html">gameConsole.h</a>&gt;</code></p>
@@ -81,12 +82,52 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a8a3d36d7567497012b499b7a0eddd446"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa7c59c85b26b9631d2a61aa76cd377b3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgameConsole.html#aa7c59c85b26b9631d2a61aa76cd377b3">~gameConsole</a> ()</td></tr>
 <tr class="separator:aa7c59c85b26b9631d2a61aa76cd377b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7b07915e89fe3b7203167309290b1a34"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgameConsole.html#a7b07915e89fe3b7203167309290b1a34">getdeployphase</a> () const</td></tr>
+<tr class="separator:a7b07915e89fe3b7203167309290b1a34"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a83e5e1478d71f422a7a4bcb64ed89569"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgameConsole.html#a83e5e1478d71f422a7a4bcb64ed89569">gameInit</a> (unsigned int xdim, unsigned int ydim)</td></tr>
 <tr class="separator:a83e5e1478d71f422a7a4bcb64ed89569"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1a927d127ff9a3ad92a50aa850c6bc0c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgameConsole.html#a1a927d127ff9a3ad92a50aa850c6bc0c">gameInitServer</a> (unsigned int xdim, unsigned int ydim)</td></tr>
+<tr class="separator:a1a927d127ff9a3ad92a50aa850c6bc0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ada9a97b181ef74ce9f071c657872f6cc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgameConsole.html#ada9a97b181ef74ce9f071c657872f6cc">gameInitClient</a> (unsigned int xdim, unsigned int ydim, char *arg1, int arg2)</td></tr>
+<tr class="separator:ada9a97b181ef74ce9f071c657872f6cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9243fcdf496b4d78a006536853f31414"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgameConsole.html#a9243fcdf496b4d78a006536853f31414">gameUpdate</a> ()</td></tr>
 <tr class="separator:a9243fcdf496b4d78a006536853f31414"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa96a37eaf7c2b025725744604bb568be"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgameConsole.html#aa96a37eaf7c2b025725744604bb568be">gameUpdateNET</a> ()</td></tr>
+<tr class="separator:aa96a37eaf7c2b025725744604bb568be"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a973abfdf881de8d06b91da8a2feb4ed2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgameConsole.html#a973abfdf881de8d06b91da8a2feb4ed2">gameUpdateNETClient</a> ()</td></tr>
+<tr class="separator:a973abfdf881de8d06b91da8a2feb4ed2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a76feb07d291e75a55f477231b2278621"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgameConsole.html#a76feb07d291e75a55f477231b2278621">gameUpdateNO</a> ()</td></tr>
+<tr class="separator:a76feb07d291e75a55f477231b2278621"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa0543ef589d59fdf565b6e6191c4e0c3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgameConsole.html#aa0543ef589d59fdf565b6e6191c4e0c3">gameUpdateNETNO</a> ()</td></tr>
+<tr class="separator:aa0543ef589d59fdf565b6e6191c4e0c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a021b0568d37e8a58c3c3f202853d38c6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgameConsole.html#a021b0568d37e8a58c3c3f202853d38c6">gameUpdateNETClientNO</a> ()</td></tr>
+<tr class="separator:a021b0568d37e8a58c3c3f202853d38c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af45a9552ab2db871affbc2006ddabf21"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgameConsole.html#af45a9552ab2db871affbc2006ddabf21">gameAfficher</a> ()</td></tr>
+<tr class="separator:af45a9552ab2db871affbc2006ddabf21"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af9cf81c6a798f1a6da7dcd329ee75e44"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgameConsole.html#af9cf81c6a798f1a6da7dcd329ee75e44">gameHandleEvents</a> ()</td></tr>
 <tr class="separator:af9cf81c6a798f1a6da7dcd329ee75e44"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af01e02587ae0e4c0f30e86f5c1728965"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgameConsole.html#af01e02587ae0e4c0f30e86f5c1728965">deployUnitPlayer</a> (int <a class="el" href="classgameConsole.html#a2c11423a4e723c150ea913283e8426e0">input</a>)</td></tr>
+<tr class="separator:af01e02587ae0e4c0f30e86f5c1728965"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a72ed087bb9e3f6a43bb65e27c65c0532"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgameConsole.html#a72ed087bb9e3f6a43bb65e27c65c0532">deployUnitEnnemy</a> (int <a class="el" href="classgameConsole.html#a2c11423a4e723c150ea913283e8426e0">input</a>)</td></tr>
+<tr class="separator:a72ed087bb9e3f6a43bb65e27c65c0532"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3192f10773e235bcfc0884f005057613"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgameConsole.html#a3192f10773e235bcfc0884f005057613">moveUnitPlayer</a> (int <a class="el" href="classgameConsole.html#a2c11423a4e723c150ea913283e8426e0">input</a>)</td></tr>
+<tr class="separator:a3192f10773e235bcfc0884f005057613"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4dcc3bbe54bbf53d19ed9521cfba7244"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgameConsole.html#a4dcc3bbe54bbf53d19ed9521cfba7244">moveUnitEnnemy</a> (int <a class="el" href="classgameConsole.html#a2c11423a4e723c150ea913283e8426e0">input</a>)</td></tr>
+<tr class="separator:a4dcc3bbe54bbf53d19ed9521cfba7244"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af3de4f8b1a6d53aadbb49ec891b8c3f1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgameConsole.html#af3de4f8b1a6d53aadbb49ec891b8c3f1">attackByPlayer</a> (int <a class="el" href="classgameConsole.html#a2c11423a4e723c150ea913283e8426e0">input</a>)</td></tr>
+<tr class="separator:af3de4f8b1a6d53aadbb49ec891b8c3f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad2e6db21b413751d46d1ca3e58b86878"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgameConsole.html#ad2e6db21b413751d46d1ca3e58b86878">attackByEnnemy</a> (int <a class="el" href="classgameConsole.html#a2c11423a4e723c150ea913283e8426e0">input</a>)</td></tr>
+<tr class="separator:ad2e6db21b413751d46d1ca3e58b86878"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a737b9244717f3f2433bbd9d3e0fbf956"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgameConsole.html#a737b9244717f3f2433bbd9d3e0fbf956">updateStatusPlayer</a> ()</td></tr>
+<tr class="separator:a737b9244717f3f2433bbd9d3e0fbf956"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a54d7f524311f32dd24ad40cdfa0dbfe5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgameConsole.html#a54d7f524311f32dd24ad40cdfa0dbfe5">updateStatusEnnemy</a> ()</td></tr>
+<tr class="separator:a54d7f524311f32dd24ad40cdfa0dbfe5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac0ee44c7cb05bad529eba03566f799b9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgameConsole.html#ac0ee44c7cb05bad529eba03566f799b9">checkForGameEnd</a> ()</td></tr>
+<tr class="separator:ac0ee44c7cb05bad529eba03566f799b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aef478f52e42384d20388dffdd79efa0b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgameConsole.html#aef478f52e42384d20388dffdd79efa0b">triggerVictory</a> (bool player)</td></tr>
+<tr class="separator:aef478f52e42384d20388dffdd79efa0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af2ef271e562a49611b79c454ad71aa09"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgameConsole.html#af2ef271e562a49611b79c454ad71aa09">triggerDraw</a> ()</td></tr>
+<tr class="separator:af2ef271e562a49611b79c454ad71aa09"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a11414253a4539b9f7d2f90dbc675d14e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgameConsole.html#a11414253a4539b9f7d2f90dbc675d14e">Stay</a> ()</td></tr>
 <tr class="separator:a11414253a4539b9f7d2f90dbc675d14e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -108,28 +149,37 @@ Private Attributes</h2></td></tr>
 <tr class="separator:aeb1e6263eeba12741a1aa01c8c8e0db4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a452b688c2da6bd0e9ceb91450df82fde"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgameConsole.html#a452b688c2da6bd0e9ceb91450df82fde">dim</a> = 5</td></tr>
 <tr class="separator:a452b688c2da6bd0e9ceb91450df82fde"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a189f5ab60841f88125cc3d570e08e282"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classunit.html">unit</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgameConsole.html#a189f5ab60841f88125cc3d570e08e282">easeUnit</a></td></tr>
-<tr class="separator:a189f5ab60841f88125cc3d570e08e282"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7203ccd1868e43415e560dc0df041bca"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classstatusCodex.html">statusCodex</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgameConsole.html#a7203ccd1868e43415e560dc0df041bca">sCodex</a></td></tr>
+<tr class="separator:a7203ccd1868e43415e560dc0df041bca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae2d84cfbb5a07bf878c0b6f986d661e4"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgameConsole.html#ae2d84cfbb5a07bf878c0b6f986d661e4">tableLine</a></td></tr>
+<tr class="separator:ae2d84cfbb5a07bf878c0b6f986d661e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac38a18b85c813439cdeaabfadbab3031"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classunit.html">unit</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgameConsole.html#ac38a18b85c813439cdeaabfadbab3031">easeUnit</a></td></tr>
+<tr class="separator:ac38a18b85c813439cdeaabfadbab3031"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3d29311ee63709bee393ba49edd0c6f7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classgameBoard.html">gameBoard</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgameConsole.html#a3d29311ee63709bee393ba49edd0c6f7">GB</a></td></tr>
 <tr class="separator:a3d29311ee63709bee393ba49edd0c6f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a07df01e5a276071f21a587028d98858b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classcardLib.html">cardLib</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgameConsole.html#a07df01e5a276071f21a587028d98858b">defaultPieces</a></td></tr>
 <tr class="separator:a07df01e5a276071f21a587028d98858b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abfff53ea9c05cba4162f958a1e86c3d7"><td class="memItemLeft" align="right" valign="top">std::list&lt; <a class="el" href="classunit.html">unit</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgameConsole.html#abfff53ea9c05cba4162f958a1e86c3d7">playerDeck</a></td></tr>
-<tr class="separator:abfff53ea9c05cba4162f958a1e86c3d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a55b4348f7d7277e82d8a12b95fe7029e"><td class="memItemLeft" align="right" valign="top">std::list&lt; <a class="el" href="classunit.html">unit</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgameConsole.html#a55b4348f7d7277e82d8a12b95fe7029e">playerUnits</a></td></tr>
-<tr class="separator:a55b4348f7d7277e82d8a12b95fe7029e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7d85c6b294513d32e1c7aea553cac015"><td class="memItemLeft" align="right" valign="top">std::list&lt; <a class="el" href="classunit.html">unit</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgameConsole.html#a7d85c6b294513d32e1c7aea553cac015">ennemyDeck</a></td></tr>
-<tr class="separator:a7d85c6b294513d32e1c7aea553cac015"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1b9391847c67aaf23dc016984dbc1f20"><td class="memItemLeft" align="right" valign="top">std::list&lt; <a class="el" href="classunit.html">unit</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgameConsole.html#a1b9391847c67aaf23dc016984dbc1f20">ennemyUnits</a></td></tr>
-<tr class="separator:a1b9391847c67aaf23dc016984dbc1f20"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4156c698032e5a38a8091a6e29d32a5a"><td class="memItemLeft" align="right" valign="top">std::list&lt; <a class="el" href="classunit.html">unit</a> &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgameConsole.html#a4156c698032e5a38a8091a6e29d32a5a">userDeck</a></td></tr>
-<tr class="separator:a4156c698032e5a38a8091a6e29d32a5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8d46cec6735ee137e41393b6704889a8"><td class="memItemLeft" align="right" valign="top">std::list&lt; <a class="el" href="classunit.html">unit</a> &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgameConsole.html#a8d46cec6735ee137e41393b6704889a8">userUnits</a></td></tr>
-<tr class="separator:a8d46cec6735ee137e41393b6704889a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8ee886cad860df7a108cfb7726464dc4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classcardLib.html">cardLib</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgameConsole.html#a8ee886cad860df7a108cfb7726464dc4">playerDeck</a></td></tr>
+<tr class="separator:a8ee886cad860df7a108cfb7726464dc4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4d7d607db61887187cfff87dc9926d0f"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classunit.html">unit</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgameConsole.html#a4d7d607db61887187cfff87dc9926d0f">playerUnits</a></td></tr>
+<tr class="separator:a4d7d607db61887187cfff87dc9926d0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa76658a14ac6a11b063824c0171823fa"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classcardLib.html">cardLib</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgameConsole.html#aa76658a14ac6a11b063824c0171823fa">ennemyDeck</a></td></tr>
+<tr class="separator:aa76658a14ac6a11b063824c0171823fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa50b32a86f0a94f4eb45fcb6c5ac8c8d"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classunit.html">unit</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgameConsole.html#aa50b32a86f0a94f4eb45fcb6c5ac8c8d">ennemyUnits</a></td></tr>
+<tr class="separator:aa50b32a86f0a94f4eb45fcb6c5ac8c8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acd44011230ea9b5676096680ebbc31b4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classserver.html">server</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgameConsole.html#acd44011230ea9b5676096680ebbc31b4">sv</a></td></tr>
+<tr class="separator:acd44011230ea9b5676096680ebbc31b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4b47233bdeed28efba48d8092c33edb8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classclient.html">client</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgameConsole.html#a4b47233bdeed28efba48d8092c33edb8">cl</a></td></tr>
+<tr class="separator:a4b47233bdeed28efba48d8092c33edb8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
+Friends</h2></td></tr>
+<tr class="memitem:a35c15f0c50a0d01cd88edcf0ee25da53"><td class="memItemLeft" align="right" valign="top">class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgameConsole.html#a35c15f0c50a0d01cd88edcf0ee25da53">game2D</a></td></tr>
+<tr class="separator:a35c15f0c50a0d01cd88edcf0ee25da53"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>class qui gère le jeu en console </p>
-<p>Cette classe me chuâ los gvos </p>
+<div class="textblock"><p>Classe qui gère le jeu en version console. </p>
+<p>Cette application permet de jouer une partie du jeu en local ou en connexion LAN en version Console </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a8a3d36d7567497012b499b7a0eddd446"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a8a3d36d7567497012b499b7a0eddd446">&#9670;&nbsp;</a></span>gameConsole()</h2>
@@ -166,6 +216,138 @@ Private Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="ad2e6db21b413751d46d1ca3e58b86878"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad2e6db21b413751d46d1ca3e58b86878">&#9670;&nbsp;</a></span>attackByEnnemy()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void gameConsole::attackByEnnemy </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>input</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Fonction charge de realiser un combat d'units debuté par le joueur 2 </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">input</td><td>int choisi par l'utilisateur qui indique l'index de l'unit qui va attaquer </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="af3de4f8b1a6d53aadbb49ec891b8c3f1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af3de4f8b1a6d53aadbb49ec891b8c3f1">&#9670;&nbsp;</a></span>attackByPlayer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void gameConsole::attackByPlayer </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>input</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Fonction charge de realiser un combat d'units debuté par le joueur 1 </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">input</td><td>int choisi par l'utilisateur qui indique l'index de l'unit qui va attaquer </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ac0ee44c7cb05bad529eba03566f799b9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac0ee44c7cb05bad529eba03566f799b9">&#9670;&nbsp;</a></span>checkForGameEnd()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void gameConsole::checkForGameEnd </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Fonction qui verifie si une des conditions de fin de jeu est remplie </p>
+
+</div>
+</div>
+<a id="a72ed087bb9e3f6a43bb65e27c65c0532"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a72ed087bb9e3f6a43bb65e27c65c0532">&#9670;&nbsp;</a></span>deployUnitEnnemy()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void gameConsole::deployUnitEnnemy </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>input</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Fonction charge de deploiyer une unit depuis le deck du joueur 2 </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">input</td><td>int choisi par l'utilisateur qui indique l'index de l'unit à deploiyer </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="af01e02587ae0e4c0f30e86f5c1728965"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af01e02587ae0e4c0f30e86f5c1728965">&#9670;&nbsp;</a></span>deployUnitPlayer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void gameConsole::deployUnitPlayer </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>input</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Fonction charge de deploiyer une unit depuis le deck du joueur 1 </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">input</td><td>int choisi par l'utilisateur qui indique l'index de l'unit à deploiyer </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="af45a9552ab2db871affbc2006ddabf21"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af45a9552ab2db871affbc2006ddabf21">&#9670;&nbsp;</a></span>gameAfficher()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void gameConsole::gameAfficher </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Affiche le jeu en mode texte </p>
+
+</div>
+</div>
 <a id="af9cf81c6a798f1a6da7dcd329ee75e44"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af9cf81c6a798f1a6da7dcd329ee75e44">&#9670;&nbsp;</a></span>gameHandleEvents()</h2>
 
@@ -180,6 +362,7 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>On n'utilise pas cette fonction mais on a peur de l'effacer et puis en avoir besoin </p>
 
 </div>
 </div>
@@ -208,6 +391,77 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Initialise le Jeu en version locale </p>
+
+</div>
+</div>
+<a id="ada9a97b181ef74ce9f071c657872f6cc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ada9a97b181ef74ce9f071c657872f6cc">&#9670;&nbsp;</a></span>gameInitClient()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void gameConsole::gameInitClient </td>
+          <td>(</td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>xdim</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>ydim</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>arg1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>arg2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Initialise la partie Client (qui va se connecter au server) du Jeu en version LAN </p>
+
+</div>
+</div>
+<a id="a1a927d127ff9a3ad92a50aa850c6bc0c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1a927d127ff9a3ad92a50aa850c6bc0c">&#9670;&nbsp;</a></span>gameInitServer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void gameConsole::gameInitServer </td>
+          <td>(</td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>xdim</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>ydim</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Initialise la partie Server du Jeu en version LAN </p>
 
 </div>
 </div>
@@ -225,6 +479,162 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Boucle principale du Jeu en version locale et en affichage texte </p>
+
+</div>
+</div>
+<a id="aa96a37eaf7c2b025725744604bb568be"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa96a37eaf7c2b025725744604bb568be">&#9670;&nbsp;</a></span>gameUpdateNET()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void gameConsole::gameUpdateNET </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Boucle principale de la partie Server du Jeu en version LAN et en affichage texte </p>
+
+</div>
+</div>
+<a id="a973abfdf881de8d06b91da8a2feb4ed2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a973abfdf881de8d06b91da8a2feb4ed2">&#9670;&nbsp;</a></span>gameUpdateNETClient()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void gameConsole::gameUpdateNETClient </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Boucle principale de la partie Client du Jeu en version LAN et en affichage texte </p>
+
+</div>
+</div>
+<a id="a021b0568d37e8a58c3c3f202853d38c6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a021b0568d37e8a58c3c3f202853d38c6">&#9670;&nbsp;</a></span>gameUpdateNETClientNO()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void gameConsole::gameUpdateNETClientNO </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Boucle principale de la partie Client du Jeu en version LAN et en affichage SDL </p>
+
+</div>
+</div>
+<a id="aa0543ef589d59fdf565b6e6191c4e0c3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa0543ef589d59fdf565b6e6191c4e0c3">&#9670;&nbsp;</a></span>gameUpdateNETNO()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void gameConsole::gameUpdateNETNO </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Boucle principale de la partie Server du Jeu en version LAN et en affichage SDL </p>
+
+</div>
+</div>
+<a id="a76feb07d291e75a55f477231b2278621"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a76feb07d291e75a55f477231b2278621">&#9670;&nbsp;</a></span>gameUpdateNO()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void gameConsole::gameUpdateNO </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Boucle principale du Jeu en version locale et en affichage texte SDL </p>
+
+</div>
+</div>
+<a id="a7b07915e89fe3b7203167309290b1a34"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7b07915e89fe3b7203167309290b1a34">&#9670;&nbsp;</a></span>getdeployphase()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool gameConsole::getdeployphase </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4dcc3bbe54bbf53d19ed9521cfba7244"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4dcc3bbe54bbf53d19ed9521cfba7244">&#9670;&nbsp;</a></span>moveUnitEnnemy()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void gameConsole::moveUnitEnnemy </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>input</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Fonction charge de bouger une unit du vector&lt;unit&gt; du joueur 2 </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">input</td><td>int choisi par l'utilisateur qui indique l'index de l'unit à bouger </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a3192f10773e235bcfc0884f005057613"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3192f10773e235bcfc0884f005057613">&#9670;&nbsp;</a></span>moveUnitPlayer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void gameConsole::moveUnitPlayer </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>input</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Fonction charge de bouger une unit du vector&lt;unit&gt; du joueur 1 </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">input</td><td>int choisi par l'utilisateur qui indique l'index de l'unit à bouger </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -245,6 +655,101 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="af2ef271e562a49611b79c454ad71aa09"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af2ef271e562a49611b79c454ad71aa09">&#9670;&nbsp;</a></span>triggerDraw()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void gameConsole::triggerDraw </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aef478f52e42384d20388dffdd79efa0b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aef478f52e42384d20388dffdd79efa0b">&#9670;&nbsp;</a></span>triggerVictory()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void gameConsole::triggerVictory </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>player</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Declenche une victorie dependant du joueur qui a gagne </p>
+
+</div>
+</div>
+<a id="a54d7f524311f32dd24ad40cdfa0dbfe5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a54d7f524311f32dd24ad40cdfa0dbfe5">&#9670;&nbsp;</a></span>updateStatusEnnemy()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void gameConsole::updateStatusEnnemy </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Fonction charge MaJ les effets d'etat des unit du joueur 2 </p>
+
+</div>
+</div>
+<a id="a737b9244717f3f2433bbd9d3e0fbf956"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a737b9244717f3f2433bbd9d3e0fbf956">&#9670;&nbsp;</a></span>updateStatusPlayer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void gameConsole::updateStatusPlayer </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Fonction charge MaJ les effets d'etat des unit du joueur 1 </p>
+
+</div>
+</div>
+<h2 class="groupheader">Friends And Related Function Documentation</h2>
+<a id="a35c15f0c50a0d01cd88edcf0ee25da53"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a35c15f0c50a0d01cd88edcf0ee25da53">&#9670;&nbsp;</a></span>game2D</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">friend class <a class="el" href="classgame2D.html">game2D</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <h2 class="groupheader">Member Data Documentation</h2>
 <a id="aca56e0b89c2550540ed4b6e34f2b6666"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aca56e0b89c2550540ed4b6e34f2b6666">&#9670;&nbsp;</a></span>actUnit</h2>
@@ -257,6 +762,29 @@ Private Attributes</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname">bool gameConsole::actUnit = true</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Boolean pour savoir dans quelle "phase" du jeu on se trouve (deploiement/combat) </p>
+
+</div>
+</div>
+<a id="a4b47233bdeed28efba48d8092c33edb8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4b47233bdeed28efba48d8092c33edb8">&#9670;&nbsp;</a></span>cl</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classclient.html">client</a> gameConsole::cl</td>
         </tr>
       </table>
   </td>
@@ -287,6 +815,7 @@ Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Tableu de jeu </p>
 
 </div>
 </div>
@@ -309,6 +838,7 @@ Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Boolean pour rester dans l'application </p>
 
 </div>
 </div>
@@ -331,33 +861,12 @@ Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Boolean qui indique quel joueur doit jouer </p>
 
 </div>
 </div>
-<a id="a189f5ab60841f88125cc3d570e08e282"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a189f5ab60841f88125cc3d570e08e282">&#9670;&nbsp;</a></span>easeUnit</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classunit.html">unit</a>* gameConsole::easeUnit</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a7d85c6b294513d32e1c7aea553cac015"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7d85c6b294513d32e1c7aea553cac015">&#9670;&nbsp;</a></span>ennemyDeck</h2>
+<a id="ac38a18b85c813439cdeaabfadbab3031"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac38a18b85c813439cdeaabfadbab3031">&#9670;&nbsp;</a></span>easeUnit</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -366,7 +875,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::list&lt;<a class="el" href="classunit.html">unit</a>&gt; gameConsole::ennemyDeck</td>
+          <td class="memname"><a class="el" href="classunit.html">unit</a> gameConsole::easeUnit</td>
         </tr>
       </table>
   </td>
@@ -375,11 +884,12 @@ Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>String utilisée pour afficher une ligne du tableau de jeu en version console </p>
 
 </div>
 </div>
-<a id="a1b9391847c67aaf23dc016984dbc1f20"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1b9391847c67aaf23dc016984dbc1f20">&#9670;&nbsp;</a></span>ennemyUnits</h2>
+<a id="aa76658a14ac6a11b063824c0171823fa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa76658a14ac6a11b063824c0171823fa">&#9670;&nbsp;</a></span>ennemyDeck</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -388,7 +898,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::list&lt;<a class="el" href="classunit.html">unit</a>&gt; gameConsole::ennemyUnits</td>
+          <td class="memname"><a class="el" href="classcardLib.html">cardLib</a> gameConsole::ennemyDeck</td>
         </tr>
       </table>
   </td>
@@ -397,6 +907,30 @@ Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Vector qui contient les unit du joueur 1 </p>
+
+</div>
+</div>
+<a id="aa50b32a86f0a94f4eb45fcb6c5ac8c8d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa50b32a86f0a94f4eb45fcb6c5ac8c8d">&#9670;&nbsp;</a></span>ennemyUnits</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="classunit.html">unit</a>&gt; gameConsole::ennemyUnits</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Deck qui contient les cartes du joueur 2 </p>
 
 </div>
 </div>
@@ -419,6 +953,7 @@ Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Unite utilise pour condenser un peu le code </p>
 
 </div>
 </div>
@@ -441,11 +976,12 @@ Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>input de l'utilisateur pour bouger une unit </p>
 
 </div>
 </div>
-<a id="abfff53ea9c05cba4162f958a1e86c3d7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abfff53ea9c05cba4162f958a1e86c3d7">&#9670;&nbsp;</a></span>playerDeck</h2>
+<a id="a8ee886cad860df7a108cfb7726464dc4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8ee886cad860df7a108cfb7726464dc4">&#9670;&nbsp;</a></span>playerDeck</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -454,7 +990,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::list&lt;<a class="el" href="classunit.html">unit</a>&gt; gameConsole::playerDeck</td>
+          <td class="memname"><a class="el" href="classcardLib.html">cardLib</a> gameConsole::playerDeck</td>
         </tr>
       </table>
   </td>
@@ -463,6 +999,7 @@ Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Codex contenant toutes les Cartes existantes </p>
 
 </div>
 </div>
@@ -485,11 +1022,12 @@ Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Boolean qui indique si le joueur a joue son tour </p>
 
 </div>
 </div>
-<a id="a55b4348f7d7277e82d8a12b95fe7029e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a55b4348f7d7277e82d8a12b95fe7029e">&#9670;&nbsp;</a></span>playerUnits</h2>
+<a id="a4d7d607db61887187cfff87dc9926d0f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4d7d607db61887187cfff87dc9926d0f">&#9670;&nbsp;</a></span>playerUnits</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -498,7 +1036,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::list&lt;<a class="el" href="classunit.html">unit</a>&gt; gameConsole::playerUnits</td>
+          <td class="memname">std::vector&lt;<a class="el" href="classunit.html">unit</a>&gt; gameConsole::playerUnits</td>
         </tr>
       </table>
   </td>
@@ -507,6 +1045,30 @@ Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Deck qui contient les cartes du joueur 1 </p>
+
+</div>
+</div>
+<a id="a7203ccd1868e43415e560dc0df041bca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7203ccd1868e43415e560dc0df041bca">&#9670;&nbsp;</a></span>sCodex</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classstatusCodex.html">statusCodex</a> gameConsole::sCodex</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Dimension du tableau de jeu Vector qui contient tous les effets d'etat possibles qui peuvent soufrir les units du jeu (Poisoned, Frozen, Weakened etc...) </p>
 
 </div>
 </div>
@@ -529,11 +1091,12 @@ Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>input de l'utilisateur pour controler plusieurs aspects du jeu (comme quelle unite utiliser) </p>
 
 </div>
 </div>
-<a id="a4156c698032e5a38a8091a6e29d32a5a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4156c698032e5a38a8091a6e29d32a5a">&#9670;&nbsp;</a></span>userDeck</h2>
+<a id="acd44011230ea9b5676096680ebbc31b4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acd44011230ea9b5676096680ebbc31b4">&#9670;&nbsp;</a></span>sv</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -542,7 +1105,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::list&lt;<a class="el" href="classunit.html">unit</a>&gt;* gameConsole::userDeck</td>
+          <td class="memname"><a class="el" href="classserver.html">server</a> gameConsole::sv</td>
         </tr>
       </table>
   </td>
@@ -551,11 +1114,12 @@ Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Vector qui contient les unit du joueur 2 </p>
 
 </div>
 </div>
-<a id="a8d46cec6735ee137e41393b6704889a8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8d46cec6735ee137e41393b6704889a8">&#9670;&nbsp;</a></span>userUnits</h2>
+<a id="ae2d84cfbb5a07bf878c0b6f986d661e4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae2d84cfbb5a07bf878c0b6f986d661e4">&#9670;&nbsp;</a></span>tableLine</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -564,7 +1128,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::list&lt;<a class="el" href="classunit.html">unit</a>&gt;* gameConsole::userUnits</td>
+          <td class="memname">std::string gameConsole::tableLine</td>
         </tr>
       </table>
   </td>
@@ -617,6 +1181,7 @@ Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>input de l'utilisateur pour bouger une unit </p>
 
 </div>
 </div>

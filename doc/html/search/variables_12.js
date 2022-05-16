@@ -1,5 +1,8 @@
 var searchData=
 [
-  ['ymove_204',['ymove',['../classgameConsole.html#a8699597082e41fe70af20188fcbe206c',1,'gameConsole']]],
-  ['ypos_205',['ypos',['../classunit.html#abfc674d0fbcd1bf5bb8307c805181d35',1,'unit']]]
+  ['table_569',['table',['../classaffichage2D.html#ae67b463a6a0eff2861861f4a1148e16a',1,'affichage2D::table()'],['../classgameBoard.html#aab5f06b4e4a57f61817ff193362d2e05',1,'gameBoard::table()']]],
+  ['tableline_570',['tableLine',['../classgameConsole.html#ae2d84cfbb5a07bf878c0b6f986d661e4',1,'gameConsole']]],
+  ['tailleg_571',['tailleG',['../classgame2D.html#a903d8a6c9a6865ca48f37c739552fe24',1,'game2D']]],
+  ['terrain_572',['terrain',['../classgameSquare.html#afd96750607f9fb576ca5610f3c01671a',1,'gameSquare']]],
+  ['turn_573',['turn',['../classclient.html#ac1d9fe5b1b3953603d94b7815a4f020a',1,'client::turn()'],['../classserver.html#a50f654e4f0f64864e9ace01d51816f3d',1,'server::turn()']]]
 ];

@@ -70,6 +70,9 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>class qui gère la librarie des cartes  
+ <a href="classcardLib.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="cardLib_8h_source.html">cardLib.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
@@ -80,17 +83,36 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a31f89689a6f3394e9c02e418ce4afa72"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a53e65578dbb20745fac368fa6ebc51c3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcardLib.html#a53e65578dbb20745fac368fa6ebc51c3">fillLibrary</a> (const std::string &amp;filename)</td></tr>
 <tr class="separator:a53e65578dbb20745fac368fa6ebc51c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa3d06aa0905a545ed800c8461eb86d54"><td class="memItemLeft" align="right" valign="top">std::list&lt; <a class="el" href="classcard.html">card</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcardLib.html#aa3d06aa0905a545ed800c8461eb86d54">getLib</a> ()</td></tr>
-<tr class="separator:aa3d06aa0905a545ed800c8461eb86d54"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa14b25404fe229ecf999571beb6ab86a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcardLib.html#aa14b25404fe229ecf999571beb6ab86a">saveToFile</a> (const std::string &amp;filename)</td></tr>
+<tr class="separator:aa14b25404fe229ecf999571beb6ab86a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa00ffad607a2a37e59f0553033935a19"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcardLib.html#aa00ffad607a2a37e59f0553033935a19">ajouterCarte</a> (const <a class="el" href="classcard.html">card</a> &amp;c)</td></tr>
+<tr class="separator:aa00ffad607a2a37e59f0553033935a19"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6860410f3b02120e4b1b9e8e535a10c4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcardLib.html#a6860410f3b02120e4b1b9e8e535a10c4">supprimerCarte</a> (int index)</td></tr>
+<tr class="separator:a6860410f3b02120e4b1b9e8e535a10c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2c067ede145f04c8580d47c3ff609c4c"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classcard.html">card</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcardLib.html#a2c067ede145f04c8580d47c3ff609c4c">getLib</a> ()</td></tr>
+<tr class="separator:a2c067ede145f04c8580d47c3ff609c4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad51926cf385eb4c93778745b56c3baeb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classcard.html">card</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcardLib.html#ad51926cf385eb4c93778745b56c3baeb">operator[]</a> (int index)</td></tr>
+<tr class="separator:ad51926cf385eb4c93778745b56c3baeb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa65caf25d69f7163625bd3a8cf66ac20"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcardLib.html#aa65caf25d69f7163625bd3a8cf66ac20">afficher</a> () const</td></tr>
+<tr class="separator:aa65caf25d69f7163625bd3a8cf66ac20"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a281bb136715fd6d173bc15154397a903"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcardLib.html#a281bb136715fd6d173bc15154397a903">sortD</a> ()</td></tr>
+<tr class="separator:a281bb136715fd6d173bc15154397a903"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00d206040418da1170d0b96fc38204cb"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcardLib.html#a00d206040418da1170d0b96fc38204cb">hasChamp</a> () const</td></tr>
+<tr class="separator:a00d206040418da1170d0b96fc38204cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9ddb387c63a5448ced0719f006f16707"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcardLib.html#a9ddb387c63a5448ced0719f006f16707">getChampIndex</a> () const</td></tr>
+<tr class="separator:a9ddb387c63a5448ced0719f006f16707"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abeb2cd9069ae7063e5a3412dfbf6d0ad"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcardLib.html#abeb2cd9069ae7063e5a3412dfbf6d0ad">getSize</a> () const</td></tr>
+<tr class="separator:abeb2cd9069ae7063e5a3412dfbf6d0ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:aea684867a52e8ed237f82e50124541d8"><td class="memItemLeft" align="right" valign="top">std::list&lt; <a class="el" href="classcard.html">card</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcardLib.html#aea684867a52e8ed237f82e50124541d8">cardLibrary</a></td></tr>
-<tr class="separator:aea684867a52e8ed237f82e50124541d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8ae78f49e32eebacc16c77437ebfd2b1"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcardLib.html#a8ae78f49e32eebacc16c77437ebfd2b1">nbCartes</a></td></tr>
-<tr class="separator:a8ae78f49e32eebacc16c77437ebfd2b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5bf1facebbc02d56726807e5de8d7268"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classcard.html">card</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcardLib.html#a5bf1facebbc02d56726807e5de8d7268">cardLibrary</a></td></tr>
+<tr class="separator:a5bf1facebbc02d56726807e5de8d7268"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>class qui gère la librarie des cartes </p>
+<p>Dans d'autres mots cette clase est un Deck de cartes, les cartes son organisées dans un vector. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a0f82a6965103d9262f8c4589133bcabc"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a0f82a6965103d9262f8c4589133bcabc">&#9670;&nbsp;</a></span>cardLib()</h2>
 
@@ -105,6 +127,7 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Vector qui contient les cartes dans le deck (ou librarie) </p>
 
 </div>
 </div>
@@ -126,6 +149,43 @@ Private Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="aa65caf25d69f7163625bd3a8cf66ac20"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa65caf25d69f7163625bd3a8cf66ac20">&#9670;&nbsp;</a></span>afficher()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void cardLib::afficher </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Affiche les cartes dans la console </p>
+
+</div>
+</div>
+<a id="aa00ffad607a2a37e59f0553033935a19"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa00ffad607a2a37e59f0553033935a19">&#9670;&nbsp;</a></span>ajouterCarte()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void cardLib::ajouterCarte </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classcard.html">card</a> &amp;&#160;</td>
+          <td class="paramname"><em>c</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Ajoute une carte dans le vector </p>
+
+</div>
+</div>
 <a id="a53e65578dbb20745fac368fa6ebc51c3"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a53e65578dbb20745fac368fa6ebc51c3">&#9670;&nbsp;</a></span>fillLibrary()</h2>
 
@@ -141,29 +201,166 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Remplit le vector avec les donnes d'un fichier .txt contenant les descriptions des cartes </p>
 
 </div>
 </div>
-<a id="aa3d06aa0905a545ed800c8461eb86d54"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa3d06aa0905a545ed800c8461eb86d54">&#9670;&nbsp;</a></span>getLib()</h2>
+<a id="a9ddb387c63a5448ced0719f006f16707"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9ddb387c63a5448ced0719f006f16707">&#9670;&nbsp;</a></span>getChampIndex()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::list&lt; <a class="el" href="classcard.html">card</a> &gt; &amp; cardLib::getLib </td>
+          <td class="memname">int cardLib::getChampIndex </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>si il y a un champion dans le vector, retourne son index </dd></dl>
+
+</div>
+</div>
+<a id="a2c067ede145f04c8580d47c3ff609c4c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2c067ede145f04c8580d47c3ff609c4c">&#9670;&nbsp;</a></span>getLib()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; <a class="el" href="classcard.html">card</a> &gt; &amp; cardLib::getLib </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>On ne parle pas de cette fonction C'est un memento d'un temps plus noir </p>
+
+</div>
+</div>
+<a id="abeb2cd9069ae7063e5a3412dfbf6d0ad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abeb2cd9069ae7063e5a3412dfbf6d0ad">&#9670;&nbsp;</a></span>getSize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int cardLib::getSize </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>taille du vector </dd></dl>
+
+</div>
+</div>
+<a id="a00d206040418da1170d0b96fc38204cb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a00d206040418da1170d0b96fc38204cb">&#9670;&nbsp;</a></span>hasChamp()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool cardLib::hasChamp </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>si il y a un champion dans le vector </dd></dl>
+
+</div>
+</div>
+<a id="ad51926cf385eb4c93778745b56c3baeb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad51926cf385eb4c93778745b56c3baeb">&#9670;&nbsp;</a></span>operator[]()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classcard.html">card</a> &amp; cardLib::operator[] </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>index</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Acces direct au vector de cartes </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">index</td><td>index à acceder dans le vector </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>reference a la carte chez cardLibrary[index] </dd></dl>
+
+</div>
+</div>
+<a id="aa14b25404fe229ecf999571beb6ab86a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa14b25404fe229ecf999571beb6ab86a">&#9670;&nbsp;</a></span>saveToFile()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void cardLib::saveToFile </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>filename</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Sauvegarde le Deck dans un fichier .txt, Utilisée pour que l'utilisateur puissé créer son propre deck de cartes </p>
+
+</div>
+</div>
+<a id="a281bb136715fd6d173bc15154397a903"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a281bb136715fd6d173bc15154397a903">&#9670;&nbsp;</a></span>sortD()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void cardLib::sortD </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Trie le vector selon le nom des cartes (ordre ascendant) </p>
+
+</div>
+</div>
+<a id="a6860410f3b02120e4b1b9e8e535a10c4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6860410f3b02120e4b1b9e8e535a10c4">&#9670;&nbsp;</a></span>supprimerCarte()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void cardLib::supprimerCarte </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>index</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Supprime une carte du vector </p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a id="aea684867a52e8ed237f82e50124541d8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aea684867a52e8ed237f82e50124541d8">&#9670;&nbsp;</a></span>cardLibrary</h2>
+<a id="a5bf1facebbc02d56726807e5de8d7268"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5bf1facebbc02d56726807e5de8d7268">&#9670;&nbsp;</a></span>cardLibrary</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -172,29 +369,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::list&lt;<a class="el" href="classcard.html">card</a>&gt; cardLib::cardLibrary</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a8ae78f49e32eebacc16c77437ebfd2b1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8ae78f49e32eebacc16c77437ebfd2b1">&#9670;&nbsp;</a></span>nbCartes</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">unsigned int cardLib::nbCartes</td>
+          <td class="memname">std::vector&lt;<a class="el" href="classcard.html">card</a>&gt; cardLib::cardLibrary</td>
         </tr>
       </table>
   </td>

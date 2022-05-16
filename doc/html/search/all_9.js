@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['life_61',['life',['../classcard.html#a5dbf8598705fe441819b96273780c5f5',1,'card']]]
+  ['jesucristo_161',['jesucristo',['../classaffichage2D.html#a0567f7dc63ff37c2201a82e1f7b534f8',1,'affichage2D']]],
+  ['jeu_162',['jeu',['../classgame2D.html#acbc765520396c6c841054df837f6b7ba',1,'game2D']]]
 ];

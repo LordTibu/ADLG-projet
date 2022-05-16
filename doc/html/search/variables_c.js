@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['renderer_194',['renderer',['../classgame.html#aadc6ce43dbe28d1a18998296eb939d22',1,'game']]]
+  ['name_533',['name',['../classcard.html#a9162497112521e6cf3edff894325ce56',1,'card::name()'],['../classstatus.html#a01b74f886359186681f63fbf19467531',1,'status::name()']]],
+  ['namecard_534',['nameCard',['../classaffichage2D.html#ac721737f5acc7052ae057492ba36d7de',1,'affichage2D']]]
 ];
