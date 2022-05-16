@@ -8,8 +8,8 @@ bool gameConsole::getdeployphase() const{
 
 int getIndex(int x, int y, vector<unit> v) {
     int u = -1;
-    for( long unsigned int i = 0; i < v.size(); i++) {
-    if(v[i].getX() == x && v[i].getY() == y) {u = i;} 
+    for(int i = 0; i < (int)v.size(); i++) {
+        if(v[i].getX() == x && v[i].getY() == y) {u = i;} 
     }
     return u;
 }
