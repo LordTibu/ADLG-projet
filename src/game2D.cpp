@@ -102,7 +102,7 @@ void game2D::local(){
                                             jeu.ymove=jj;
                                             std::cout<< "xmove = "<<jeu.xmove<<"  ymove = "<<jeu.ymove<<std::endl;
                                             if(0 <= jeu.xmove && jeu.xmove < jeu.dim && 0 <= jeu.ymove && jeu.ymove < jeu.dim){
-                                                if(!jeu.GB.getTable()[jeu.ymove*jeu.dim+jeu.xmove].getOccupier()){ //Si non occupé, on bouge
+                                                if(!jeu.GB.getTable()[jeu.ymove*jeu.dim+jeu.xmove].isOccupied()){ //Si non occupé, on bouge
                                                    jeu.moveUnitPlayer(inputgame);
                                                     aff->posx = ii;
                                                     aff->posy = jj;
@@ -155,7 +155,7 @@ void game2D::local(){
                                 }
 
                                 if(aff->event.button.button == SDL_BUTTON_LEFT && inputgame > 0 && inputgame <= jeu.ennemyDeck.getSize()){
-                                    if(!jeu.GB.getTable()[4 * jeu.dim + 4].getOccupier()){
+                                    if(!jeu.GB.getTable()[4 * jeu.dim + 4].isOccupied()){
                                         jeu.deployUnitEnnemy(inputgame);
                                         std::cout << "deploy card #"<<inputgame<<std::endl;
                                     } else std::cout << "La base est deja occupée, deployer une unite est impossible" << std::endl;
@@ -215,7 +215,7 @@ void game2D::local(){
                                             jeu.xmove=iii;
                                             jeu.ymove=jjj;
                                             if(0 <= jeu.xmove && jeu.xmove < jeu.dim && 0 <= jeu.ymove && jeu.ymove < jeu.dim){
-                                                if(!jeu.GB.getTable()[jeu.ymove*jeu.dim+jeu.xmove].getOccupier()){ //Si non occupé, on bouge
+                                                if(!jeu.GB.getTable()[jeu.ymove*jeu.dim+jeu.xmove].isOccupied()){ //Si non occupé, on bouge
                                                    jeu.moveUnitEnnemy(inputgame);
                                                     aff->posx = iii;
                                                     aff->posy = jjj;

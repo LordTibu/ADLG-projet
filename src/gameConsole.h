@@ -6,15 +6,17 @@
 #include"client.h"
 
 /*! \class gameConsole
-    \brief class qui gère le jeu en console
+    \brief Classe qui gère le jeu en version console
 
-    Cette classe me chuâ los gvos
+    Cette application permet de jouer une partie du jeu en local
+    ou en connexion LAN en version Console
 */
 class gameConsole
 {
 private:
-    unsigned int xmove, ymove;
-    int input;
+    unsigned int xmove, /** input de l'utilisateur pour bouger une unit*/
+    ymove; /** input de l'utilisateur pour bouger une unit*/
+    int input; /** input de l'utilisateur pour controler plusieurs aspects du jeu (comme quelle unite utiliser)*/
     bool stay = true;
     bool deployPhase = true;
     bool actUnit = true;

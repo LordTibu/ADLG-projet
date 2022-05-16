@@ -15,7 +15,7 @@ int getIndex(int x, int y, vector<unit> v) {
 }
 
 void gameConsole::deployUnitPlayer(int input){
-    if(!GB[0].getOccupier()){
+    if(!GB[0].isOccupied()){
         playerUnits.push_back(unit(playerDeck[input - 1], true)); // on insere la carte dans le tab d'unites
         GB[0].occupy(playerUnits.back()); // indique que la case est occupée (utile pour affichage console)
         playerUnits.back().setTo(0,0); // on initialise la position de l'unite
@@ -25,7 +25,7 @@ void gameConsole::deployUnitPlayer(int input){
     else cout << "La base est deja occupée, deployer une unite est impossible" << endl;
 }
 void gameConsole::deployUnitEnnemy(int input){
-    if(!GB[4 * dim + 4].getOccupier()){
+    if(!GB[4 * dim + 4].isOccupied()){
         ennemyUnits.push_back(unit(ennemyDeck[input - 1], false));
         GB[(dim-1)*dim+dim-1].occupy(ennemyUnits.back()); // insere la piece choisice dans le table de jeu
         ennemyUnits.back().setTo(dim-1,dim-1);
@@ -188,8 +188,8 @@ void gameConsole::gameInit(unsigned int xdim, unsigned int ydim){
     GB[3 * dim + 4].occupy(ennemyUnits[0]);
     GB.afficherConsole();
     cout << "************************" << endl;
-    cout << "case de player occupe: " << GB[1*dim].getOccupier() << endl;
-    cout << "case de ennemy occupe: " << GB[3*dim+4].getOccupier() << endl;
+    cout << "case de player occupe: " << GB[1*dim].isOccupied() << endl;
+    cout << "case de ennemy occupe: " << GB[3*dim+4].isOccupied() << endl;
 }
 
 void gameConsole::gameInitServer(unsigned int xdim, unsigned int ydim){
@@ -367,7 +367,7 @@ void gameConsole::gameUpdate(){
                             cin >> xmove;
                             cin >> ymove;
                             if(0 <= xmove && xmove < dim && 0 <= ymove && ymove < dim){
-                                if(!GB.getTable()[ymove*dim+xmove].getOccupier()){ //Si non occupé, on bouge
+                                if(!GB.getTable()[ymove*dim+xmove].isOccupied()){ //Si non occupé, on bouge
                                     moveUnitPlayer(input);
                                 }
                                 else {
@@ -410,7 +410,7 @@ void gameConsole::gameUpdate(){
                             }
                     default:
                         if(input > 0 && input <= ennemyDeck.getSize()){
-                            if(!GB.getTable()[4 * dim + 4].getOccupier()){
+                            if(!GB.getTable()[4 * dim + 4].isOccupied()){
                                 deployUnitEnnemy(input);
                             }
                             else cout << "La base est deja occupée, deployer une unite est impossible" << endl;
@@ -442,7 +442,7 @@ void gameConsole::gameUpdate(){
                             cin >> xmove;
                             cin >> ymove;
                             if(0 <= xmove && xmove < dim && 0 <= ymove && ymove < dim){
-                                if(!GB.getTable()[ymove*dim+xmove].getOccupier()){ //Si case vide
+                                if(!GB.getTable()[ymove*dim+xmove].isOccupied()){ //Si case vide
                                     moveUnitEnnemy(input);
                                 }
                                 else {
@@ -550,7 +550,7 @@ void gameConsole::gameUpdateNET(){
                                     ymove = (int)*sv.buffer2-48;
                                     sv.Send();
                                     if(0 <= xmove && xmove < dim && 0 <= ymove && ymove < dim){
-                                        if(!GB.getTable()[ymove*dim+xmove].getOccupier()){ //Si non occupé, on bouge
+                                        if(!GB.getTable()[ymove*dim+xmove].isOccupied()){ //Si non occupé, on bouge
                                                 moveUnitPlayer(input);
                                         }
                                         else {
@@ -593,7 +593,7 @@ void gameConsole::gameUpdateNET(){
                                     }
                             default:
                                 if(input > 0 && input <= ennemyDeck.getSize()){
-                                    if(!GB.getTable()[4 * dim + 4].getOccupier()){
+                                    if(!GB.getTable()[4 * dim + 4].isOccupied()){
                                         deployUnitEnnemy(input);
                                     }
                                     else cout << "Waiting for the client..." << endl;
@@ -621,7 +621,7 @@ void gameConsole::gameUpdateNET(){
                                     sv.Receive();
                                     ymove = (int)*sv.buffer1-48;
                                     if(0 <= xmove && xmove < dim && 0 <= ymove && ymove < dim){
-                                        if(!GB.getTable()[ymove*dim+xmove].getOccupier()){ //Si case vide
+                                        if(!GB.getTable()[ymove*dim+xmove].isOccupied()){ //Si case vide
                                                moveUnitEnnemy(input);
                                         }
                                         else {
@@ -701,7 +701,7 @@ void gameConsole::gameUpdateNETClient(){
                             cl.Receive();
                             ymove = (int)*cl.buffer2-48;
                             if(0 <= xmove && xmove < dim && 0 <= ymove && ymove < dim){
-                                if(!GB.getTable()[ymove*dim+xmove].getOccupier()){ //Si non occupé, on bouge
+                                if(!GB.getTable()[ymove*dim+xmove].isOccupied()){ //Si non occupé, on bouge
                                         moveUnitPlayer(input);
                                 }
                                 else {
@@ -752,7 +752,7 @@ void gameConsole::gameUpdateNETClient(){
                             }
                     default:
                         if(input > 0 && input <= ennemyDeck.getSize()){
-                            if(!GB.getTable()[4 * dim + 4].getOccupier()){
+                            if(!GB.getTable()[4 * dim + 4].isOccupied()){
                                 deployUnitEnnemy(input);
                             }
                             else cout << "La base est deja occupée, deployer une unite est impossible" << endl;
@@ -791,7 +791,7 @@ void gameConsole::gameUpdateNETClient(){
                             ymove = (int)*cl.buffer-48;
                             cl.Send();
                             if(0 <= xmove && xmove < dim && 0 <= ymove && ymove < dim){
-                                if(!GB.getTable()[ymove*dim+xmove].getOccupier()){ //Si case vide
+                                if(!GB.getTable()[ymove*dim+xmove].isOccupied()){ //Si case vide
                                         moveUnitEnnemy(input);
                                 }
                                 else {
@@ -879,7 +879,7 @@ void gameConsole::gameUpdateNO(){
                             cin >> xmove;
                             cin >> ymove;
                             if(0 <= xmove && xmove < dim && 0 <= ymove && ymove < dim){
-                                if(!GB.getTable()[ymove*dim+xmove].getOccupier()){ //Si non occupé, on bouge
+                                if(!GB.getTable()[ymove*dim+xmove].isOccupied()){ //Si non occupé, on bouge
                                     moveUnitPlayer(input);
                                 }
                                 else {
@@ -925,7 +925,7 @@ void gameConsole::gameUpdateNO(){
                             }
                     default:
                         if(input > 0 && input <= ennemyDeck.getSize()){
-                            if(!GB.getTable()[4 * dim + 4].getOccupier()){
+                            if(!GB.getTable()[4 * dim + 4].isOccupied()){
                                 deployUnitEnnemy(input);
                             }
                             else cout << "La base est deja occupée, deployer une unite est impossible" << endl;
@@ -957,7 +957,7 @@ void gameConsole::gameUpdateNO(){
                             cin >> xmove;
                             cin >> ymove;
                             if(0 <= xmove && xmove < dim && 0 <= ymove && ymove < dim){
-                                if(!GB.getTable()[ymove*dim+xmove].getOccupier()){ //Si case vide
+                                if(!GB.getTable()[ymove*dim+xmove].isOccupied()){ //Si case vide
                                     moveUnitEnnemy(input);
                                 }
                                 else {
@@ -1066,7 +1066,7 @@ void gameConsole::gameUpdateNETNO(){
                                     ymove = (int)*sv.buffer2-48;
                                     sv.Send();
                                     if(0 <= xmove && xmove < dim && 0 <= ymove && ymove < dim){
-                                        if(!GB.getTable()[ymove*dim+xmove].getOccupier()){ //Si non occupé, on bouge
+                                        if(!GB.getTable()[ymove*dim+xmove].isOccupied()){ //Si non occupé, on bouge
                                                 moveUnitPlayer(input);
                                         }
                                         else {
@@ -1108,7 +1108,7 @@ void gameConsole::gameUpdateNETNO(){
                                     }
                             default:
                                 if(input > 0 && input <= ennemyDeck.getSize()){
-                                    if(!GB.getTable()[4 * dim + 4].getOccupier()){
+                                    if(!GB.getTable()[4 * dim + 4].isOccupied()){
                                         deployUnitEnnemy(input);
                                     }
                                     else cout << "Waiting for the client..." << endl;
@@ -1135,7 +1135,7 @@ void gameConsole::gameUpdateNETNO(){
                                     sv.Receive();
                                     ymove = (int)*sv.buffer1-48;
                                     if(0 <= xmove && xmove < dim && 0 <= ymove && ymove < dim){
-                                        if(!GB.getTable()[ymove*dim+xmove].getOccupier()){ //Si case vide
+                                        if(!GB.getTable()[ymove*dim+xmove].isOccupied()){ //Si case vide
                                                moveUnitEnnemy(input);
                                         }
                                         else {
@@ -1212,7 +1212,7 @@ void gameConsole::gameUpdateNETClientNO(){
                             cl.Receive();
                             ymove = (int)*cl.buffer2-48;
                             if(0 <= xmove && xmove < dim && 0 <= ymove && ymove < dim){
-                                if(!GB.getTable()[ymove*dim+xmove].getOccupier()){ //Si non occupé, on bouge
+                                if(!GB.getTable()[ymove*dim+xmove].isOccupied()){ //Si non occupé, on bouge
                                         moveUnitPlayer(input);
                                 }
                                 else {
@@ -1262,7 +1262,7 @@ void gameConsole::gameUpdateNETClientNO(){
                             }
                     default:
                         if(input > 0 && input <= ennemyDeck.getSize()){
-                            if(!GB[4 * dim + 4].getOccupier()){
+                            if(!GB[4 * dim + 4].isOccupied()){
                                 deployUnitEnnemy(input);
                             }
                             else cout << "La base est deja occupée, deployer une unite est impossible" << endl;
@@ -1300,7 +1300,7 @@ void gameConsole::gameUpdateNETClientNO(){
                             ymove = (int)*cl.buffer-48;
                             cl.Send();
                             if(0 <= xmove && xmove < dim && 0 <= ymove && ymove < dim){
-                                if(!GB.getTable()[ymove*dim+xmove].getOccupier()){ //Si case vide
+                                if(!GB.getTable()[ymove*dim+xmove].isOccupied()){ //Si case vide
                                         moveUnitEnnemy(input);
                                 }
                                 else {

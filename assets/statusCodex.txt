@@ -1,0 +1,10 @@
+poisoned
+L'unite perd 1 de vie par tour/
+frozen
+L'unite ne peut ni bouger ni attaquer/
+blinded
+L'unite ne peut pas attaquer/
+rooted
+L'unite ne peut pas bouger/
+weakened
+L'unite perd 1 de attk par point/

@@ -1,28 +1,26 @@
 #include "gameSquare.h"
 
 gameSquare::gameSquare(){
-    occupier = false;
-    building = false;
+    occupied = false;
     terrain = "0";
 }
 
-gameSquare::gameSquare(std::string terra, bool occupy, bool build){
-    occupier = occupy;
-    building = build;
+gameSquare::gameSquare(std::string terra, bool occupy){
+    occupied = occupy;
     terrain = terra;
 }
 
 gameSquare::~gameSquare(){}
 
-bool gameSquare::getOccupier() {return occupier;}
+bool gameSquare::isOccupied() const {return occupied;}
 
 void gameSquare::occupy(const unit& u){
-    occupier = true;
+    occupied = true;
     unitName = u.getName();
 }
 
 void gameSquare::deOccupy(){
-    occupier = false;
+    occupied = false;
 }
 
 void gameSquare::setName(const std::string& s){
@@ -30,7 +28,7 @@ void gameSquare::setName(const std::string& s){
 }
 
 void gameSquare::afficherConsole(){
-    if(!occupier) {std::cout << "###  ";}
+    if(!occupied) {std::cout << "###  ";}
     else {std::cout << unitName << "  ";}
 }
 
