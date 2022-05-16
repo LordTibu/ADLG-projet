@@ -9,7 +9,7 @@ bool gameConsole::getdeployphase() const{
 int getIndex(int x, int y, vector<unit> v) {
     int u = -1;
     for( long unsigned int i = 0; i < v.size(); i++) {
-    if(v[i].getX() == x && v[i].getY() == y) {u = i;} //
+    if(v[i].getX() == x && v[i].getY() == y) {u = i;} 
     }
     return u;
 }
@@ -59,7 +59,7 @@ void gameConsole::moveUnitEnnemy(int input){
 
 void gameConsole::attackByPlayer(int input){
     int index = getIndex(xmove, ymove, playerUnits);
-    cout<<"esto vale el index" <<index<<endl;
+    cout<< "esto vale el index" << index << endl;
     if(index > 0) { // Si l'unite est une unite alliée
     cout << "position deja occupée par une autre unite, svp reesayer" << endl;
     }
@@ -117,13 +117,15 @@ void gameConsole::attackByEnnemy(int input){
 void gameConsole::updateStatusPlayer(){
     cout << "entered updateStatus" << endl;
     for(int i = 0; i < (int)playerUnits.size(); i++){
-        cout << "checked " << i << "units for status" << endl;
+        cout << "checked " << i << " units for status" << endl;
         for(int j = 0; j < playerUnits[i].getAppliedSize(); j++){
-            cout << "checked " << j << "statuses" << endl;
-            playerUnits[i].applyStatus(sCodex[playerUnits[i].getAppliedStatus(j).statIndex]);
-            playerUnits[i].getAppliedStatus(j).statStrength -= 1;
-            if(playerUnits[i].getAppliedStatus(j).statStrength == 0){
-                playerUnits[i].eraseAppliedStatus(j);
+            cout << "checked " << j << " statuses" << endl;
+            if(playerUnits[i].getAppliedStatus(j).statIndex > -1){
+                playerUnits[i].applyStatus(sCodex[playerUnits[i].getAppliedStatus(j).statIndex]);
+                playerUnits[i].getAppliedStatus(j).statStrength += -1;
+                if(playerUnits[i].getAppliedStatus(j).statStrength == 0){
+                    playerUnits[i].eraseAppliedStatus(j);
+                }
             }
         }
     }
@@ -313,6 +315,7 @@ void gameConsole::gameUpdate(){
             cout << "********************" << endl;
             cout << endl;
             updateStatusPlayer();
+            cout << "PASS THIS SHIT" << endl;
             if(deployPhase){ //DEPLOYMENT PHASE
                 cout << "cartes disponibles: " << endl;
                 playerDeck.afficher();

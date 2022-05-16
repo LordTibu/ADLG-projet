@@ -5,7 +5,7 @@ Fait Par:
 Lien Git: https://forge.univ-lyon1.fr/p1925046/projet-lifap4-2022
 
 Pre-requis pour la compilation (apart SDL):
-	-Librerie SDL_Net
+	-Librerie SDL_Net (code source dans le dossier "include")
 Pour compiler le projet (Linux) appeler la commande "make" depuis le fichier racine.
 
 ADGL c'est un jeu de cartes 1 vs 1 où les jouers combatent avec leurs heros pour essayer de vaincre le champion ennemi.
@@ -24,5 +24,6 @@ Organisation des dossiers:
 	2. bin/mainTest : Module qui contient les versions texte des differentes versions du jeu (en local ou en LAN).
 	3. bin/main2D : Module qui contient la version SDL du jeu.
 - Doc : La documentation du code.
+- Include : Dossier contenant la librerie SDL_net.
 - Obj : Dossier où sont organisés les differents .obj.
 - Src : Fichiers .cpp et .h contenant le code de l'application.

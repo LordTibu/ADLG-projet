@@ -21,7 +21,7 @@ unit::unit(card& Ncard, bool play){
     canAttack = true;
     if(player1) {xpos = ypos = -1;}
     else {xpos = ypos = -1;}
-    appliedStatus.push_back({-1 , -1});
+    attackStatus = {-1, -1};
 }
 
 unit::~unit(){
