@@ -250,6 +250,7 @@ void affichage2D::drawGame(int n, int d, bool cart,bool player,std::vector<unit>
 }
 
 void affichage2D::clean2D(int n){
+    SDL_RenderClear(renderer);
     SDL_DestroyRenderer(renderer);
     SDL_DestroyWindow(window);
 

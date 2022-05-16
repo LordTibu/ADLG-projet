@@ -367,6 +367,7 @@ void game2D::updategame2D(){
             SDL_Delay(frameDelay - frameTime);
         }
     }
+    
 }
 
 void game2D::cleangame2D(){
