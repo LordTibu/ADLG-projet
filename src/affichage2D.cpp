@@ -45,12 +45,57 @@ void affichage2D::init2D(){
                             SCREEN_HEIGHT/2+SCREEN_HEIGHT/10
                             , SCREEN_WIDTH/20};
 
-    isMenu = true;
 
     rectPlayer = {0,SCREEN_HEIGHT-SCREEN_HEIGHT/5,
                     SCREEN_WIDTH/10,SCREEN_HEIGHT/5};
 
+    SDL_Surface * surface=IMG_Load("assets/menu/start1.png");
+    Menu1 = SDL_CreateTextureFromSurface(renderer,surface);
+    SDL_FreeSurface(surface);
+    surface=IMG_Load("assets/menu/start2.png");
+    Menu2 = SDL_CreateTextureFromSurface(renderer,surface);
+    SDL_FreeSurface(surface);
+    surface=IMG_Load("assets/menu/start3.png");
+    Menu3 = SDL_CreateTextureFromSurface(renderer,surface);
+    SDL_FreeSurface(surface);
+    surface=IMG_Load("assets/menu/start4.png");
+    Menu4 = SDL_CreateTextureFromSurface(renderer,surface);
+    SDL_FreeSurface(surface);
+    surface=IMG_Load("assets/menu/back.png");
+    backmenu = SDL_CreateTextureFromSurface(renderer,surface);
+    SDL_FreeSurface(surface);
+    surface=IMG_Load("assets/game/back.png");
+    backgame = SDL_CreateTextureFromSurface(renderer,surface);
+    SDL_FreeSurface(surface);
+    surface=IMG_Load("assets/game/backcard.png");
+    backcard = SDL_CreateTextureFromSurface(renderer,surface);
+    SDL_FreeSurface(surface);
+    surface=IMG_Load("assets/game/cardslct.png");
+    cardselect = SDL_CreateTextureFromSurface(renderer,surface);
+    SDL_FreeSurface(surface);
     
+    surface=IMG_Load("assets/game/jesucristo.png");
+    jesucristo = SDL_CreateTextureFromSurface(renderer,surface);
+    SDL_FreeSurface(surface);
+    surface=IMG_Load("assets/game/soldat.png");
+    soldat = SDL_CreateTextureFromSurface(renderer,surface);
+    SDL_FreeSurface(surface);
+    surface=IMG_Load("assets/game/archer.png");
+    archer = SDL_CreateTextureFromSurface(renderer,surface);
+    SDL_FreeSurface(surface);
+    surface=IMG_Load("assets/game/peasant.png");
+    peasant = SDL_CreateTextureFromSurface(renderer,surface);
+    SDL_FreeSurface(surface);
+    surface=IMG_Load("assets/game/shinobi.png");
+    shinobi = SDL_CreateTextureFromSurface(renderer,surface);
+    SDL_FreeSurface(surface);
+    surface=IMG_Load("assets/game/samurai.png");
+    samurai = SDL_CreateTextureFromSurface(renderer,surface);
+    SDL_FreeSurface(surface);
+
+    surface=IMG_Load("assets/game/case.png");
+    square = SDL_CreateTextureFromSurface(renderer,surface);
+    SDL_FreeSurface(surface);
 }
 
 void affichage2D::initdeck2D(int n, int d){
@@ -93,21 +138,23 @@ void affichage2D::erasemenu2D(){
 void affichage2D::menu2D(){
     SDL_PollEvent (&event);
     if(isMenu){
-    SDL_SetRenderDrawColor(renderer, 255,0,255,255);
-    SDL_RenderClear(renderer);
-    //aqui agrego vainas
+    
+    SDL_RenderCopy(renderer, backmenu, NULL, NULL);
+
     SDL_SetRenderDrawColor(renderer, 0,0,255,255);
-    SDL_RenderFillRect(renderer, &rectToDraw1);
+    SDL_RenderCopy(renderer, Menu1, NULL, &rectToDraw1);
     
 
     SDL_SetRenderDrawColor(renderer, 0,255,0,255);
-    SDL_RenderFillRect(renderer, &rectToDraw2);
+    SDL_RenderCopy(renderer, Menu2, NULL, &rectToDraw2);
+    
 
     SDL_SetRenderDrawColor(renderer, 0,0,0,0);
-    SDL_RenderFillRect(renderer, &rectToDraw3);
+    SDL_RenderCopy(renderer, Menu3, NULL, &rectToDraw3);
+    
 
     SDL_SetRenderDrawColor(renderer, 0,255,0,255);
-    SDL_RenderFillRect(renderer, &rectToDraw4);
+    SDL_RenderCopy(renderer, Menu4, NULL, &rectToDraw4);
 
     SDL_SetRenderDrawColor(renderer, 0,0,0,255);
     SDL_Rect rectToDraw = {event.motion.x,event.motion.y,10,10};
@@ -122,18 +169,30 @@ void affichage2D::drawUnit(int posx,int posy){
     SDL_RenderFillRect(renderer, &pos);
 }
 
-void affichage2D::drawTable(int n){
+void affichage2D::drawallunits(std::vector<unit> Units,bool player){
+    
+    for(auto i = Units.begin(); i != Units.end(); i++){
+        if((*i).getName()=="jeP") SDL_SetRenderDrawColor(renderer, 255,255,229,255);
+        else if(player){
+            SDL_SetRenderDrawColor(renderer, 153,0,0,255);
+        }
 
-    SDL_SetRenderDrawColor(renderer, 0,0,200,200);
-    SDL_RenderClear(renderer);
-    
-    
+        if((*i).getName()=="jeE") SDL_SetRenderDrawColor(renderer, 255,255,51,255);
+        else if (!player){
+            SDL_SetRenderDrawColor(renderer, 0,0,0,255);
+        }
+        drawUnit((*i).getX(),(*i).getY());
+    }
+}
+
+void affichage2D::drawTable(int n){
+    SDL_RenderCopy(renderer,backgame,NULL,NULL);
 
     for(int x=0; x<n;x++){
         for(int y=0;y<n;y++){
-            SDL_SetRenderDrawColor(renderer, 0,255,0,255);
-            SDL_RenderFillRect(renderer, &table[x][y]);
-            SDL_SetRenderDrawColor(renderer, 153,0,153,255);
+            SDL_RenderCopy(renderer,square,NULL,&table[x][y]);
+            /*SDL_SetRenderDrawColor(renderer, 0,255,0,255);
+            SDL_RenderFillRect(renderer, &table[x][y]);*/
         }
     }
 }
@@ -151,37 +210,40 @@ void affichage2D::drawDeck(int n, bool player){
     SDL_SetRenderDrawColor(renderer, 160,160,160,255);
     SDL_RenderFillRect(renderer, &cartes[1]);
 
-    for(int i=0;i<n;i++){
-        SDL_SetRenderDrawColor(renderer, 153,0,153,255);
-        SDL_RenderFillRect(renderer, &PlayerUnits[i]);        
-    }
-
     for(int i=2;i<n+2;i++){
-        if(i==idCard)SDL_SetRenderDrawColor(renderer, 51,255,51,255);
-        else SDL_SetRenderDrawColor(renderer, 255,0,0,0);
-      SDL_RenderFillRect(renderer, &cartes[i]);        
+        if(i==idCard)SDL_RenderCopy(renderer, cardselect, NULL, &cartes[i]);
+        else SDL_RenderCopy(renderer, backcard, NULL, &cartes[i]);   
     }
-
-    
 
 }
 
 void affichage2D::drawCart(bool cart){
     SDL_Rect pos= {0,SCREEN_HEIGHT/2-150,200,300};
     if(cart){
-        SDL_SetRenderDrawColor(renderer, 255,0,255,255);
+        if(nameCard=="archer" || nameCard=="arP" || nameCard=="arE")SDL_RenderCopy(renderer,archer,NULL,&pos);
+        if(nameCard=="shinobi"|| nameCard=="shP" || nameCard=="shE")SDL_RenderCopy(renderer,shinobi,NULL,&pos);
+        if(nameCard=="samurai"|| nameCard=="saP" || nameCard=="saE")SDL_RenderCopy(renderer,samurai,NULL,&pos);
+        if(nameCard=="jesucristo"|| nameCard=="jeP" || nameCard=="jeE")SDL_RenderCopy(renderer,jesucristo,NULL,&pos);
+        if(nameCard=="peasant"|| nameCard=="peP" || nameCard=="peE")SDL_RenderCopy(renderer,peasant,NULL,&pos);
+        if(nameCard=="soldat"|| nameCard=="soP" || nameCard=="soE")SDL_RenderCopy(renderer,soldat,NULL,&pos);
+        /*SDL_SetRenderDrawColor(renderer, 255,0,255,255); 
+        SDL_RenderFillRect(renderer, &pos);*/
     }else{
-        SDL_SetRenderDrawColor(renderer, 0,0,200,255);
+        SDL_RenderCopy(renderer, backcard,NULL,&pos);
     }  
 
-  SDL_RenderFillRect(renderer, &pos);
+ 
 }
 
-void affichage2D::drawGame(int n, int d, bool cart,bool player){
+void affichage2D::drawGame(int n, int d, bool cart,bool player,std::vector<unit> UnitsPlayer, std::vector<unit> UnitsEnnemy){
     if(!isMenu){
         drawTable(n);
         drawDeck(d,player);
         drawCart(cart);
+        drawallunits(UnitsPlayer,true);
+        
+        drawallunits(UnitsEnnemy,false);
+
 
         SDL_SetRenderDrawColor(renderer, 0,0,0,255);
         SDL_Rect rectToDraw = {event.motion.x,event.motion.y,10,10};

@@ -17,6 +17,7 @@ private:
     int hp, atk, ptr, xpos, ypos, movRange, atkRange; // les pos indiquent la position dans de le tableau du jeu
     bool player1, isChamp, canAttack, canMove; // bool pour savoir auquel jouer appartient l'unite
     std::vector<statusInfo> appliedStatus;
+
 public:
     unit();
     unit(card& Ncard, bool play);

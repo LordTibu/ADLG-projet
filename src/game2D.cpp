@@ -35,9 +35,10 @@ void game2D::local(){
                             && float(aff->event.motion.y) >= aff->cartes[i].y && float(aff->event.motion.y)<= (aff->cartes[i].y+aff->cartes[i].h)){
                                 if(aff->event.button.button == SDL_BUTTON_RIGHT){
                                     cartSelect=true;
-                                inputgame=i-1;
-                                std::cout<<"you selected the card "<< inputgame<<std::endl;
-                                aff->idCard=i;
+                                    inputgame=i-1;
+                                    std::cout<<"you selected the card "<< inputgame<<std::endl;
+                                    aff->idCard=i;
+                                    aff->nameCard=jeu.playerDeck[inputgame-1].getName();
                                 }
                                 if(aff->event.button.button == SDL_BUTTON_LEFT && inputgame > 0 && inputgame <= jeu.playerDeck.getSize()){
                                     jeu.deployUnitPlayer(inputgame);
@@ -81,7 +82,9 @@ void game2D::local(){
                             && float(aff->event.motion.y) >= aff->cartes[i].y && float(aff->event.motion.y)<= (aff->cartes[i].y+aff->cartes[i].h)){
                                 if(aff->event.button.button == SDL_BUTTON_RIGHT){
                                     cartSelect=true;
+                                    inputgame=i-1;
                                     std::cout<<"you selected the unit "<< inputgame<<std::endl;
+                                    aff->nameCard=jeu.playerUnits[inputgame-1].getName();
                                     aff->idCard=i;
                                 }
                             }
@@ -95,7 +98,7 @@ void game2D::local(){
                                 && float(aff->event.motion.y) >= aff->table[ii][jj].y && float(aff->event.motion.y)<= (aff->table[ii][jj].y+aff->table[ii][jj].h)){ 
                                     std::cout<< "x = "<<ii<<"  y = "<<jj<<std::endl;
                                     if(inputgame > 0 && (unsigned int)inputgame <= jeu.playerUnits.size()){
-                                        while(jeu.actUnit){
+                                        if(jeu.actUnit){
                                             std::cout << "a quelle case bouger l'unite?" << std::endl;
                                             std::cout <<"inputgame = "<<inputgame<<std::endl;
                                             jeu.xmove=ii;
@@ -152,6 +155,7 @@ void game2D::local(){
                                     inputgame=i-1;
                                     std::cout<<"you selected the card "<< inputgame<<std::endl;
                                     aff->idCard=i;
+                                    aff->nameCard=jeu.ennemyDeck[inputgame-1].getName();
                                 }
 
                                 if(aff->event.button.button == SDL_BUTTON_LEFT && inputgame > 0 && inputgame <= jeu.ennemyDeck.getSize()){
@@ -198,6 +202,8 @@ void game2D::local(){
                                     inputgame=i-1;
                                     std::cout<<"you selected the unit "<< inputgame<<std::endl;
                                     aff->idCard=i;
+                                    aff->nameCard=jeu.ennemyUnits[inputgame-1].getName();
+                                    cartSelect=true;
                                 }
                             }
                         }
@@ -210,7 +216,7 @@ void game2D::local(){
                                 && float(aff->event.motion.y) >= aff->table[iii][jjj].y && float(aff->event.motion.y)<= (aff->table[iii][jjj].y+aff->table[iii][jjj].h)){ 
                                     std::cout<< "x = "<<iii<<"  y = "<<jjj<<std::endl;
                                     if(inputgame > 0 && (unsigned int)inputgame <= jeu.ennemyUnits.size()){
-                                        while(jeu.actUnit){
+                                        if(jeu.actUnit){
                                             std::cout << "a quelle case bouger l'unite?" << std::endl;
                                             jeu.xmove=iii;
                                             jeu.ymove=jjj;
@@ -342,16 +348,19 @@ void game2D::updategame2D(){
         frameStart=SDL_GetTicks();
         menu2D();
         aff->menu2D();
+        
         if(!isNOInit)typegame();
         if(jeu.playerTurn){
-            if(!isUnits)aff->drawGame(tailleG,jeu.playerDeck.getSize(),cartSelect,jeu.playerTurn);
-            else aff->drawGame(tailleG,jeu.playerUnits.size(),cartSelect,playerTurn);
+            if(!isUnits){
+                aff->drawGame(tailleG,jeu.playerDeck.getSize(),cartSelect,jeu.playerTurn,jeu.playerUnits,jeu.ennemyUnits);
+                
+            }
+            else aff->drawGame(tailleG,jeu.playerUnits.size(),cartSelect,playerTurn,jeu.playerUnits,jeu.ennemyUnits);
         }else{
-            if(!isUnits)aff->drawGame(tailleG,jeu.ennemyDeck.getSize(),cartSelect,jeu.playerTurn);
-        else aff->drawGame(tailleG,jeu.ennemyUnits.size(),cartSelect,jeu.playerTurn);
+            if(!isUnits)aff->drawGame(tailleG,jeu.ennemyDeck.getSize(),cartSelect,jeu.playerTurn,jeu.playerUnits,jeu.ennemyUnits);
+        else aff->drawGame(tailleG,jeu.ennemyUnits.size(),cartSelect,jeu.playerTurn,jeu.playerUnits,jeu.ennemyUnits);
         }
     
-
         frameTime = SDL_GetTicks() - frameStart;
 
         if(frameDelay > frameTime){
