@@ -12,6 +12,7 @@
 class unit
 {
 private:
+<<<<<<< HEAD
     std::string unitName; /** Nom de l'unit*/
     card* cardIndex; /** Pointe vers la carte a partir de laquelle est genere l'unit*/
     int hp, /** Points de vie actuels de l'unit*/
@@ -27,6 +28,14 @@ private:
         canMove; /** Indique si l'unit peut bouger*/
     std::vector<statusInfo> appliedStatus; /** Effets d'etat qui souffre l'unit*/
     statusInfo attackStatus; /** Effet d'etat que l'unit peut apliquer à d'autres en combattant*/
+=======
+    std::string unitName;
+    card* cardIndex; // cardIndex relie l'unite a la carte qui lui donne ses stats et effets defaults
+    int hp, atk, ptr, xpos, ypos, movRange, atkRange; // les pos indiquent la position dans de le tableau du jeu
+    bool player1, isChamp, canAttack, canMove; // bool pour savoir auquel jouer appartient l'unite
+    std::vector<statusInfo> appliedStatus;
+
+>>>>>>> 6b2c50a84b9a0b3ebf95ca5cfe7deb811f66ffaf
 public:
     unit();
     unit(card& Ncard, bool play);
