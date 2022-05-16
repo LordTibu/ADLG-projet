@@ -1,0 +1,4 @@
+<map id="gameBoard" name="gameBoard">
+<area shape="rect" id="node1" title="Classe qui gere le tableau de Jeu." alt="" coords="5,277,153,516"/>
+<area shape="rect" id="node2" href="$classgameSquare.html" title="Classe qui gere les cases de jeu." alt="" coords="5,5,153,215"/>
+</map>

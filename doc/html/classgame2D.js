@@ -1,0 +1,28 @@
+var classgame2D =
+[
+    [ "game2D", "classgame2D.html#aa216c994e46d839add58f6b0ecb3124e", null ],
+    [ "~game2D", "classgame2D.html#a755920059910d6ac382b44aa596806f6", null ],
+    [ "cleangame2D", "classgame2D.html#ab9b5a76228a6ae9879f75dc81c4c82b3", null ],
+    [ "connectmultiplayer", "classgame2D.html#a529ca7f7bc77ab15bfa6afddfe67cffe", null ],
+    [ "initgame2D", "classgame2D.html#a058b2a1c9996be45f018cabd71a82038", null ],
+    [ "local", "classgame2D.html#aa96113dcf46d1983c8d2d9f18f1a7c88", null ],
+    [ "menu2D", "classgame2D.html#a9d833a2c5f7efa5a32b78dc28ad93b4b", null ],
+    [ "mulplayerserver", "classgame2D.html#a46066b5c002b277b3ba35a5a52c4bb52", null ],
+    [ "typegame", "classgame2D.html#a725e0ecbe6402bb8b22a35af3fdfe827", null ],
+    [ "updategame2D", "classgame2D.html#aac35a517e0902b9ae144316fe01aa6c0", null ],
+    [ "actUnit", "classgame2D.html#af067dc311cc1f544a6eaba711c685735", null ],
+    [ "aff", "classgame2D.html#a6768601a65e6fb139b5773a8a01964c4", null ],
+    [ "cartSelect", "classgame2D.html#a44bc2a7ec92de9f3c763006a9c6f8ccc", null ],
+    [ "deployPhase", "classgame2D.html#acc25ceb5c51abeeeeedecfa0eeabe32a", null ],
+    [ "FPS", "classgame2D.html#a2bca53c14f920a3f2550f4980327da32", null ],
+    [ "frameDelay", "classgame2D.html#a945fc011f10fb5174597c164250a682c", null ],
+    [ "frameStart", "classgame2D.html#a34d1d73e11850f91dbfee26a871cab33", null ],
+    [ "frameTime", "classgame2D.html#a2397cbbcb6c50128f71042a5b8d1dc5d", null ],
+    [ "input", "classgame2D.html#ae9c22441f2c0d4b31c7ed38a7a5c1dd4", null ],
+    [ "inputgame", "classgame2D.html#ad18a9d84380236171fb1cf5ba1ad0299", null ],
+    [ "isNOInit", "classgame2D.html#a1fe4593b0eae21a5213a5726a96cfb12", null ],
+    [ "isUnits", "classgame2D.html#a4bf03ad01f365ad5f7d54089b3c8723b", null ],
+    [ "jeu", "classgame2D.html#acbc765520396c6c841054df837f6b7ba", null ],
+    [ "playerTurn", "classgame2D.html#a3e7e1271e2c4fffb391158818174c0ed", null ],
+    [ "tailleG", "classgame2D.html#a903d8a6c9a6865ca48f37c739552fe24", null ]
+];

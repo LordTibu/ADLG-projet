@@ -1,0 +1,12 @@
+<map id="gameConsole" name="gameConsole">
+<area shape="rect" id="node1" title="Classe qui gère le jeu en version console." alt="" coords="404,1063,619,1653"/>
+<area shape="rect" id="node2" href="$classserver.html" title="class qui gère le server" alt="" coords="5,512,156,809"/>
+<area shape="rect" id="node3" href="$classunit.html" title="class qui gère l&#39;unit" alt="" coords="181,351,354,971"/>
+<area shape="rect" id="node4" href="$structstatusInfo.html" title=" " alt="" coords="130,101,247,193"/>
+<area shape="rect" id="node5" href="$classcard.html" title="class qui gère les cartes dans le jeu" alt="" coords="271,5,419,288"/>
+<area shape="rect" id="node6" href="$classstatusCodex.html" title=" " alt="" coords="378,593,517,729"/>
+<area shape="rect" id="node7" href="$classgameBoard.html" title="Classe qui gere le tableau de Jeu." alt="" coords="541,541,689,780"/>
+<area shape="rect" id="node8" href="$classgameSquare.html" title="Classe qui gere les cases de jeu." alt="" coords="541,42,689,251"/>
+<area shape="rect" id="node9" href="$classclient.html" title="class qui gère le client" alt="" coords="713,534,864,787"/>
+<area shape="rect" id="node10" href="$classcardLib.html" title="class qui gère la librarie des cartes" alt="" coords="888,534,1039,787"/>
+</map>

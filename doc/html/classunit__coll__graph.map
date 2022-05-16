@@ -1,0 +1,5 @@
+<map id="unit" name="unit">
+<area shape="rect" id="node1" title="class qui gère l&#39;unit" alt="" coords="55,351,228,971"/>
+<area shape="rect" id="node2" href="$structstatusInfo.html" title=" " alt="" coords="5,101,123,193"/>
+<area shape="rect" id="node3" href="$classcard.html" title="class qui gère les cartes dans le jeu" alt="" coords="146,5,294,288"/>
+</map>

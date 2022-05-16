@@ -9,6 +9,10 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -45,6 +49,23 @@ $(function() {
 });
 /* @license-end */</script>
 <div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('classclient.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -59,7 +80,6 @@ $(function() {
 </iframe>
 </div>
 
-</div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
@@ -75,6 +95,12 @@ $(function() {
  <a href="classclient.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="client_8h_source.html">client.h</a>&gt;</code></p>
+<div class="dynheader">
+Collaboration diagram for client:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classclient__coll__graph.svg" width="162" height="264"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -83,12 +109,16 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ad45e388579b8c0ffec6f29ed2c0c4de9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classclient.html#ad45e388579b8c0ffec6f29ed2c0c4de9">~client</a> ()</td></tr>
 <tr class="separator:ad45e388579b8c0ffec6f29ed2c0c4de9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6b93e0554c4f739bfba55666ec34e811"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classclient.html#a6b93e0554c4f739bfba55666ec34e811">clientInit</a> (char *arg1, int arg2)</td></tr>
+<tr class="memdesc:a6b93e0554c4f739bfba55666ec34e811"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialisation.  <a href="classclient.html#a6b93e0554c4f739bfba55666ec34e811">More...</a><br /></td></tr>
 <tr class="separator:a6b93e0554c4f739bfba55666ec34e811"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a255e00e93c6183aed54ece55767d3033"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classclient.html#a255e00e93c6183aed54ece55767d3033">Send</a> ()</td></tr>
+<tr class="memdesc:a255e00e93c6183aed54ece55767d3033"><td class="mdescLeft">&#160;</td><td class="mdescRight">Envoi.  <a href="classclient.html#a255e00e93c6183aed54ece55767d3033">More...</a><br /></td></tr>
 <tr class="separator:a255e00e93c6183aed54ece55767d3033"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a36c485601d8d75815ccd27a7348d8ff9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classclient.html#a36c485601d8d75815ccd27a7348d8ff9">Receive</a> ()</td></tr>
+<tr class="memdesc:a36c485601d8d75815ccd27a7348d8ff9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Receive.  <a href="classclient.html#a36c485601d8d75815ccd27a7348d8ff9">More...</a><br /></td></tr>
 <tr class="separator:a36c485601d8d75815ccd27a7348d8ff9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a90bee8772d621005fd536fd6cbe6f678"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classclient.html#a90bee8772d621005fd536fd6cbe6f678">Communication</a> (char *arg1)</td></tr>
+<tr class="memdesc:a90bee8772d621005fd536fd6cbe6f678"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dialogue.  <a href="classclient.html#a90bee8772d621005fd536fd6cbe6f678">More...</a><br /></td></tr>
 <tr class="separator:a90bee8772d621005fd536fd6cbe6f678"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a17c8c23120dce39c7846985904eecabb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classclient.html#a17c8c23120dce39c7846985904eecabb">Close</a> ()</td></tr>
 <tr class="separator:a17c8c23120dce39c7846985904eecabb"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -100,17 +130,23 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:a15a29d9714f880277c9d90a1b90b977d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classclient.html#a15a29d9714f880277c9d90a1b90b977d">len</a></td></tr>
 <tr class="separator:a15a29d9714f880277c9d90a1b90b977d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac1d9fe5b1b3953603d94b7815a4f020a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classclient.html#ac1d9fe5b1b3953603d94b7815a4f020a">turn</a> =true</td></tr>
+<tr class="memdesc:ac1d9fe5b1b3953603d94b7815a4f020a"><td class="mdescLeft">&#160;</td><td class="mdescRight">boolean pour la gestion du tour du joueur  <a href="classclient.html#ac1d9fe5b1b3953603d94b7815a4f020a">More...</a><br /></td></tr>
 <tr class="separator:ac1d9fe5b1b3953603d94b7815a4f020a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7ec8ee3cad7f535f6c85105a63bb894c"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classclient.html#a7ec8ee3cad7f535f6c85105a63bb894c">buffer</a> [512]</td></tr>
+<tr class="memdesc:a7ec8ee3cad7f535f6c85105a63bb894c"><td class="mdescLeft">&#160;</td><td class="mdescRight">buffer pour la reception des donnes  <a href="classclient.html#a7ec8ee3cad7f535f6c85105a63bb894c">More...</a><br /></td></tr>
 <tr class="separator:a7ec8ee3cad7f535f6c85105a63bb894c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2d850dd2ed6bd5ae69f6c164644f4e42"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classclient.html#a2d850dd2ed6bd5ae69f6c164644f4e42">buffer2</a> [512]</td></tr>
+<tr class="memdesc:a2d850dd2ed6bd5ae69f6c164644f4e42"><td class="mdescLeft">&#160;</td><td class="mdescRight">buffer pour l'envoi des donnes  <a href="classclient.html#a2d850dd2ed6bd5ae69f6c164644f4e42">More...</a><br /></td></tr>
 <tr class="separator:a2d850dd2ed6bd5ae69f6c164644f4e42"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
 <tr class="memitem:a3b0b1ee5354fa0e9d1d5424dfdaea004"><td class="memItemLeft" align="right" valign="top">IPaddress&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classclient.html#a3b0b1ee5354fa0e9d1d5424dfdaea004">ip</a></td></tr>
+<tr class="memdesc:a3b0b1ee5354fa0e9d1d5424dfdaea004"><td class="mdescLeft">&#160;</td><td class="mdescRight">Server address.  <a href="classclient.html#a3b0b1ee5354fa0e9d1d5424dfdaea004">More...</a><br /></td></tr>
 <tr class="separator:a3b0b1ee5354fa0e9d1d5424dfdaea004"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad180476e4dd8c40ea4517d2bff8fc667"><td class="memItemLeft" align="right" valign="top">TCPsocket&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classclient.html#ad180476e4dd8c40ea4517d2bff8fc667">sd</a></td></tr>
+<tr class="memdesc:ad180476e4dd8c40ea4517d2bff8fc667"><td class="mdescLeft">&#160;</td><td class="mdescRight">Socket descriptor <br  />
+  <a href="classclient.html#ad180476e4dd8c40ea4517d2bff8fc667">More...</a><br /></td></tr>
 <tr class="separator:ad180476e4dd8c40ea4517d2bff8fc667"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -178,6 +214,16 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Initialisation. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">arg1</td><td>ip du serveur </td></tr>
+    <tr><td class="paramname">arg2</td><td>port</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>permet la connexion avec le serveur et initialise le jeu pour le client </p>
+
 </div>
 </div>
 <a id="a17c8c23120dce39c7846985904eecabb"></a>
@@ -213,6 +259,9 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Dialogue. </p>
+<p>permet la comunication avec le serveur et l'affichage pour le client </p>
+
 </div>
 </div>
 <a id="a36c485601d8d75815ccd27a7348d8ff9"></a>
@@ -229,6 +278,9 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Receive. </p>
+<p>permet la reception des donnes du serveur </p>
 
 </div>
 </div>
@@ -247,6 +299,9 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Envoi. </p>
+<p>permet l'envoi des donnes vers le serveur </p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
@@ -262,6 +317,8 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>buffer pour la reception des donnes </p>
+
 </div>
 </div>
 <a id="a2d850dd2ed6bd5ae69f6c164644f4e42"></a>
@@ -275,6 +332,8 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>buffer pour l'envoi des donnes </p>
 
 </div>
 </div>
@@ -297,6 +356,8 @@ Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Server address. </p>
 
 </div>
 </div>
@@ -325,7 +386,6 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Socket descriptor </p>
 
 </div>
 </div>
@@ -348,7 +408,9 @@ Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Server address </p>
+
+<p>Socket descriptor <br  />
+ </p>
 
 </div>
 </div>
@@ -364,18 +426,24 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>boolean pour la gestion du tour du joueur </p>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>/mnt/c/Users/jhomi/Documents/LIFAP4_2022/projet/projet-lifap4-2022/src/<a class="el" href="client_8h_source.html">client.h</a></li>
-<li>/mnt/c/Users/jhomi/Documents/LIFAP4_2022/projet/projet-lifap4-2022/src/<a class="el" href="client_8cpp.html">client.cpp</a></li>
+<li>/mnt/c/Linux/projet-lifap4-2022/src/<a class="el" href="client_8h_source.html">client.h</a></li>
+<li>/mnt/c/Linux/projet-lifap4-2022/src/<a class="el" href="client_8cpp.html">client.cpp</a></li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.17
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="classclient.html">client</a></li>
+    <li class="footer">Generated by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
+  </ul>
+</div>
 </body>
 </html>

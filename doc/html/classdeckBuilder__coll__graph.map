@@ -1,0 +1,4 @@
+<map id="deckBuilder" name="deckBuilder">
+<area shape="rect" id="node1" title="Application qui gere la creation et modification du Deck de l&#39;user." alt="" coords="13,336,148,604"/>
+<area shape="rect" id="node2" href="$classcardLib.html" title="class qui gère la librarie des cartes" alt="" coords="5,5,156,259"/>
+</map>

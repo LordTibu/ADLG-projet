@@ -9,6 +9,10 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -45,6 +49,23 @@ $(function() {
 });
 /* @license-end */</script>
 <div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('classaffichage2D.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -59,7 +80,6 @@ $(function() {
 </iframe>
 </div>
 
-</div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
@@ -72,33 +92,53 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>class qui gère l'affichage  
+ <a href="classaffichage2D.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="affichage2D_8h_source.html">affichage2D.h</a>&gt;</code></p>
+<div class="dynheader">
+Collaboration diagram for affichage2D:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classaffichage2D__coll__graph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a87ab7a0916897059a0aa2a514374913c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classaffichage2D.html#a87ab7a0916897059a0aa2a514374913c">affichage2D</a> ()</td></tr>
 <tr class="separator:a87ab7a0916897059a0aa2a514374913c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0d727b063eea919d45674e8de9fe9f3e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classaffichage2D.html#a0d727b063eea919d45674e8de9fe9f3e">init2D</a> ()</td></tr>
+<tr class="memdesc:a0d727b063eea919d45674e8de9fe9f3e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialisation.  <a href="classaffichage2D.html#a0d727b063eea919d45674e8de9fe9f3e">More...</a><br /></td></tr>
 <tr class="separator:a0d727b063eea919d45674e8de9fe9f3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2f60113984a308ade31774911ada39ea"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classaffichage2D.html#a2f60113984a308ade31774911ada39ea">initdeck2D</a> (int n, int d)</td></tr>
+<tr class="memdesc:a2f60113984a308ade31774911ada39ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialisation.  <a href="classaffichage2D.html#a2f60113984a308ade31774911ada39ea">More...</a><br /></td></tr>
 <tr class="separator:a2f60113984a308ade31774911ada39ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a414a26016d11767eeb22a191da9a7ab7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classaffichage2D.html#a414a26016d11767eeb22a191da9a7ab7">menu2D</a> ()</td></tr>
+<tr class="memdesc:a414a26016d11767eeb22a191da9a7ab7"><td class="mdescLeft">&#160;</td><td class="mdescRight">menu  <a href="classaffichage2D.html#a414a26016d11767eeb22a191da9a7ab7">More...</a><br /></td></tr>
 <tr class="separator:a414a26016d11767eeb22a191da9a7ab7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac3df915cdab812f221fd84bc62d4b855"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classaffichage2D.html#ac3df915cdab812f221fd84bc62d4b855">erasemenu2D</a> ()</td></tr>
+<tr class="memdesc:ac3df915cdab812f221fd84bc62d4b855"><td class="mdescLeft">&#160;</td><td class="mdescRight">menu  <a href="classaffichage2D.html#ac3df915cdab812f221fd84bc62d4b855">More...</a><br /></td></tr>
 <tr class="separator:ac3df915cdab812f221fd84bc62d4b855"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a79e6e4248b8200f076df1e02ff90825e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classaffichage2D.html#a79e6e4248b8200f076df1e02ff90825e">inittable2D</a> (int n)</td></tr>
-<tr class="separator:a79e6e4248b8200f076df1e02ff90825e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1add996a8c2ec9f50121f5430b16402f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classaffichage2D.html#a1add996a8c2ec9f50121f5430b16402f">drawTable</a> (int n)</td></tr>
+<tr class="memdesc:a1add996a8c2ec9f50121f5430b16402f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dessiner grille.  <a href="classaffichage2D.html#a1add996a8c2ec9f50121f5430b16402f">More...</a><br /></td></tr>
 <tr class="separator:a1add996a8c2ec9f50121f5430b16402f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2f0ceee0676dac6934502a0d16a2db9b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classaffichage2D.html#a2f0ceee0676dac6934502a0d16a2db9b">drawDeck</a> (int n, bool player)</td></tr>
+<tr class="memdesc:a2f0ceee0676dac6934502a0d16a2db9b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dessiner le deck du joueur.  <a href="classaffichage2D.html#a2f0ceee0676dac6934502a0d16a2db9b">More...</a><br /></td></tr>
 <tr class="separator:a2f0ceee0676dac6934502a0d16a2db9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7ba52072e066dab428f8aef8b4e61530"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classaffichage2D.html#a7ba52072e066dab428f8aef8b4e61530">drawGame</a> (int n, int d, bool cart, bool player, std::vector&lt; <a class="el" href="classunit.html">unit</a> &gt; UnitsPlayer, std::vector&lt; <a class="el" href="classunit.html">unit</a> &gt; UnitsEnnemy)</td></tr>
+<tr class="memdesc:a7ba52072e066dab428f8aef8b4e61530"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dessine tout le jeu.  <a href="classaffichage2D.html#a7ba52072e066dab428f8aef8b4e61530">More...</a><br /></td></tr>
 <tr class="separator:a7ba52072e066dab428f8aef8b4e61530"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab4ab3c0364bb43ba2961351462b0ea27"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classaffichage2D.html#ab4ab3c0364bb43ba2961351462b0ea27">drawEnd</a> ()</td></tr>
+<tr class="memdesc:ab4ab3c0364bb43ba2961351462b0ea27"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dessine tout le game over.  <a href="classaffichage2D.html#ab4ab3c0364bb43ba2961351462b0ea27">More...</a><br /></td></tr>
+<tr class="separator:ab4ab3c0364bb43ba2961351462b0ea27"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a23157c1e1cd212128110288000c66894"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classaffichage2D.html#a23157c1e1cd212128110288000c66894">drawallunits</a> (std::vector&lt; <a class="el" href="classunit.html">unit</a> &gt; Units, bool player)</td></tr>
+<tr class="memdesc:a23157c1e1cd212128110288000c66894"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dessiner tous les units du jouer.  <a href="classaffichage2D.html#a23157c1e1cd212128110288000c66894">More...</a><br /></td></tr>
 <tr class="separator:a23157c1e1cd212128110288000c66894"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6308ed9a3163c73b9e6d3c554ff886e4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classaffichage2D.html#a6308ed9a3163c73b9e6d3c554ff886e4">drawCart</a> (bool cart)</td></tr>
+<tr class="memdesc:a6308ed9a3163c73b9e6d3c554ff886e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dessiner une card.  <a href="classaffichage2D.html#a6308ed9a3163c73b9e6d3c554ff886e4">More...</a><br /></td></tr>
 <tr class="separator:a6308ed9a3163c73b9e6d3c554ff886e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0e08d24347064e81315a45d0c9825d77"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classaffichage2D.html#a0e08d24347064e81315a45d0c9825d77">drawUnit</a> (int <a class="el" href="classaffichage2D.html#ab96794fb2fca01d92fc267a97dcf83a4">posx</a>, int <a class="el" href="classaffichage2D.html#a8f7c290f8cd6b4b39b47526631a7f20f">posy</a>)</td></tr>
+<tr class="memdesc:a0e08d24347064e81315a45d0c9825d77"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dessine une unit.  <a href="classaffichage2D.html#a0e08d24347064e81315a45d0c9825d77">More...</a><br /></td></tr>
 <tr class="separator:a0e08d24347064e81315a45d0c9825d77"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4d9936d5af352a5236ae5765ee98b818"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classaffichage2D.html#a4d9936d5af352a5236ae5765ee98b818">clean2D</a> (int n)</td></tr>
 <tr class="separator:a4d9936d5af352a5236ae5765ee98b818"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -108,26 +148,36 @@ Public Member Functions</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a706cfdddfa157d6ee70cab49ed9c8b9e"><td class="memItemLeft" align="right" valign="top">SDL_Rect&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classaffichage2D.html#a706cfdddfa157d6ee70cab49ed9c8b9e">rectToDraw2</a></td></tr>
+<tr class="memdesc:a706cfdddfa157d6ee70cab49ed9c8b9e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Position des buttons du menu.  <a href="classaffichage2D.html#a706cfdddfa157d6ee70cab49ed9c8b9e">More...</a><br /></td></tr>
 <tr class="separator:a706cfdddfa157d6ee70cab49ed9c8b9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8652b05da460c93d316aad5633cb5bfe"><td class="memItemLeft" align="right" valign="top">SDL_Rect&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classaffichage2D.html#a8652b05da460c93d316aad5633cb5bfe">rectToDraw1</a></td></tr>
+<tr class="memdesc:a8652b05da460c93d316aad5633cb5bfe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Position des buttons du menu.  <a href="classaffichage2D.html#a8652b05da460c93d316aad5633cb5bfe">More...</a><br /></td></tr>
 <tr class="separator:a8652b05da460c93d316aad5633cb5bfe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afd3b5ed5dfc836f7f934b9100a0dbb96"><td class="memItemLeft" align="right" valign="top">SDL_Rect&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classaffichage2D.html#afd3b5ed5dfc836f7f934b9100a0dbb96">rectToDraw3</a></td></tr>
+<tr class="memdesc:afd3b5ed5dfc836f7f934b9100a0dbb96"><td class="mdescLeft">&#160;</td><td class="mdescRight">Position des buttons du menu.  <a href="classaffichage2D.html#afd3b5ed5dfc836f7f934b9100a0dbb96">More...</a><br /></td></tr>
 <tr class="separator:afd3b5ed5dfc836f7f934b9100a0dbb96"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac22102979d0401710e7883ae3b0b4036"><td class="memItemLeft" align="right" valign="top">SDL_Rect&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classaffichage2D.html#ac22102979d0401710e7883ae3b0b4036">rectToDraw4</a></td></tr>
+<tr class="memdesc:ac22102979d0401710e7883ae3b0b4036"><td class="mdescLeft">&#160;</td><td class="mdescRight">Position des buttons du menu.  <a href="classaffichage2D.html#ac22102979d0401710e7883ae3b0b4036">More...</a><br /></td></tr>
 <tr class="separator:ac22102979d0401710e7883ae3b0b4036"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a34e8e6b37c13405e6e148f04d39ce1a1"><td class="memItemLeft" align="right" valign="top">SDL_Rect&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classaffichage2D.html#a34e8e6b37c13405e6e148f04d39ce1a1">rectPlayer</a></td></tr>
+<tr class="memdesc:a34e8e6b37c13405e6e148f04d39ce1a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Position de la couleur du joueur.  <a href="classaffichage2D.html#a34e8e6b37c13405e6e148f04d39ce1a1">More...</a><br /></td></tr>
 <tr class="separator:a34e8e6b37c13405e6e148f04d39ce1a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae67b463a6a0eff2861861f4a1148e16a"><td class="memItemLeft" align="right" valign="top">SDL_Rect **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classaffichage2D.html#ae67b463a6a0eff2861861f4a1148e16a">table</a></td></tr>
+<tr class="memdesc:ae67b463a6a0eff2861861f4a1148e16a"><td class="mdescLeft">&#160;</td><td class="mdescRight">tableau de la position des case de la grille  <a href="classaffichage2D.html#ae67b463a6a0eff2861861f4a1148e16a">More...</a><br /></td></tr>
 <tr class="separator:ae67b463a6a0eff2861861f4a1148e16a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa6513ff78aebdf8f62ffec4daeb1a5be"><td class="memItemLeft" align="right" valign="top">SDL_Rect *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classaffichage2D.html#aa6513ff78aebdf8f62ffec4daeb1a5be">cartes</a></td></tr>
+<tr class="memdesc:aa6513ff78aebdf8f62ffec4daeb1a5be"><td class="mdescLeft">&#160;</td><td class="mdescRight">tableau des cartes  <a href="classaffichage2D.html#aa6513ff78aebdf8f62ffec4daeb1a5be">More...</a><br /></td></tr>
 <tr class="separator:aa6513ff78aebdf8f62ffec4daeb1a5be"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a42aaed27b25fcc84e911146e3009f3fa"><td class="memItemLeft" align="right" valign="top">SDL_Rect *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classaffichage2D.html#a42aaed27b25fcc84e911146e3009f3fa">PlayerUnits</a></td></tr>
+<tr class="memdesc:a42aaed27b25fcc84e911146e3009f3fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">tableau des unites du Joueur 1  <a href="classaffichage2D.html#a42aaed27b25fcc84e911146e3009f3fa">More...</a><br /></td></tr>
 <tr class="separator:a42aaed27b25fcc84e911146e3009f3fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3ccf7e4b6467b80c6e6d9e58c151655f"><td class="memItemLeft" align="right" valign="top">SDL_Rect *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classaffichage2D.html#a3ccf7e4b6467b80c6e6d9e58c151655f">EnnemyUnits</a></td></tr>
+<tr class="memdesc:a3ccf7e4b6467b80c6e6d9e58c151655f"><td class="mdescLeft">&#160;</td><td class="mdescRight">tableau des unites du Joueur 2  <a href="classaffichage2D.html#a3ccf7e4b6467b80c6e6d9e58c151655f">More...</a><br /></td></tr>
 <tr class="separator:a3ccf7e4b6467b80c6e6d9e58c151655f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a83173d4880f7bbe7ddeef920483a6ede"><td class="memItemLeft" align="right" valign="top">SDL_Event&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classaffichage2D.html#a83173d4880f7bbe7ddeef920483a6ede">event</a></td></tr>
 <tr class="separator:a83173d4880f7bbe7ddeef920483a6ede"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac721737f5acc7052ae057492ba36d7de"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classaffichage2D.html#ac721737f5acc7052ae057492ba36d7de">nameCard</a></td></tr>
+<tr class="memdesc:ac721737f5acc7052ae057492ba36d7de"><td class="mdescLeft">&#160;</td><td class="mdescRight">nom de la carte a afficher  <a href="classaffichage2D.html#ac721737f5acc7052ae057492ba36d7de">More...</a><br /></td></tr>
 <tr class="separator:ac721737f5acc7052ae057492ba36d7de"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a39ada15e70630df1944b231190fab920"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classaffichage2D.html#a39ada15e70630df1944b231190fab920">cardDisplayed</a> = false</td></tr>
 <tr class="separator:a39ada15e70630df1944b231190fab920"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -138,6 +188,7 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:ac569b89765d98f4c09336ee4a783d3e6"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classaffichage2D.html#ac569b89765d98f4c09336ee4a783d3e6">SCREEN_WIDTH</a></td></tr>
 <tr class="separator:ac569b89765d98f4c09336ee4a783d3e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a31fd249254a65446fb85186d8de8b663"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classaffichage2D.html#a31fd249254a65446fb85186d8de8b663">SCREEN_HEIGHT</a></td></tr>
+<tr class="memdesc:a31fd249254a65446fb85186d8de8b663"><td class="mdescLeft">&#160;</td><td class="mdescRight">taille de l'ecran largeur x hauteur  <a href="classaffichage2D.html#a31fd249254a65446fb85186d8de8b663">More...</a><br /></td></tr>
 <tr class="separator:a31fd249254a65446fb85186d8de8b663"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8678057b13a28a97c3784ee179865e7c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classaffichage2D.html#a8678057b13a28a97c3784ee179865e7c">isMenu</a> =true</td></tr>
 <tr class="separator:a8678057b13a28a97c3784ee179865e7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -155,42 +206,63 @@ Private Attributes</h2></td></tr>
 <tr class="memitem:a91a61330915cff39c987c30aa68c0034"><td class="memItemLeft" align="right" valign="top">SDL_Renderer *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classaffichage2D.html#a91a61330915cff39c987c30aa68c0034">renderer</a></td></tr>
 <tr class="separator:a91a61330915cff39c987c30aa68c0034"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae7df295673c95436cf9fbc8a2b7eb170"><td class="memItemLeft" align="right" valign="top">SDL_Texture *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classaffichage2D.html#ae7df295673c95436cf9fbc8a2b7eb170">Menu1</a></td></tr>
+<tr class="memdesc:ae7df295673c95436cf9fbc8a2b7eb170"><td class="mdescLeft">&#160;</td><td class="mdescRight">Texture pour le menu.  <a href="classaffichage2D.html#ae7df295673c95436cf9fbc8a2b7eb170">More...</a><br /></td></tr>
 <tr class="separator:ae7df295673c95436cf9fbc8a2b7eb170"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5f52c43bb00c1fb84e86e64391d92bc2"><td class="memItemLeft" align="right" valign="top">SDL_Texture *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classaffichage2D.html#a5f52c43bb00c1fb84e86e64391d92bc2">Menu2</a></td></tr>
+<tr class="memdesc:a5f52c43bb00c1fb84e86e64391d92bc2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Texture pour le menu.  <a href="classaffichage2D.html#a5f52c43bb00c1fb84e86e64391d92bc2">More...</a><br /></td></tr>
 <tr class="separator:a5f52c43bb00c1fb84e86e64391d92bc2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afada03fb9b86b27fc5e0a2a669a0f13a"><td class="memItemLeft" align="right" valign="top">SDL_Texture *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classaffichage2D.html#afada03fb9b86b27fc5e0a2a669a0f13a">Menu3</a></td></tr>
+<tr class="memdesc:afada03fb9b86b27fc5e0a2a669a0f13a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Texture pour le menu.  <a href="classaffichage2D.html#afada03fb9b86b27fc5e0a2a669a0f13a">More...</a><br /></td></tr>
 <tr class="separator:afada03fb9b86b27fc5e0a2a669a0f13a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7161fe9a8eadd7e581883f4888225d1e"><td class="memItemLeft" align="right" valign="top">SDL_Texture *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classaffichage2D.html#a7161fe9a8eadd7e581883f4888225d1e">Menu4</a></td></tr>
+<tr class="memdesc:a7161fe9a8eadd7e581883f4888225d1e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Texture pour le menu.  <a href="classaffichage2D.html#a7161fe9a8eadd7e581883f4888225d1e">More...</a><br /></td></tr>
 <tr class="separator:a7161fe9a8eadd7e581883f4888225d1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acd5a4f7b8184f17bedc5c3064eee833b"><td class="memItemLeft" align="right" valign="top">SDL_Texture *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classaffichage2D.html#acd5a4f7b8184f17bedc5c3064eee833b">backmenu</a></td></tr>
+<tr class="memdesc:acd5a4f7b8184f17bedc5c3064eee833b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Texture pour le menu.  <a href="classaffichage2D.html#acd5a4f7b8184f17bedc5c3064eee833b">More...</a><br /></td></tr>
 <tr class="separator:acd5a4f7b8184f17bedc5c3064eee833b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab4d79b7eda15781a4697847764131586"><td class="memItemLeft" align="right" valign="top">SDL_Texture *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classaffichage2D.html#ab4d79b7eda15781a4697847764131586">backgame</a></td></tr>
+<tr class="memdesc:ab4d79b7eda15781a4697847764131586"><td class="mdescLeft">&#160;</td><td class="mdescRight">Texture pour le jeu.  <a href="classaffichage2D.html#ab4d79b7eda15781a4697847764131586">More...</a><br /></td></tr>
 <tr class="separator:ab4d79b7eda15781a4697847764131586"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6868f63df422801a7157126afb5b4b30"><td class="memItemLeft" align="right" valign="top">SDL_Texture *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classaffichage2D.html#a6868f63df422801a7157126afb5b4b30">backcard</a></td></tr>
+<tr class="memdesc:a6868f63df422801a7157126afb5b4b30"><td class="mdescLeft">&#160;</td><td class="mdescRight">Texture pour le jeu.  <a href="classaffichage2D.html#a6868f63df422801a7157126afb5b4b30">More...</a><br /></td></tr>
 <tr class="separator:a6868f63df422801a7157126afb5b4b30"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac6108a173ad84c9cd54ebc59f2c3f524"><td class="memItemLeft" align="right" valign="top">SDL_Texture *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classaffichage2D.html#ac6108a173ad84c9cd54ebc59f2c3f524">cardselect</a></td></tr>
+<tr class="memdesc:ac6108a173ad84c9cd54ebc59f2c3f524"><td class="mdescLeft">&#160;</td><td class="mdescRight">Texture pour le jeu.  <a href="classaffichage2D.html#ac6108a173ad84c9cd54ebc59f2c3f524">More...</a><br /></td></tr>
 <tr class="separator:ac6108a173ad84c9cd54ebc59f2c3f524"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0567f7dc63ff37c2201a82e1f7b534f8"><td class="memItemLeft" align="right" valign="top">SDL_Texture *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classaffichage2D.html#a0567f7dc63ff37c2201a82e1f7b534f8">jesucristo</a></td></tr>
+<tr class="memdesc:a0567f7dc63ff37c2201a82e1f7b534f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Texture.  <a href="classaffichage2D.html#a0567f7dc63ff37c2201a82e1f7b534f8">More...</a><br /></td></tr>
 <tr class="separator:a0567f7dc63ff37c2201a82e1f7b534f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a51846b7a3b6e512d332205c24c977104"><td class="memItemLeft" align="right" valign="top">SDL_Texture *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classaffichage2D.html#a51846b7a3b6e512d332205c24c977104">soldat</a></td></tr>
+<tr class="memdesc:a51846b7a3b6e512d332205c24c977104"><td class="mdescLeft">&#160;</td><td class="mdescRight">Texture.  <a href="classaffichage2D.html#a51846b7a3b6e512d332205c24c977104">More...</a><br /></td></tr>
 <tr class="separator:a51846b7a3b6e512d332205c24c977104"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a76ad004eea4b949c8aacf8fd74ab1435"><td class="memItemLeft" align="right" valign="top">SDL_Texture *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classaffichage2D.html#a76ad004eea4b949c8aacf8fd74ab1435">archer</a></td></tr>
+<tr class="memdesc:a76ad004eea4b949c8aacf8fd74ab1435"><td class="mdescLeft">&#160;</td><td class="mdescRight">Texture.  <a href="classaffichage2D.html#a76ad004eea4b949c8aacf8fd74ab1435">More...</a><br /></td></tr>
 <tr class="separator:a76ad004eea4b949c8aacf8fd74ab1435"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab19229ba292858ed86f6d803feb33566"><td class="memItemLeft" align="right" valign="top">SDL_Texture *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classaffichage2D.html#ab19229ba292858ed86f6d803feb33566">peasant</a></td></tr>
+<tr class="memdesc:ab19229ba292858ed86f6d803feb33566"><td class="mdescLeft">&#160;</td><td class="mdescRight">Texture.  <a href="classaffichage2D.html#ab19229ba292858ed86f6d803feb33566">More...</a><br /></td></tr>
 <tr class="separator:ab19229ba292858ed86f6d803feb33566"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9709fbcec1b8b73cc99a33c85f45715f"><td class="memItemLeft" align="right" valign="top">SDL_Texture *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classaffichage2D.html#a9709fbcec1b8b73cc99a33c85f45715f">shinobi</a></td></tr>
+<tr class="memdesc:a9709fbcec1b8b73cc99a33c85f45715f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Texture.  <a href="classaffichage2D.html#a9709fbcec1b8b73cc99a33c85f45715f">More...</a><br /></td></tr>
 <tr class="separator:a9709fbcec1b8b73cc99a33c85f45715f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3455822c5efa3ce8753e780474cf6da1"><td class="memItemLeft" align="right" valign="top">SDL_Texture *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classaffichage2D.html#a3455822c5efa3ce8753e780474cf6da1">samurai</a></td></tr>
+<tr class="memdesc:a3455822c5efa3ce8753e780474cf6da1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Texture.  <a href="classaffichage2D.html#a3455822c5efa3ce8753e780474cf6da1">More...</a><br /></td></tr>
 <tr class="separator:a3455822c5efa3ce8753e780474cf6da1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acbdb09634de30c13763326f232d58751"><td class="memItemLeft" align="right" valign="top">SDL_Texture *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classaffichage2D.html#acbdb09634de30c13763326f232d58751">square</a></td></tr>
+<tr class="memdesc:acbdb09634de30c13763326f232d58751"><td class="mdescLeft">&#160;</td><td class="mdescRight">Texture pour le jeu.  <a href="classaffichage2D.html#acbdb09634de30c13763326f232d58751">More...</a><br /></td></tr>
 <tr class="separator:acbdb09634de30c13763326f232d58751"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2666c50d4697d0d5d846407f66a87e38"><td class="memItemLeft" align="right" valign="top">SDL_Texture *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classaffichage2D.html#a2666c50d4697d0d5d846407f66a87e38">end</a></td></tr>
+<tr class="memdesc:a2666c50d4697d0d5d846407f66a87e38"><td class="mdescLeft">&#160;</td><td class="mdescRight">Texture pour le jeu.  <a href="classaffichage2D.html#a2666c50d4697d0d5d846407f66a87e38">More...</a><br /></td></tr>
+<tr class="separator:a2666c50d4697d0d5d846407f66a87e38"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
 Friends</h2></td></tr>
 <tr class="memitem:a35c15f0c50a0d01cd88edcf0ee25da53"><td class="memItemLeft" align="right" valign="top">class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classaffichage2D.html#a35c15f0c50a0d01cd88edcf0ee25da53">game2D</a></td></tr>
 <tr class="separator:a35c15f0c50a0d01cd88edcf0ee25da53"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>class qui gère l'affichage </p>
+<p>Dans cette classe on gère l'affichage avec SDL2 du jeu </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a87ab7a0916897059a0aa2a514374913c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a87ab7a0916897059a0aa2a514374913c">&#9670;&nbsp;</a></span>affichage2D()</h2>
 
@@ -270,6 +342,16 @@ Friends</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Dessiner tous les units du jouer. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Units</td><td>vecteur de unit </td></tr>
+    <tr><td class="paramname">player</td><td>boolean qui indique quelle joueur est entrain de joueur</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>permet l'affichage de tous les units du jouer </p>
+
 </div>
 </div>
 <a id="a6308ed9a3163c73b9e6d3c554ff886e4"></a>
@@ -287,6 +369,15 @@ Friends</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Dessiner une card. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cart</td><td>boolean pour afficher une carte</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>permet l'affichage en grand a gauche de la carte selectionner </p>
 
 </div>
 </div>
@@ -315,6 +406,36 @@ Friends</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Dessiner le deck du joueur. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">n</td><td>taille du deck </td></tr>
+    <tr><td class="paramname">player</td><td>boolean qui indique quelle joueur est entrain de joueur</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>permet l'affichage du deck </p>
+
+</div>
+</div>
+<a id="ab4ab3c0364bb43ba2961351462b0ea27"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab4ab3c0364bb43ba2961351462b0ea27">&#9670;&nbsp;</a></span>drawEnd()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void affichage2D::drawEnd </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Dessine tout le game over. </p>
+<p>cette fonction affiche le game over </p>
 
 </div>
 </div>
@@ -368,6 +489,9 @@ Friends</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Dessine tout le jeu. </p>
+<p>cette fonction contient toutes les autres fonctions d'affichage </p>
+
 </div>
 </div>
 <a id="a1add996a8c2ec9f50121f5430b16402f"></a>
@@ -385,6 +509,15 @@ Friends</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Dessiner grille. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">n</td><td>taille de la grille</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>permet l'affichage de la grille </p>
 
 </div>
 </div>
@@ -414,6 +547,16 @@ Friends</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Dessine une unit. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">posx</td><td>position x dans la grille </td></tr>
+    <tr><td class="paramname">posy</td><td>position y dans la grille</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>permet l'affichage d'une unit dans la grille </p>
+
 </div>
 </div>
 <a id="ac3df915cdab812f221fd84bc62d4b855"></a>
@@ -431,6 +574,9 @@ Friends</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>menu </p>
+<p>permet d'effacer le menu </p>
+
 </div>
 </div>
 <a id="a0d727b063eea919d45674e8de9fe9f3e"></a>
@@ -447,6 +593,9 @@ Friends</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Initialisation. </p>
+<p>permet la initialisation de SDL2 </p>
 
 </div>
 </div>
@@ -476,23 +625,8 @@ Friends</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-</div>
-</div>
-<a id="a79e6e4248b8200f076df1e02ff90825e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a79e6e4248b8200f076df1e02ff90825e">&#9670;&nbsp;</a></span>inittable2D()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void affichage2D::inittable2D </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>n</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
+<p>Initialisation. </p>
+<p>permet la initialisation des textures et des buttons </p>
 
 </div>
 </div>
@@ -510,6 +644,9 @@ Friends</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>menu </p>
+<p>permet l'affichage du menu </p>
 
 </div>
 </div>
@@ -557,6 +694,8 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Texture. </p>
+
 </div>
 </div>
 <a id="a6868f63df422801a7157126afb5b4b30"></a>
@@ -578,6 +717,8 @@ Friends</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Texture pour le jeu. </p>
 
 </div>
 </div>
@@ -601,6 +742,8 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Texture pour le jeu. </p>
+
 </div>
 </div>
 <a id="acd5a4f7b8184f17bedc5c3064eee833b"></a>
@@ -622,6 +765,8 @@ Friends</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Texture pour le menu. </p>
 
 </div>
 </div>
@@ -659,6 +804,8 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Texture pour le jeu. </p>
+
 </div>
 </div>
 <a id="aa6513ff78aebdf8f62ffec4daeb1a5be"></a>
@@ -673,6 +820,32 @@ Friends</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>tableau des cartes </p>
+
+</div>
+</div>
+<a id="a2666c50d4697d0d5d846407f66a87e38"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2666c50d4697d0d5d846407f66a87e38">&#9670;&nbsp;</a></span>end</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">SDL_Texture* affichage2D::end</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Texture pour le jeu. </p>
+
 </div>
 </div>
 <a id="a3ccf7e4b6467b80c6e6d9e58c151655f"></a>
@@ -686,6 +859,8 @@ Friends</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>tableau des unites du Joueur 2 </p>
 
 </div>
 </div>
@@ -779,6 +954,8 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Texture. </p>
+
 </div>
 </div>
 <a id="ae7df295673c95436cf9fbc8a2b7eb170"></a>
@@ -800,6 +977,8 @@ Friends</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Texture pour le menu. </p>
 
 </div>
 </div>
@@ -823,6 +1002,8 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Texture pour le menu. </p>
+
 </div>
 </div>
 <a id="afada03fb9b86b27fc5e0a2a669a0f13a"></a>
@@ -844,6 +1025,8 @@ Friends</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Texture pour le menu. </p>
 
 </div>
 </div>
@@ -867,6 +1050,8 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Texture pour le menu. </p>
+
 </div>
 </div>
 <a id="ac721737f5acc7052ae057492ba36d7de"></a>
@@ -880,6 +1065,8 @@ Friends</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>nom de la carte a afficher </p>
 
 </div>
 </div>
@@ -903,6 +1090,8 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Texture. </p>
+
 </div>
 </div>
 <a id="a42aaed27b25fcc84e911146e3009f3fa"></a>
@@ -916,6 +1105,8 @@ Friends</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>tableau des unites du Joueur 1 </p>
 
 </div>
 </div>
@@ -959,6 +1150,8 @@ Friends</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Position de la couleur du joueur. </p>
+
 </div>
 </div>
 <a id="a8652b05da460c93d316aad5633cb5bfe"></a>
@@ -972,6 +1165,8 @@ Friends</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Position des buttons du menu. </p>
 
 </div>
 </div>
@@ -987,6 +1182,8 @@ Friends</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Position des buttons du menu. </p>
+
 </div>
 </div>
 <a id="afd3b5ed5dfc836f7f934b9100a0dbb96"></a>
@@ -1001,6 +1198,8 @@ Friends</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Position des buttons du menu. </p>
+
 </div>
 </div>
 <a id="ac22102979d0401710e7883ae3b0b4036"></a>
@@ -1014,6 +1213,8 @@ Friends</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Position des buttons du menu. </p>
 
 </div>
 </div>
@@ -1059,6 +1260,8 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Texture. </p>
+
 </div>
 </div>
 <a id="a31fd249254a65446fb85186d8de8b663"></a>
@@ -1072,6 +1275,8 @@ Friends</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>taille de l'ecran largeur x hauteur </p>
 
 </div>
 </div>
@@ -1109,6 +1314,8 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Texture. </p>
+
 </div>
 </div>
 <a id="a51846b7a3b6e512d332205c24c977104"></a>
@@ -1130,6 +1337,8 @@ Friends</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Texture. </p>
 
 </div>
 </div>
@@ -1153,6 +1362,8 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Texture pour le jeu. </p>
+
 </div>
 </div>
 <a id="ae67b463a6a0eff2861861f4a1148e16a"></a>
@@ -1166,6 +1377,8 @@ Friends</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>tableau de la position des case de la grille </p>
 
 </div>
 </div>
@@ -1192,15 +1405,19 @@ Friends</h2></td></tr>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>/mnt/c/Users/jhomi/Documents/LIFAP4_2022/projet/projet-lifap4-2022/src/<a class="el" href="affichage2D_8h_source.html">affichage2D.h</a></li>
-<li>/mnt/c/Users/jhomi/Documents/LIFAP4_2022/projet/projet-lifap4-2022/src/<a class="el" href="affichage2D_8cpp.html">affichage2D.cpp</a></li>
+<li>/mnt/c/Linux/projet-lifap4-2022/src/<a class="el" href="affichage2D_8h_source.html">affichage2D.h</a></li>
+<li>/mnt/c/Linux/projet-lifap4-2022/src/<a class="el" href="affichage2D_8cpp.html">affichage2D.cpp</a></li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.17
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="classaffichage2D.html">affichage2D</a></li>
+    <li class="footer">Generated by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
+  </ul>
+</div>
 </body>
 </html>

@@ -9,6 +9,10 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -45,6 +49,23 @@ $(function() {
 });
 /* @license-end */</script>
 <div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('classserver.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -59,7 +80,6 @@ $(function() {
 </iframe>
 </div>
 
-</div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
@@ -74,6 +94,12 @@ $(function() {
  <a href="classserver.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="server_8h_source.html">server.h</a>&gt;</code></p>
+<div class="dynheader">
+Collaboration diagram for server:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classserver__coll__graph.svg" width="162" height="308"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -82,14 +108,16 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ae3de4182db6fe6c656036f9e4da49204"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classserver.html#ae3de4182db6fe6c656036f9e4da49204">~server</a> ()</td></tr>
 <tr class="separator:ae3de4182db6fe6c656036f9e4da49204"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adfbf7392a81ebf4538953f144242f626"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classserver.html#adfbf7392a81ebf4538953f144242f626">serverInit</a> ()</td></tr>
+<tr class="memdesc:adfbf7392a81ebf4538953f144242f626"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialisation.  <a href="classserver.html#adfbf7392a81ebf4538953f144242f626">More...</a><br /></td></tr>
 <tr class="separator:adfbf7392a81ebf4538953f144242f626"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0c4427f0315545d6cf904a863e953cdd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classserver.html#a0c4427f0315545d6cf904a863e953cdd">Send</a> ()</td></tr>
+<tr class="memdesc:a0c4427f0315545d6cf904a863e953cdd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Envoi.  <a href="classserver.html#a0c4427f0315545d6cf904a863e953cdd">More...</a><br /></td></tr>
 <tr class="separator:a0c4427f0315545d6cf904a863e953cdd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a54d49770c2c9358f9cf2a2c67fb4cd70"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classserver.html#a54d49770c2c9358f9cf2a2c67fb4cd70">Receive</a> ()</td></tr>
+<tr class="memdesc:a54d49770c2c9358f9cf2a2c67fb4cd70"><td class="mdescLeft">&#160;</td><td class="mdescRight">Receive.  <a href="classserver.html#a54d49770c2c9358f9cf2a2c67fb4cd70">More...</a><br /></td></tr>
 <tr class="separator:a54d49770c2c9358f9cf2a2c67fb4cd70"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2768a8030663bb1190c0bd65829f2623"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classserver.html#a2768a8030663bb1190c0bd65829f2623">WriteMove</a> (const char move)</td></tr>
-<tr class="separator:a2768a8030663bb1190c0bd65829f2623"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9194795b37ba57df47b2e3d7f25b8c9b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classserver.html#a9194795b37ba57df47b2e3d7f25b8c9b">Communication</a> ()</td></tr>
+<tr class="memdesc:a9194795b37ba57df47b2e3d7f25b8c9b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dialogue.  <a href="classserver.html#a9194795b37ba57df47b2e3d7f25b8c9b">More...</a><br /></td></tr>
 <tr class="separator:a9194795b37ba57df47b2e3d7f25b8c9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a66c471f963b6bce4262d9ac25195b907"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classserver.html#a66c471f963b6bce4262d9ac25195b907">Close</a> ()</td></tr>
 <tr class="separator:a66c471f963b6bce4262d9ac25195b907"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -99,10 +127,12 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:aab6813ef3ba519a58413e853da13f1a1"><td class="memItemLeft" align="right" valign="top">TCPsocket&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classserver.html#aab6813ef3ba519a58413e853da13f1a1">sd</a></td></tr>
 <tr class="separator:aab6813ef3ba519a58413e853da13f1a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aea834b45e8b8944f0a230f424fd5b939"><td class="memItemLeft" align="right" valign="top">TCPsocket&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classserver.html#aea834b45e8b8944f0a230f424fd5b939">csd1</a></td></tr>
+<tr class="memdesc:aea834b45e8b8944f0a230f424fd5b939"><td class="mdescLeft">&#160;</td><td class="mdescRight">Socket descriptor, Client socket descriptor *&zwj;/.  <a href="classserver.html#aea834b45e8b8944f0a230f424fd5b939">More...</a><br /></td></tr>
 <tr class="separator:aea834b45e8b8944f0a230f424fd5b939"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a67c489a13ec0af29b38ab2ea595e4455"><td class="memItemLeft" align="right" valign="top">IPaddress&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classserver.html#a67c489a13ec0af29b38ab2ea595e4455">ip</a></td></tr>
 <tr class="separator:a67c489a13ec0af29b38ab2ea595e4455"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a49b7dcbfa7689dc115bf5be06eba97a4"><td class="memItemLeft" align="right" valign="top">IPaddress *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classserver.html#a49b7dcbfa7689dc115bf5be06eba97a4">remoteIP</a></td></tr>
+<tr class="memdesc:a49b7dcbfa7689dc115bf5be06eba97a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Server address, Client address.  <a href="classserver.html#a49b7dcbfa7689dc115bf5be06eba97a4">More...</a><br /></td></tr>
 <tr class="separator:a49b7dcbfa7689dc115bf5be06eba97a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae2ba84ee8e99ced15c3cb6fd100ae760"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classserver.html#ae2ba84ee8e99ced15c3cb6fd100ae760">quit</a></td></tr>
 <tr class="separator:ae2ba84ee8e99ced15c3cb6fd100ae760"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -119,7 +149,7 @@ Public Attributes</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>class qui gère le server </p>
-<p>Cette classe me chuâ los gvos </p>
+<p>Cette class permet la creation d'un serveur </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a30853862a28dda8c4c9b57b4e8f7de1a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a30853862a28dda8c4c9b57b4e8f7de1a">&#9670;&nbsp;</a></span>server()</h2>
@@ -188,6 +218,9 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Dialogue. </p>
+<p>permet la communication avec le client </p>
+
 </div>
 </div>
 <a id="a54d49770c2c9358f9cf2a2c67fb4cd70"></a>
@@ -204,6 +237,9 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Receive. </p>
+<p>permet la reception des donnes </p>
 
 </div>
 </div>
@@ -222,6 +258,9 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Envoi. </p>
+<p>permet l'envoi des donnes vers le client </p>
+
 </div>
 </div>
 <a id="adfbf7392a81ebf4538953f144242f626"></a>
@@ -239,23 +278,8 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-</div>
-</div>
-<a id="a2768a8030663bb1190c0bd65829f2623"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2768a8030663bb1190c0bd65829f2623">&#9670;&nbsp;</a></span>WriteMove()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void server::WriteMove </td>
-          <td>(</td>
-          <td class="paramtype">const char&#160;</td>
-          <td class="paramname"><em>move</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
+<p>Initialisation. </p>
+<p>permet l'initialisation d'un serveur et initialise le jeu pour le serveur </p>
 
 </div>
 </div>
@@ -299,6 +323,8 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Socket descriptor, Client socket descriptor *&zwj;/. </p>
 
 </div>
 </div>
@@ -370,6 +396,8 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Server address, Client address. </p>
+
 </div>
 </div>
 <a id="aab6813ef3ba519a58413e853da13f1a1"></a>
@@ -401,15 +429,19 @@ Public Attributes</h2></td></tr>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>/mnt/c/Users/jhomi/Documents/LIFAP4_2022/projet/projet-lifap4-2022/src/<a class="el" href="server_8h_source.html">server.h</a></li>
-<li>/mnt/c/Users/jhomi/Documents/LIFAP4_2022/projet/projet-lifap4-2022/src/<a class="el" href="server_8cpp.html">server.cpp</a></li>
+<li>/mnt/c/Linux/projet-lifap4-2022/src/<a class="el" href="server_8h_source.html">server.h</a></li>
+<li>/mnt/c/Linux/projet-lifap4-2022/src/<a class="el" href="server_8cpp.html">server.cpp</a></li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.17
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="classserver.html">server</a></li>
+    <li class="footer">Generated by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
+  </ul>
+</div>
 </body>
 </html>

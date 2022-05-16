@@ -9,6 +9,10 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -45,6 +49,23 @@ $(function() {
 });
 /* @license-end */</script>
 <div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('classgame2D.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -59,7 +80,6 @@ $(function() {
 </iframe>
 </div>
 
-</div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
@@ -72,24 +92,37 @@ $(function() {
 <div class="contents">
 
 <p><code>#include &lt;<a class="el" href="game2D_8h_source.html">game2D.h</a>&gt;</code></p>
+<div class="dynheader">
+Collaboration diagram for game2D:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classgame2D__coll__graph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:aa216c994e46d839add58f6b0ecb3124e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgame2D.html#aa216c994e46d839add58f6b0ecb3124e">game2D</a> ()</td></tr>
 <tr class="separator:aa216c994e46d839add58f6b0ecb3124e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a058b2a1c9996be45f018cabd71a82038"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgame2D.html#a058b2a1c9996be45f018cabd71a82038">initgame2D</a> ()</td></tr>
+<tr class="memdesc:a058b2a1c9996be45f018cabd71a82038"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialisation.  <a href="classgame2D.html#a058b2a1c9996be45f018cabd71a82038">More...</a><br /></td></tr>
 <tr class="separator:a058b2a1c9996be45f018cabd71a82038"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aac35a517e0902b9ae144316fe01aa6c0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgame2D.html#aac35a517e0902b9ae144316fe01aa6c0">updategame2D</a> ()</td></tr>
+<tr class="memdesc:aac35a517e0902b9ae144316fe01aa6c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">update  <a href="classgame2D.html#aac35a517e0902b9ae144316fe01aa6c0">More...</a><br /></td></tr>
 <tr class="separator:aac35a517e0902b9ae144316fe01aa6c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9d833a2c5f7efa5a32b78dc28ad93b4b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgame2D.html#a9d833a2c5f7efa5a32b78dc28ad93b4b">menu2D</a> ()</td></tr>
+<tr class="memdesc:a9d833a2c5f7efa5a32b78dc28ad93b4b"><td class="mdescLeft">&#160;</td><td class="mdescRight">menu buttons  <a href="classgame2D.html#a9d833a2c5f7efa5a32b78dc28ad93b4b">More...</a><br /></td></tr>
 <tr class="separator:a9d833a2c5f7efa5a32b78dc28ad93b4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa96113dcf46d1983c8d2d9f18f1a7c88"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgame2D.html#aa96113dcf46d1983c8d2d9f18f1a7c88">local</a> ()</td></tr>
+<tr class="memdesc:aa96113dcf46d1983c8d2d9f18f1a7c88"><td class="mdescLeft">&#160;</td><td class="mdescRight">jeu local  <a href="classgame2D.html#aa96113dcf46d1983c8d2d9f18f1a7c88">More...</a><br /></td></tr>
 <tr class="separator:aa96113dcf46d1983c8d2d9f18f1a7c88"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a46066b5c002b277b3ba35a5a52c4bb52"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgame2D.html#a46066b5c002b277b3ba35a5a52c4bb52">mulplayerserver</a> ()</td></tr>
+<tr class="memdesc:a46066b5c002b277b3ba35a5a52c4bb52"><td class="mdescLeft">&#160;</td><td class="mdescRight">jeu multiplayer serveur  <a href="classgame2D.html#a46066b5c002b277b3ba35a5a52c4bb52">More...</a><br /></td></tr>
 <tr class="separator:a46066b5c002b277b3ba35a5a52c4bb52"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a725e0ecbe6402bb8b22a35af3fdfe827"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgame2D.html#a725e0ecbe6402bb8b22a35af3fdfe827">typegame</a> ()</td></tr>
+<tr class="memdesc:a725e0ecbe6402bb8b22a35af3fdfe827"><td class="mdescLeft">&#160;</td><td class="mdescRight">type de jeu  <a href="classgame2D.html#a725e0ecbe6402bb8b22a35af3fdfe827">More...</a><br /></td></tr>
 <tr class="separator:a725e0ecbe6402bb8b22a35af3fdfe827"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a529ca7f7bc77ab15bfa6afddfe67cffe"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgame2D.html#a529ca7f7bc77ab15bfa6afddfe67cffe">connectmultiplayer</a> ()</td></tr>
+<tr class="memdesc:a529ca7f7bc77ab15bfa6afddfe67cffe"><td class="mdescLeft">&#160;</td><td class="mdescRight">jeu multiplayer connexion  <a href="classgame2D.html#a529ca7f7bc77ab15bfa6afddfe67cffe">More...</a><br /></td></tr>
 <tr class="separator:a529ca7f7bc77ab15bfa6afddfe67cffe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab9b5a76228a6ae9879f75dc81c4c82b3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgame2D.html#ab9b5a76228a6ae9879f75dc81c4c82b3">cleangame2D</a> ()</td></tr>
 <tr class="separator:ab9b5a76228a6ae9879f75dc81c4c82b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -103,20 +136,28 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:acbc765520396c6c841054df837f6b7ba"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classgameConsole.html">gameConsole</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgame2D.html#acbc765520396c6c841054df837f6b7ba">jeu</a></td></tr>
 <tr class="separator:acbc765520396c6c841054df837f6b7ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae9c22441f2c0d4b31c7ed38a7a5c1dd4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgame2D.html#ae9c22441f2c0d4b31c7ed38a7a5c1dd4">input</a></td></tr>
+<tr class="memdesc:ae9c22441f2c0d4b31c7ed38a7a5c1dd4"><td class="mdescLeft">&#160;</td><td class="mdescRight">input pour l'extraction des clicks pour le menu  <a href="classgame2D.html#ae9c22441f2c0d4b31c7ed38a7a5c1dd4">More...</a><br /></td></tr>
 <tr class="separator:ae9c22441f2c0d4b31c7ed38a7a5c1dd4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2bca53c14f920a3f2550f4980327da32"><td class="memItemLeft" align="right" valign="top">const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgame2D.html#a2bca53c14f920a3f2550f4980327da32">FPS</a> =60</td></tr>
+<tr class="memdesc:a2bca53c14f920a3f2550f4980327da32"><td class="mdescLeft">&#160;</td><td class="mdescRight">limitation de l'affichage  <a href="classgame2D.html#a2bca53c14f920a3f2550f4980327da32">More...</a><br /></td></tr>
 <tr class="separator:a2bca53c14f920a3f2550f4980327da32"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a945fc011f10fb5174597c164250a682c"><td class="memItemLeft" align="right" valign="top">const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgame2D.html#a945fc011f10fb5174597c164250a682c">frameDelay</a> =1000/<a class="el" href="classgame2D.html#a2bca53c14f920a3f2550f4980327da32">FPS</a></td></tr>
+<tr class="memdesc:a945fc011f10fb5174597c164250a682c"><td class="mdescLeft">&#160;</td><td class="mdescRight">limitation de l'affichage  <a href="classgame2D.html#a945fc011f10fb5174597c164250a682c">More...</a><br /></td></tr>
 <tr class="separator:a945fc011f10fb5174597c164250a682c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a34d1d73e11850f91dbfee26a871cab33"><td class="memItemLeft" align="right" valign="top">Uint32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgame2D.html#a34d1d73e11850f91dbfee26a871cab33">frameStart</a></td></tr>
+<tr class="memdesc:a34d1d73e11850f91dbfee26a871cab33"><td class="mdescLeft">&#160;</td><td class="mdescRight">limitation de l'affichage  <a href="classgame2D.html#a34d1d73e11850f91dbfee26a871cab33">More...</a><br /></td></tr>
 <tr class="separator:a34d1d73e11850f91dbfee26a871cab33"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2397cbbcb6c50128f71042a5b8d1dc5d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgame2D.html#a2397cbbcb6c50128f71042a5b8d1dc5d">frameTime</a></td></tr>
+<tr class="memdesc:a2397cbbcb6c50128f71042a5b8d1dc5d"><td class="mdescLeft">&#160;</td><td class="mdescRight">limitation de l'affichage  <a href="classgame2D.html#a2397cbbcb6c50128f71042a5b8d1dc5d">More...</a><br /></td></tr>
 <tr class="separator:a2397cbbcb6c50128f71042a5b8d1dc5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad18a9d84380236171fb1cf5ba1ad0299"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgame2D.html#ad18a9d84380236171fb1cf5ba1ad0299">inputgame</a></td></tr>
+<tr class="memdesc:ad18a9d84380236171fb1cf5ba1ad0299"><td class="mdescLeft">&#160;</td><td class="mdescRight">input pour l'extraction des clicks pour le jeu  <a href="classgame2D.html#ad18a9d84380236171fb1cf5ba1ad0299">More...</a><br /></td></tr>
 <tr class="separator:ad18a9d84380236171fb1cf5ba1ad0299"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1fe4593b0eae21a5213a5726a96cfb12"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgame2D.html#a1fe4593b0eae21a5213a5726a96cfb12">isNOInit</a></td></tr>
+<tr class="memdesc:a1fe4593b0eae21a5213a5726a96cfb12"><td class="mdescLeft">&#160;</td><td class="mdescRight">bool pour l'initialisation de jeu  <a href="classgame2D.html#a1fe4593b0eae21a5213a5726a96cfb12">More...</a><br /></td></tr>
 <tr class="separator:a1fe4593b0eae21a5213a5726a96cfb12"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a903d8a6c9a6865ca48f37c739552fe24"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgame2D.html#a903d8a6c9a6865ca48f37c739552fe24">tailleG</a></td></tr>
+<tr class="memdesc:a903d8a6c9a6865ca48f37c739552fe24"><td class="mdescLeft">&#160;</td><td class="mdescRight">taille de la grille  <a href="classgame2D.html#a903d8a6c9a6865ca48f37c739552fe24">More...</a><br /></td></tr>
 <tr class="separator:a903d8a6c9a6865ca48f37c739552fe24"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a44bc2a7ec92de9f3c763006a9c6f8ccc"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgame2D.html#a44bc2a7ec92de9f3c763006a9c6f8ccc">cartSelect</a> =false</td></tr>
 <tr class="separator:a44bc2a7ec92de9f3c763006a9c6f8ccc"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -200,6 +241,8 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>jeu multiplayer connexion </p>
+
 </div>
 </div>
 <a id="a058b2a1c9996be45f018cabd71a82038"></a>
@@ -216,6 +259,9 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Initialisation. </p>
+<p>initialise le jeu en 2D </p>
 
 </div>
 </div>
@@ -234,6 +280,9 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>jeu local </p>
+<p>gestion de la version 2D du jeu en local </p>
+
 </div>
 </div>
 <a id="a9d833a2c5f7efa5a32b78dc28ad93b4b"></a>
@@ -250,6 +299,9 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>menu buttons </p>
+<p>gestion de tous les buttons du menu </p>
 
 </div>
 </div>
@@ -268,6 +320,8 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>jeu multiplayer serveur </p>
+
 </div>
 </div>
 <a id="a725e0ecbe6402bb8b22a35af3fdfe827"></a>
@@ -285,6 +339,9 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>type de jeu </p>
+<p>permet de lancer un des 3 modes de jeu selon la valeur de input </p>
+
 </div>
 </div>
 <a id="aac35a517e0902b9ae144316fe01aa6c0"></a>
@@ -301,6 +358,9 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>update </p>
+<p>contient tout correspondant a l'affichage et la gestion des buttons </p>
 
 </div>
 </div>
@@ -389,6 +449,8 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>limitation de l'affichage </p>
+
 </div>
 </div>
 <a id="a945fc011f10fb5174597c164250a682c"></a>
@@ -402,6 +464,8 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>limitation de l'affichage </p>
 
 </div>
 </div>
@@ -417,6 +481,8 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>limitation de l'affichage </p>
+
 </div>
 </div>
 <a id="a2397cbbcb6c50128f71042a5b8d1dc5d"></a>
@@ -430,6 +496,8 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>limitation de l'affichage </p>
 
 </div>
 </div>
@@ -445,6 +513,8 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>input pour l'extraction des clicks pour le menu </p>
+
 </div>
 </div>
 <a id="ad18a9d84380236171fb1cf5ba1ad0299"></a>
@@ -459,6 +529,8 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>input pour l'extraction des clicks pour le jeu </p>
+
 </div>
 </div>
 <a id="a1fe4593b0eae21a5213a5726a96cfb12"></a>
@@ -472,6 +544,8 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>bool pour l'initialisation de jeu </p>
 
 </div>
 </div>
@@ -537,18 +611,24 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>taille de la grille </p>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>/mnt/c/Users/jhomi/Documents/LIFAP4_2022/projet/projet-lifap4-2022/src/<a class="el" href="game2D_8h_source.html">game2D.h</a></li>
-<li>/mnt/c/Users/jhomi/Documents/LIFAP4_2022/projet/projet-lifap4-2022/src/<a class="el" href="game2D_8cpp.html">game2D.cpp</a></li>
+<li>/mnt/c/Linux/projet-lifap4-2022/src/<a class="el" href="game2D_8h_source.html">game2D.h</a></li>
+<li>/mnt/c/Linux/projet-lifap4-2022/src/<a class="el" href="game2D_8cpp.html">game2D.cpp</a></li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.17
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="classgame2D.html">game2D</a></li>
+    <li class="footer">Generated by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
+  </ul>
+</div>
 </body>
 </html>

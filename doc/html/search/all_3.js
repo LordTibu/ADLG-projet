@@ -17,7 +17,8 @@ var searchData=
   ['drawallunits_74',['drawallunits',['../classaffichage2D.html#a23157c1e1cd212128110288000c66894',1,'affichage2D']]],
   ['drawcart_75',['drawCart',['../classaffichage2D.html#a6308ed9a3163c73b9e6d3c554ff886e4',1,'affichage2D']]],
   ['drawdeck_76',['drawDeck',['../classaffichage2D.html#a2f0ceee0676dac6934502a0d16a2db9b',1,'affichage2D']]],
-  ['drawgame_77',['drawGame',['../classaffichage2D.html#a7ba52072e066dab428f8aef8b4e61530',1,'affichage2D']]],
-  ['drawtable_78',['drawTable',['../classaffichage2D.html#a1add996a8c2ec9f50121f5430b16402f',1,'affichage2D']]],
-  ['drawunit_79',['drawUnit',['../classaffichage2D.html#a0e08d24347064e81315a45d0c9825d77',1,'affichage2D']]]
+  ['drawend_77',['drawEnd',['../classaffichage2D.html#ab4ab3c0364bb43ba2961351462b0ea27',1,'affichage2D']]],
+  ['drawgame_78',['drawGame',['../classaffichage2D.html#a7ba52072e066dab428f8aef8b4e61530',1,'affichage2D']]],
+  ['drawtable_79',['drawTable',['../classaffichage2D.html#a1add996a8c2ec9f50121f5430b16402f',1,'affichage2D']]],
+  ['drawunit_80',['drawUnit',['../classaffichage2D.html#a0e08d24347064e81315a45d0c9825d77',1,'affichage2D']]]
 ];
