@@ -14,8 +14,10 @@
 class gameConsole
 {
 private:
-    unsigned int xmove, /** input de l'utilisateur pour bouger une unit*/
-    ymove; /** input de l'utilisateur pour bouger une unit*/
+    /** input de l'utilisateur pour bouger une unit*/
+    unsigned int xmove,
+    /** input de l'utilisateur pour bouger une unit*/
+    ymove;
     int input; /** input de l'utilisateur pour controler plusieurs aspects du jeu (comme quelle unite utiliser)*/
     bool stay = true;
     bool deployPhase = true;
