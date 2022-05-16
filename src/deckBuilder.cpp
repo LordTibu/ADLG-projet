@@ -125,3 +125,5 @@ void deckBuilder::saveDeck(){
         cout << "Vous ne pouvez pas enregistrer un deck sans champion" << endl;
     }
 }
+
+void deckBuilder::setStay(bool s) {stay = s;}

@@ -37,5 +37,6 @@ public:
      * avec les cartes actuellement dedans userDeck
     */
     void saveDeck(); 
+    void setStay(bool s);
 };
 #endif

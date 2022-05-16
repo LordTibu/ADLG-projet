@@ -169,7 +169,7 @@ void unit::applyStatus(const status& s){
 void unit::addAppliedStatus(const statusInfo& s){
     int i = 0;
     bool b = true;
-    while(i < appliedStatus.size() && b){
+    while(i < (int)appliedStatus.size() && b){
         if(appliedStatus[i].statIndex == s.statIndex){
             appliedStatus[i].statStrength += s.statStrength;
             b = false;

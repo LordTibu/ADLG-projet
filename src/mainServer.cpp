@@ -7,7 +7,5 @@ int main(void){
     jeu.gameInitServer(5, 5);
     
     jeu.gameUpdateNET();
-    
-    cout << "SegFault after main" << endl;
     return 0;
 }

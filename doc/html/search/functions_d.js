@@ -1,11 +1,12 @@
 var searchData=
 [
-  ['savedeck_434',['saveDeck',['../classdeckBuilder.html#a356800b4b84aae28e382e55d372b0a80',1,'deckBuilder']]],
-  ['savetofile_435',['saveToFile',['../classcardLib.html#aa14b25404fe229ecf999571beb6ab86a',1,'cardLib']]],
-  ['send_436',['Send',['../classclient.html#a255e00e93c6183aed54ece55767d3033',1,'client::Send()'],['../classserver.html#a0c4427f0315545d6cf904a863e953cdd',1,'server::Send()']]],
-  ['server_437',['server',['../classserver.html#a30853862a28dda8c4c9b57b4e8f7de1a',1,'server']]],
-  ['serverinit_438',['serverInit',['../classserver.html#adfbf7392a81ebf4538953f144242f626',1,'server']]],
-  ['setname_439',['setName',['../classgameSquare.html#a8afa06def05acd0fa9c718a2359d3bd3',1,'gameSquare']]],
+  ['savedeck_433',['saveDeck',['../classdeckBuilder.html#a356800b4b84aae28e382e55d372b0a80',1,'deckBuilder']]],
+  ['savetofile_434',['saveToFile',['../classcardLib.html#aa14b25404fe229ecf999571beb6ab86a',1,'cardLib']]],
+  ['send_435',['Send',['../classclient.html#a255e00e93c6183aed54ece55767d3033',1,'client::Send()'],['../classserver.html#a0c4427f0315545d6cf904a863e953cdd',1,'server::Send()']]],
+  ['server_436',['server',['../classserver.html#a30853862a28dda8c4c9b57b4e8f7de1a',1,'server']]],
+  ['serverinit_437',['serverInit',['../classserver.html#adfbf7392a81ebf4538953f144242f626',1,'server']]],
+  ['setname_438',['setName',['../classgameSquare.html#a8afa06def05acd0fa9c718a2359d3bd3',1,'gameSquare']]],
+  ['setstay_439',['setStay',['../classdeckBuilder.html#a1da09ce575251b270dc6c49b42400562',1,'deckBuilder']]],
   ['setto_440',['setTo',['../classunit.html#ab9cb7301edef594610c2fcd5758b3d1b',1,'unit']]],
   ['sortd_441',['sortD',['../classcardLib.html#a281bb136715fd6d173bc15154397a903',1,'cardLib']]],
   ['sortdeck_442',['sortDeck',['../classdeckBuilder.html#a345af5a8a5bb801696ed059175ab0005',1,'deckBuilder']]],
