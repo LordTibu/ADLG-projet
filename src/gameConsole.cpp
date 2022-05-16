@@ -71,15 +71,11 @@ void gameConsole::attackByPlayer(int input){
             cout << "Initiating battle" << endl;
             cout << "********************" << endl;
             cout << endl;
-            if(playerUnits[input - 1].battleUnit(ennemyUnits[index])){ // Si victoire alliée
+            if(playerUnits[input - 1].battleUnit(ennemyUnits[index])){ // Si ennemi vaincu
                 ennemyUnits.erase(ennemyUnits.begin() + index); // On elimine l'unite ennemie
                 GB[playerUnits[input - 1].getY() * dim + playerUnits[input - 1].getX()].deOccupy(); //on deOccupe la case anterieur
                 GB[ymove * dim + xmove].occupy(playerUnits[input - 1]);
-                playerUnits[input - 1].setTo(xmove, ymove); // on update xpos et ypos l'unite
-            }
-            else{ // En cas de defaite
-                GB.getTable()[playerUnits[input - 1].getY() * dim + playerUnits[input - 1].getX()].deOccupy();
-                playerUnits.erase(std::next(playerUnits.begin(), input - 1));
+                if(playerUnits[input - 1].getAtkRange() == 1) playerUnits[input - 1].setTo(xmove, ymove); // on update xpos et ypos l'unite
             }
             actUnit = false;
             deployPhase = !deployPhase;
@@ -101,15 +97,11 @@ void gameConsole::attackByEnnemy(int input){
             cout << "********************" << endl;
             cout << "Initiating battle" << endl;
             cout << "********************" << endl;
-            if(ennemyUnits[input - 1].battleUnit(playerUnits[index])){ // Si victoire alliée
+            if(ennemyUnits[input - 1].battleUnit(playerUnits[index])){ // Si ennemi vaincu
                 playerUnits.erase(std::next(playerUnits.begin(), index - 1)); // On elimine l'unite ennemie
                 GB.getTable()[ennemyUnits[input - 1].getY() * dim + ennemyUnits[input - 1].getX()].deOccupy(); //on deOccupe la case anterieur
                 GB.getTable()[ymove * dim + xmove].occupy(ennemyUnits[input - 1]);
                 ennemyUnits[input - 1].setTo(xmove, ymove); // on update xpos et ypos l'unite
-            }
-            else{ // En cas de defaite
-                GB.getTable()[ennemyUnits[input - 1].getY() * dim + ennemyUnits[input - 1].getX()].deOccupy();
-                ennemyUnits.erase(std::next(ennemyUnits.begin(), input - 1));
             }
             actUnit = false;
             deployPhase = !deployPhase;

@@ -30,6 +30,9 @@ unit::~unit(){
 
 int unit::getX() const {return xpos;}
 int unit::getY() const {return ypos;}
+int unit::getAtkRange() const{
+    return atkRange;
+}
 std::string unit::getName() const {
     std::string r;
     r.push_back(unitName.at(0));
@@ -73,7 +76,7 @@ void unit::attackUnitNET(unit &ennemy){
     if(ennemy.ptr >= atk){
         ennemy.ptr -= atk;
     }else { 
-        atk_m= atk - ennemy.ptr;
+        atk_m = atk - ennemy.ptr;
         if(ennemy.hp <= atk_m){
             ennemy.ptr = 0;
             ennemy.hp = 0;
@@ -93,43 +96,23 @@ void unit::attackUnitNET(unit &ennemy){
 }
 
 bool unit::battleUnit(unit &ennemy){
-    bool turn = true;
-    while(hp !=0 && ennemy.hp != 0){
-        if(turn) attackUnit(ennemy);
-        else ennemy.attackUnit(*this);
-        turn = !turn;
-    }
-    if(hp == 0){
-        std::cout << "Mission Failed, we'll get them next time" << std::endl;
-        std::this_thread::sleep_for(std::chrono::milliseconds(2000));
-        return false;
-    }
-    else{
-        std::cout << "Great Success, the Motherland shall be proud of your efforts" << std::endl;
+    attackUnit(ennemy);
+    if(ennemy.hp == 0){
+        std::cout << "#### L'unite ennemie est eliminé ####" << std::endl;
         std::this_thread::sleep_for(std::chrono::milliseconds(2000));
         return true;
     }
-    
+    return false;
 }
 
 bool unit::battleUnitNET(unit &ennemy){
-    bool turn = true;
-    while(hp !=0 && ennemy.hp != 0){
-        if(turn) attackUnitNET(ennemy);
-        else ennemy.attackUnitNET(*this);
-        turn = !turn;
-    }
-    if(hp == 0){
-        std::cout << "Mission Failed, we'll get them next time" << std::endl;
-        std::this_thread::sleep_for(std::chrono::milliseconds(2000));
-        return false;
-    }
-    else{
-        std::cout << "Great Success, the Motherland shall be proud of your efforts" << std::endl;
+    attackUnitNET(ennemy);
+    if(ennemy.hp == 0){
+        std::cout << "#### L'unite ennemie est eliminé ####" << std::endl;
         std::this_thread::sleep_for(std::chrono::milliseconds(2000));
         return true;
     }
-    
+    return false;
 }
 
 void unit::afficherConsole() const{
@@ -146,7 +129,7 @@ void unit::afficherPosition(){
     std::cout << "pos: " << xpos  << ";" << ypos << std::endl;
 }
 
-bool unit::moveTo(unsigned int x, unsigned int y){
+bool unit::moveTo(int x, int y){
     if(isInRange(x, y)){
     xpos = x;
     ypos = y;
@@ -181,6 +164,19 @@ void unit::applyStatus(const status& s){
          std::cout << "applied Weakened to unit" << std::endl;
         if(atk > 1) atk -= 1;
     }
+}
+
+void unit::addAppliedStatus(const statusInfo& s){
+    int i = 0;
+    bool b = true;
+    while(i < appliedStatus.size() && b){
+        if(appliedStatus[i].statIndex == s.statIndex){
+            appliedStatus[i].statStrength += s.statStrength;
+            b = false;
+        }
+        i++;
+    }
+    if(!b) appliedStatus.push_back(s);
 }
 
 int unit::getAppliedSize() const{
