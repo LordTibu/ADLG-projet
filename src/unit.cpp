@@ -17,8 +17,11 @@ unit::unit(card& Ncard, bool play){
     movRange = Ncard.movRange;
     atkRange = Ncard.atkRange;
     isChamp = Ncard.isChamp;
+    canMove = true;
+    canAttack = true;
     if(player1) {xpos = ypos = -1;}
     else {xpos = ypos = -1;}
+    appliedStatus.push_back({0 , 3});
 }
 
 unit::~unit(){
@@ -153,16 +156,53 @@ bool unit::moveTo(unsigned int x, unsigned int y){
     return false;
 }
 
+void unit::applyStatus(const status& s){
+    std::string name;
+    name = s.getName();
+    name.pop_back(); //name a \n a la fin du coup faut l'enlever
+    if(name == "Poisoned"){
+        std::cout << "applied Poisoned to unit" << std::endl;
+        if(hp > 1) hp -= 1;
+    }
+    if((name == "Frozen")){
+        std::cout << "applied Frozen to unit" << std::endl;
+        canMove = false;
+        canAttack = false;
+    }
+    if(name == "Blinded"){
+         std::cout << "applied Blinded to unit" << std::endl;
+        canAttack = false;
+    }
+    if(name == "Rooted"){
+         std::cout << "applied Rooted to unit" << std::endl;
+        canMove = false;
+    }
+    if(name == "Weakened"){
+         std::cout << "applied Weakened to unit" << std::endl;
+        if(atk > 1) atk -= 1;
+    }
+}
+
+int unit::getAppliedSize() const{
+    return appliedStatus.size();
+}
+statusInfo& unit::getAppliedStatus(int index){
+    return appliedStatus[index];
+}
+void unit::eraseAppliedStatus(int index){
+    appliedStatus.erase(appliedStatus.begin() + index);
+}
+
 void unit::setTo(int x, int y){
     xpos = x;
     ypos = y;
 }
 
-bool unit::isInRange(unsigned int x, unsigned int y) const {
+bool unit::isInRange(int x, int y) const {
     return  abs(x - xpos) + abs( y - ypos) <= movRange;
 }
 
-bool unit::isInAtkRange(unsigned int x, unsigned int y) const {
+bool unit::isInAtkRange(int x, int y) const {
     return abs(x - xpos) + abs(y - ypos) <= movRange + atkRange;
 }
 

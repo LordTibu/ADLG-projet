@@ -4,15 +4,16 @@
 #include "gameSquare.h"
 
 /*! \class gameBoard
-    \brief class qui gère le board
+    \brief Classe qui gere le tableau de Jeu
 
-    Cette classe me chuâ los gvos
+    Elle contient le tableau de jeu et mets a jour ses cases
 */
 class gameBoard
 {
 private:
-    int dimx, dimy;
-    gameSquare* table;
+    int dimx, /** Dimension x du tableu de jeu*/
+        dimy; /** Dimension y du tableu de jeu*/
+    gameSquare* table; /** Tableau contenant les cases du jeu*/
 public:
     gameBoard();
     gameBoard(unsigned int Ndimx, unsigned int Ndimy);

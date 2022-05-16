@@ -20,6 +20,7 @@ private:
     bool actUnit = true;
     bool playerTurn = true;
     unsigned int dim = 5;
+    statusCodex sCodex;
     std::string tableLine; // Utile pour afficher le tableu + unites
     unit easeUnit; // ptr pour faire plus lisibles les operations
     gameBoard GB;
@@ -53,6 +54,8 @@ public:
     void moveUnitEnnemy(int input);
     void attackByPlayer(int input);
     void attackByEnnemy(int input);
+    void updateStatusPlayer();
+    void updateStatusEnnemy();
     void checkForGameEnd();
     void triggerVictory(bool player);
     void triggerDraw();

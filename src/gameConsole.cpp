@@ -71,7 +71,7 @@ void gameConsole::attackByPlayer(int input){
             cout << "********************" << endl;
             cout << endl;
             if(playerUnits[input - 1].battleUnit(ennemyUnits[index])){ // Si victoire alliée
-                ennemyUnits.erase(ennemyUnits.begin() + index ); // On elimine l'unite ennemie
+                ennemyUnits.erase(ennemyUnits.begin() + index); // On elimine l'unite ennemie
                 GB[playerUnits[input - 1].getY() * dim + playerUnits[input - 1].getX()].deOccupy(); //on deOccupe la case anterieur
                 GB[ymove * dim + xmove].occupy(playerUnits[input - 1]);
                 playerUnits[input - 1].setTo(xmove, ymove); // on update xpos et ypos l'unite
@@ -120,6 +120,28 @@ void gameConsole::attackByEnnemy(int input){
     }
 }
 
+void gameConsole::updateStatusPlayer(){
+    cout << "entered updateStatus" << endl;
+    for(int i = 0; i < (int)playerUnits.size(); i++){
+        cout << "checked " << i << "units for status" << endl;
+        for(int j = 0; j < playerUnits[i].getAppliedSize(); j++){
+            cout << "checked " << j << "statuses" << endl;
+            playerUnits[i].applyStatus(sCodex[playerUnits[i].getAppliedStatus(j).statIndex]);
+        }
+    }
+}
+
+void gameConsole::updateStatusEnnemy(){
+    cout << "entered updateStatus" << endl;
+    for(int i = 0; i < (int)ennemyUnits.size(); i++){
+        cout << "checked " << i << "units for status" << endl;
+        for(int j = 0; j < ennemyUnits[i].getAppliedSize(); j++){
+            cout << "checked " << j << "statuses" << endl;
+            ennemyUnits[i].applyStatus(sCodex[ennemyUnits[i].getAppliedStatus(j).statIndex]);
+        }
+    }
+}
+
 void gameConsole::checkForGameEnd(){
     if(!playerUnits[0].itsChamp()) triggerVictory(false); //victoire joueur
     if(!ennemyUnits[0].itsChamp()) triggerVictory(true); //victoire ennemy
@@ -148,6 +170,7 @@ void gameConsole::gameInit(unsigned int xdim, unsigned int ydim){
     defaultPieces.fillLibrary("./assets/units.txt");
     playerDeck.fillLibrary("./assets/userDeck.txt");
     ennemyDeck.fillLibrary("./assets/userDeck.txt");
+    sCodex.init("./assets/statusCodex.txt");
     cout << "Size of playerDeck = " << playerDeck.getSize() << endl;
     cout << "Size of defaultLib = " << defaultPieces.getSize() << endl;
     std::cout << "Creation des Decks et du tableau de Jeu fait" << std::endl;
@@ -173,6 +196,7 @@ void gameConsole::gameInitServer(unsigned int xdim, unsigned int ydim){
     defaultPieces.fillLibrary("./assets/units.txt"); 
     playerDeck.fillLibrary("./assets/userDeck.txt");
     ennemyDeck.fillLibrary("./assets/userDeck.txt");
+    sCodex.init("./assets/statusCodex.txt");
     int champIndex = playerDeck.getChampIndex();
     playerUnits.push_back(unit(playerDeck[champIndex], playerTurn));
     playerDeck.supprimerCarte(champIndex);
@@ -188,6 +212,7 @@ void gameConsole::gameInitClient(unsigned int xdim, unsigned int ydim, char *arg
     defaultPieces.fillLibrary("./assets/units.txt"); 
     playerDeck.fillLibrary("./assets/userDeck.txt");
     ennemyDeck.fillLibrary("./assets/userDeck.txt");
+    sCodex.init("./assets/statusCodex.txt");
     int champIndex = playerDeck.getChampIndex();
     playerUnits.push_back(unit(playerDeck[champIndex], playerTurn));
     playerDeck.supprimerCarte(champIndex);
@@ -289,6 +314,7 @@ void gameConsole::gameUpdate(){
             cout << "PLAYER TURN" << endl;
             cout << "********************" << endl;
             cout << endl;
+            updateStatusPlayer();
             if(deployPhase){ //DEPLOYMENT PHASE
                 cout << "cartes disponibles: " << endl;
                 playerDeck.afficher();
@@ -361,6 +387,7 @@ void gameConsole::gameUpdate(){
             cout << "********************" << endl;
             cout << "ENNEMY TURN" << endl;
             cout << "********************" << endl;
+            updateStatusEnnemy();
             if(deployPhase){ //DEPLOYMENT PHASE
                 cout << "cartes disponibles: " << endl;
                 ennemyDeck.afficher();
@@ -1233,7 +1260,7 @@ void gameConsole::gameUpdateNETClientNO(){
                             }
                     default:
                         if(input > 0 && input <= ennemyDeck.getSize()){
-                            if(!GB.getTable()[4 * dim + 4].getOccupier()){
+                            if(!GB[4 * dim + 4].getOccupier()){
                                 deployUnitEnnemy(input);
                             }
                             else cout << "La base est deja occupée, deployer une unite est impossible" << endl;
