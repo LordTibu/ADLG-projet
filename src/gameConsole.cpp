@@ -121,6 +121,10 @@ void gameConsole::updateStatusPlayer(){
         for(int j = 0; j < playerUnits[i].getAppliedSize(); j++){
             cout << "checked " << j << "statuses" << endl;
             playerUnits[i].applyStatus(sCodex[playerUnits[i].getAppliedStatus(j).statIndex]);
+            playerUnits[i].getAppliedStatus(j).statStrength -= 1;
+            if(playerUnits[i].getAppliedStatus(j).statStrength == 0){
+                playerUnits[i].eraseAppliedStatus(j);
+            }
         }
     }
 }

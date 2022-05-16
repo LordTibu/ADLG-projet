@@ -12,10 +12,8 @@
 class unit
 {
 private:
-    /** Nom de l'unit*/
-    std::string unitName;
-    /** Nom de l'unit*/
-    card* cardIndex;
+    std::string unitName; /** Nom de l'unit*/
+    card* cardIndex; /** Pointe vers la carte a partir de laquelle est genere l'unit*/
     int hp, /** Points de vie actuels de l'unit*/
         atk, /** Points d'attaque actuels de l'unit*/
         ptr, /** Points de protection courants de l'unit*/

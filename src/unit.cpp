@@ -21,7 +21,7 @@ unit::unit(card& Ncard, bool play){
     canAttack = true;
     if(player1) {xpos = ypos = -1;}
     else {xpos = ypos = -1;}
-    appliedStatus.push_back({0 , 3});
+    appliedStatus.push_back({-1 , -1});
 }
 
 unit::~unit(){
@@ -97,6 +97,9 @@ void unit::attackUnitNET(unit &ennemy){
 
 bool unit::battleUnit(unit &ennemy){
     attackUnit(ennemy);
+    if(attackStatus.statIndex != -1){
+    ennemy.addAppliedStatus(attackStatus);
+    }
     if(ennemy.hp == 0){
         std::cout << "#### L'unite ennemie est eliminé ####" << std::endl;
         std::this_thread::sleep_for(std::chrono::milliseconds(2000));
@@ -107,6 +110,9 @@ bool unit::battleUnit(unit &ennemy){
 
 bool unit::battleUnitNET(unit &ennemy){
     attackUnitNET(ennemy);
+    if(attackStatus.statIndex != -1){
+    ennemy.addAppliedStatus(attackStatus);
+    }
     if(ennemy.hp == 0){
         std::cout << "#### L'unite ennemie est eliminé ####" << std::endl;
         std::this_thread::sleep_for(std::chrono::milliseconds(2000));
