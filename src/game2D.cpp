@@ -250,7 +250,7 @@ void game2D::local(){
                     }
                 }
             }
-    } 
+    }
    //std::cout<< aff->event.motion.x << " , "<<aff->event.motion.y<<std::endl;     
 }
 
@@ -346,26 +346,34 @@ void game2D::menu2D(){
 void game2D::updategame2D(){
     while(aff->isRun){
         frameStart=SDL_GetTicks();
-        menu2D();
-        aff->menu2D();
-        
-        if(!isNOInit)typegame();
-        if(jeu.playerTurn){
-            if(!isUnits){
-                aff->drawGame(tailleG,jeu.playerDeck.getSize(),cartSelect,jeu.playerTurn,jeu.playerUnits,jeu.ennemyUnits);
-                
+        if(jeu.stay){
+            menu2D();
+            aff->menu2D();
+            
+            if(!isNOInit)typegame();
+            if(jeu.playerTurn){
+                if(!isUnits){
+                    aff->drawGame(tailleG,jeu.playerDeck.getSize(),cartSelect,jeu.playerTurn,jeu.playerUnits,jeu.ennemyUnits);
+                    
+                }
+                else aff->drawGame(tailleG,jeu.playerUnits.size(),cartSelect,playerTurn,jeu.playerUnits,jeu.ennemyUnits);
+            }else{
+                if(!isUnits)aff->drawGame(tailleG,jeu.ennemyDeck.getSize(),cartSelect,jeu.playerTurn,jeu.playerUnits,jeu.ennemyUnits);
+            else aff->drawGame(tailleG,jeu.ennemyUnits.size(),cartSelect,jeu.playerTurn,jeu.playerUnits,jeu.ennemyUnits);
             }
-            else aff->drawGame(tailleG,jeu.playerUnits.size(),cartSelect,playerTurn,jeu.playerUnits,jeu.ennemyUnits);
         }else{
-            if(!isUnits)aff->drawGame(tailleG,jeu.ennemyDeck.getSize(),cartSelect,jeu.playerTurn,jeu.playerUnits,jeu.ennemyUnits);
-        else aff->drawGame(tailleG,jeu.ennemyUnits.size(),cartSelect,jeu.playerTurn,jeu.playerUnits,jeu.ennemyUnits);
+             aff->drawEnd();
         }
-    
+        
         frameTime = SDL_GetTicks() - frameStart;
 
         if(frameDelay > frameTime){
             SDL_Delay(frameDelay - frameTime);
         }
+    }
+
+    if(!aff->isRun){
+        aff->drawEnd();
     }
     
 }

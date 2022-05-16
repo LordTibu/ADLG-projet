@@ -12,12 +12,10 @@ void client::clientInit( char *arg1, int arg2){
         std::cerr << stderr <<"SDLNet_Init: " << SDLNet_GetError() <<"\n";
     }
 
-    /* Resolve the host we are connecting to */ 
     if (SDLNet_ResolveHost(&ip, arg1, arg2) < 0) { 
         std::cerr << stderr <<"SDLNet_ResolveHost: " << SDLNet_GetError() << "\n";
     }
     
-    /* Open a connection with the IP provided (listen on the host's port) */ 
     if (!(sd = SDLNet_TCP_Open(&ip))) { 
         std::cerr << stderr << "SDLNet_TCP_Open: " << SDLNet_GetError() << "\n"; 
     }

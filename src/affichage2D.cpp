@@ -96,6 +96,10 @@ void affichage2D::init2D(){
     surface=IMG_Load("assets/game/case.png");
     square = SDL_CreateTextureFromSurface(renderer,surface);
     SDL_FreeSurface(surface);
+
+    surface=IMG_Load("assets/game/end.png");
+    end = SDL_CreateTextureFromSurface(renderer,surface);
+    SDL_FreeSurface(surface);
 }
 
 void affichage2D::initdeck2D(int n, int d){
@@ -230,6 +234,11 @@ void affichage2D::drawCart(bool cart){
     }  
 
  
+}
+
+void affichage2D::drawEnd(){
+    SDL_RenderCopy(renderer,end,NULL,&rectPlayer);
+    SDL_RenderPresent(renderer);
 }
 
 void affichage2D::drawGame(int n, int d, bool cart,bool player,std::vector<unit> UnitsPlayer, std::vector<unit> UnitsEnnemy){
