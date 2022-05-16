@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['battleunit_127',['battleUnit',['../classunit.html#a858b38a10a6a92d77cb4050534702f2d',1,'unit']]]
+  ['battleunit_348',['battleUnit',['../classunit.html#a9ff72f13353e9eac3d11044ebd260738',1,'unit']]],
+  ['battleunitnet_349',['battleUnitNET',['../classunit.html#ad2c378fc55743911156423c191316332',1,'unit']]]
 ];

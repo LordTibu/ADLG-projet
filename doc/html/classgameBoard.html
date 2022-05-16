@@ -70,7 +70,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>class qui gère le board  
+<p>Classe qui gere le tableau de Jeu.  
  <a href="classgameBoard.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="gameBoard_8h_source.html">gameBoard.h</a>&gt;</code></p>
@@ -83,23 +83,35 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:acbf600e129014c7c54b5f864420ebed2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a02cdb766d1071dc9b1c6e27023aea7cd"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgameBoard.html#a02cdb766d1071dc9b1c6e27023aea7cd">~gameBoard</a> ()</td></tr>
 <tr class="separator:a02cdb766d1071dc9b1c6e27023aea7cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9bd1f4d2898df3dee71633b88545bee3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgameBoard.html#a9bd1f4d2898df3dee71633b88545bee3">afficherConsole</a> ()</td></tr>
-<tr class="separator:a9bd1f4d2898df3dee71633b88545bee3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0816adefff6b20f7c09a5ff96e0b4a0c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structvec2.html">vec2</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgameBoard.html#a0816adefff6b20f7c09a5ff96e0b4a0c">offToAx</a> (int x, int y) const</td></tr>
+<tr class="separator:a0816adefff6b20f7c09a5ff96e0b4a0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a554b97ea57afd397c9c58c88803b91e8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structvec2.html">vec2</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgameBoard.html#a554b97ea57afd397c9c58c88803b91e8">axToOff</a> (int q, int s) const</td></tr>
+<tr class="separator:a554b97ea57afd397c9c58c88803b91e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aba6563496a6707cec4a33319a86ad08f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgameBoard.html#aba6563496a6707cec4a33319a86ad08f">init</a> (unsigned int x, unsigned int y)</td></tr>
+<tr class="separator:aba6563496a6707cec4a33319a86ad08f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af19e3acf26ef6a65eff6405dbc592d08"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgameBoard.html#af19e3acf26ef6a65eff6405dbc592d08">afficherConsole</a> () const</td></tr>
+<tr class="separator:af19e3acf26ef6a65eff6405dbc592d08"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a636e756dd5b999c2c9689407b87b5f59"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classgameSquare.html">gameSquare</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgameBoard.html#a636e756dd5b999c2c9689407b87b5f59">operator[]</a> (int index)</td></tr>
+<tr class="separator:a636e756dd5b999c2c9689407b87b5f59"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a210c04d8c8935f1538af2e631f82b385"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgameBoard.html#a210c04d8c8935f1538af2e631f82b385">getX</a> () const</td></tr>
+<tr class="separator:a210c04d8c8935f1538af2e631f82b385"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a61cc82ea48edf62ea12541d6512b82e1"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgameBoard.html#a61cc82ea48edf62ea12541d6512b82e1">getY</a> () const</td></tr>
+<tr class="separator:a61cc82ea48edf62ea12541d6512b82e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abe9919ea862c745acb6cd874eafe0a7b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classgameSquare.html">gameSquare</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgameBoard.html#abe9919ea862c745acb6cd874eafe0a7b">getTable</a> ()</td></tr>
 <tr class="separator:abe9919ea862c745acb6cd874eafe0a7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:ad398bc6c2b9e4908eab37e7565afc9e5"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgameBoard.html#ad398bc6c2b9e4908eab37e7565afc9e5">dimx</a></td></tr>
-<tr class="separator:ad398bc6c2b9e4908eab37e7565afc9e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a383652cc6eeddf850c9060e951ad7949"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgameBoard.html#a383652cc6eeddf850c9060e951ad7949">dimy</a></td></tr>
-<tr class="separator:a383652cc6eeddf850c9060e951ad7949"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa51ed14c73e439f0f8a81fd543f9e2a1"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgameBoard.html#aa51ed14c73e439f0f8a81fd543f9e2a1">dimx</a></td></tr>
+<tr class="separator:aa51ed14c73e439f0f8a81fd543f9e2a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab1279837a554548ec66e2ce674de275d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgameBoard.html#ab1279837a554548ec66e2ce674de275d">dimy</a></td></tr>
+<tr class="separator:ab1279837a554548ec66e2ce674de275d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aab5f06b4e4a57f61817ff193362d2e05"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classgameSquare.html">gameSquare</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgameBoard.html#aab5f06b4e4a57f61817ff193362d2e05">table</a></td></tr>
 <tr class="separator:aab5f06b4e4a57f61817ff193362d2e05"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>class qui gère le board </p>
-<p>Cette classe me chuâ los gvos </p>
+<div class="textblock"><p>Classe qui gere le tableau de Jeu. </p>
+<p>Elle contient le tableau de jeu et mets a jour ses cases </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ad89ac5d250af45407b2c3207a2b7a7a9"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad89ac5d250af45407b2c3207a2b7a7a9">&#9670;&nbsp;</a></span>gameBoard() <span class="overload">[1/2]</span></h2>
@@ -115,6 +127,7 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Tableau contenant les cases du jeu </p>
 
 </div>
 </div>
@@ -164,8 +177,8 @@ Private Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a9bd1f4d2898df3dee71633b88545bee3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9bd1f4d2898df3dee71633b88545bee3">&#9670;&nbsp;</a></span>afficherConsole()</h2>
+<a id="af19e3acf26ef6a65eff6405dbc592d08"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af19e3acf26ef6a65eff6405dbc592d08">&#9670;&nbsp;</a></span>afficherConsole()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -174,7 +187,35 @@ Private Attributes</h2></td></tr>
           <td class="memname">void gameBoard::afficherConsole </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a554b97ea57afd397c9c58c88803b91e8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a554b97ea57afd397c9c58c88803b91e8">&#9670;&nbsp;</a></span>axToOff()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structvec2.html">vec2</a> gameBoard::axToOff </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>q</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>s</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -198,9 +239,117 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a210c04d8c8935f1538af2e631f82b385"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a210c04d8c8935f1538af2e631f82b385">&#9670;&nbsp;</a></span>getX()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int gameBoard::getX </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a61cc82ea48edf62ea12541d6512b82e1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a61cc82ea48edf62ea12541d6512b82e1">&#9670;&nbsp;</a></span>getY()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int gameBoard::getY </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aba6563496a6707cec4a33319a86ad08f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aba6563496a6707cec4a33319a86ad08f">&#9670;&nbsp;</a></span>init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void gameBoard::init </td>
+          <td>(</td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>y</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0816adefff6b20f7c09a5ff96e0b4a0c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0816adefff6b20f7c09a5ff96e0b4a0c">&#9670;&nbsp;</a></span>offToAx()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structvec2.html">vec2</a> gameBoard::offToAx </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>y</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a636e756dd5b999c2c9689407b87b5f59"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a636e756dd5b999c2c9689407b87b5f59">&#9670;&nbsp;</a></span>operator[]()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classgameSquare.html">gameSquare</a> &amp; gameBoard::operator[] </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>index</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a id="ad398bc6c2b9e4908eab37e7565afc9e5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad398bc6c2b9e4908eab37e7565afc9e5">&#9670;&nbsp;</a></span>dimx</h2>
+<a id="aa51ed14c73e439f0f8a81fd543f9e2a1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa51ed14c73e439f0f8a81fd543f9e2a1">&#9670;&nbsp;</a></span>dimx</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -209,7 +358,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">unsigned int gameBoard::dimx</td>
+          <td class="memname">int gameBoard::dimx</td>
         </tr>
       </table>
   </td>
@@ -221,8 +370,8 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a383652cc6eeddf850c9060e951ad7949"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a383652cc6eeddf850c9060e951ad7949">&#9670;&nbsp;</a></span>dimy</h2>
+<a id="ab1279837a554548ec66e2ce674de275d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab1279837a554548ec66e2ce674de275d">&#9670;&nbsp;</a></span>dimy</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -231,7 +380,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">unsigned int gameBoard::dimy</td>
+          <td class="memname">int gameBoard::dimy</td>
         </tr>
       </table>
   </td>
@@ -240,6 +389,7 @@ Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Dimension x du tableu de jeu </p>
 
 </div>
 </div>
@@ -262,6 +412,7 @@ Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Dimension y du tableu de jeu </p>
 
 </div>
 </div>

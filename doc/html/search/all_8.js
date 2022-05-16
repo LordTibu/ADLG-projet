@@ -1,6 +1,24 @@
 var searchData=
 [
-  ['index_58',['index',['../classcard.html#ab123d8423b49db4090fde7007f68c5ae',1,'card']]],
-  ['input_59',['input',['../classgameConsole.html#a2c11423a4e723c150ea913283e8426e0',1,'gameConsole']]],
-  ['isplayers_60',['isPlayers',['../classunit.html#aa45644f6b202885449e8ca006959c835',1,'unit']]]
+  ['idcard_140',['idCard',['../classaffichage2D.html#a52d5770ab3efc91762cda0ae3370de66',1,'affichage2D']]],
+  ['index_141',['index',['../classcard.html#a3a4640950eb9c688babfdce67241dc73',1,'card::index()'],['../classstatus.html#a12eeb12a8cfcb8402d8a7470e38faaf6',1,'status::index()']]],
+  ['init_142',['init',['../classdeckBuilder.html#a2429a48963000308eb662dceb227f24e',1,'deckBuilder::init()'],['../classgameBoard.html#aba6563496a6707cec4a33319a86ad08f',1,'gameBoard::init()'],['../classstatusCodex.html#a803916855f6c4aaaca746acf963ef544',1,'statusCodex::init()']]],
+  ['init2d_143',['init2D',['../classaffichage2D.html#a0d727b063eea919d45674e8de9fe9f3e',1,'affichage2D']]],
+  ['initdeck2d_144',['initdeck2D',['../classaffichage2D.html#a2f60113984a308ade31774911ada39ea',1,'affichage2D']]],
+  ['initgame2d_145',['initgame2D',['../classgame2D.html#a058b2a1c9996be45f018cabd71a82038',1,'game2D']]],
+  ['inittable2d_146',['inittable2D',['../classaffichage2D.html#a79e6e4248b8200f076df1e02ff90825e',1,'affichage2D']]],
+  ['input_147',['input',['../classdeckBuilder.html#ad4b7d9ee3b966012a76527d2e722c17e',1,'deckBuilder::input()'],['../classgame2D.html#ae9c22441f2c0d4b31c7ed38a7a5c1dd4',1,'game2D::input()'],['../classgameConsole.html#a2c11423a4e723c150ea913283e8426e0',1,'gameConsole::input()']]],
+  ['inputgame_148',['inputgame',['../classgame2D.html#ad18a9d84380236171fb1cf5ba1ad0299',1,'game2D']]],
+  ['ip_149',['ip',['../classclient.html#a3b0b1ee5354fa0e9d1d5424dfdaea004',1,'client::ip()'],['../classserver.html#a67c489a13ec0af29b38ab2ea595e4455',1,'server::ip()']]],
+  ['ischamp_150',['isChamp',['../classcard.html#a914035b1e83b8c3de0daaa1fb0c5964e',1,'card::isChamp()'],['../classunit.html#a8b05b8b84c9c03640d1d00ac519a6383',1,'unit::isChamp()']]],
+  ['iscreate_151',['isCreate',['../classaffichage2D.html#a37a6a1009f049b4258287be45ecf8e4e',1,'affichage2D']]],
+  ['isinatkrange_152',['isInAtkRange',['../classunit.html#aeb411191cb0eb59c6dd6b3f623d489e9',1,'unit']]],
+  ['isinrange_153',['isInRange',['../classunit.html#afe1c4d1047dbe7e771e2a7c1a51eeac2',1,'unit']]],
+  ['ismenu_154',['isMenu',['../classaffichage2D.html#a8678057b13a28a97c3784ee179865e7c',1,'affichage2D']]],
+  ['isnoinit_155',['isNOInit',['../classgame2D.html#a1fe4593b0eae21a5213a5726a96cfb12',1,'game2D']]],
+  ['isoccupied_156',['isOccupied',['../classgameSquare.html#ac2d49506d65c2485b76a0fc209621896',1,'gameSquare']]],
+  ['isplayers_157',['isPlayers',['../classunit.html#aa45644f6b202885449e8ca006959c835',1,'unit']]],
+  ['isrun_158',['isRun',['../classaffichage2D.html#af6ec9d6b1f5c9255f5cdd9522f390bf8',1,'affichage2D']]],
+  ['isunits_159',['isUnits',['../classgame2D.html#a4bf03ad01f365ad5f7d54089b3c8723b',1,'game2D']]],
+  ['itschamp_160',['itsChamp',['../classcard.html#af921945620f8a99357d6ac1e1eac74a9',1,'card::itsChamp()'],['../classunit.html#aa6f517c2bcbd3da3766df8353c54188e',1,'unit::itsChamp()']]]
 ];

@@ -118,8 +118,8 @@ void affichage2D::initdeck2D(int n, int d){
 
     for(int i = 0; i < d; ++i) {
         for(int j = 0; j < d; ++j) {
-            table[i][j]= {int(SCREEN_WIDTH/8+0.1*SCREEN_WIDTH + i*(SCREEN_WIDTH/6+n*0.1*SCREEN_WIDTH)/5), 
-            int(SCREEN_HEIGHT/20+0.1*SCREEN_HEIGHT + j*(SCREEN_HEIGHT/24+0.1*SCREEN_HEIGHT)),
+            table[i][j]= {int(SCREEN_WIDTH/8+0.1*SCREEN_WIDTH + j*(SCREEN_WIDTH/6+n*0.1*SCREEN_WIDTH)/5), 
+            int(SCREEN_HEIGHT/20+0.1*SCREEN_HEIGHT + i*(SCREEN_HEIGHT/24+0.1*SCREEN_HEIGHT)),
         int((SCREEN_WIDTH/10+n*0.1*SCREEN_WIDTH)/5), int(SCREEN_HEIGHT/20+n*0.1*SCREEN_HEIGHT)/n};
 
         }
@@ -170,7 +170,6 @@ void affichage2D::drawUnit(int posx,int posy){
 }
 
 void affichage2D::drawallunits(std::vector<unit> Units,bool player){
-    
     for(auto i = Units.begin(); i != Units.end(); i++){
         if((*i).getName()=="jeP") SDL_SetRenderDrawColor(renderer, 255,255,229,255);
         else if(player){
@@ -226,8 +225,6 @@ void affichage2D::drawCart(bool cart){
         if(nameCard=="jesucristo"|| nameCard=="jeP" || nameCard=="jeE")SDL_RenderCopy(renderer,jesucristo,NULL,&pos);
         if(nameCard=="peasant"|| nameCard=="peP" || nameCard=="peE")SDL_RenderCopy(renderer,peasant,NULL,&pos);
         if(nameCard=="soldat"|| nameCard=="soP" || nameCard=="soE")SDL_RenderCopy(renderer,soldat,NULL,&pos);
-        /*SDL_SetRenderDrawColor(renderer, 255,0,255,255); 
-        SDL_RenderFillRect(renderer, &pos);*/
     }else{
         SDL_RenderCopy(renderer, backcard,NULL,&pos);
     }  

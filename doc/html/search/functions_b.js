@@ -1,10 +1,8 @@
 var searchData=
 [
-  ['_7ecard_157',['~card',['../classcard.html#acbacc99b12f8705aa4b99ae98504e7eb',1,'card']]],
-  ['_7ecardlib_158',['~cardLib',['../classcardLib.html#a31f89689a6f3394e9c02e418ce4afa72',1,'cardLib']]],
-  ['_7egame_159',['~game',['../classgame.html#ae87abd20c4d8a7906fa48e690a5f1d07',1,'game']]],
-  ['_7egameboard_160',['~gameBoard',['../classgameBoard.html#a02cdb766d1071dc9b1c6e27023aea7cd',1,'gameBoard']]],
-  ['_7egameconsole_161',['~gameConsole',['../classgameConsole.html#aa7c59c85b26b9631d2a61aa76cd377b3',1,'gameConsole']]],
-  ['_7egamesquare_162',['~gameSquare',['../classgameSquare.html#a861a3a41dfe8f36050868218d3ae8855',1,'gameSquare']]],
-  ['_7eunit_163',['~unit',['../classunit.html#a77adf9984db5764e2948b4c3184f2982',1,'unit']]]
+  ['occupy_426',['occupy',['../classgameSquare.html#a6f5074bbf4b23981f6ae62b80cd9551d',1,'gameSquare']]],
+  ['offtoax_427',['offToAx',['../classgameBoard.html#a0816adefff6b20f7c09a5ff96e0b4a0c',1,'gameBoard']]],
+  ['operator_3c_3c_428',['operator&lt;&lt;',['../card_8cpp.html#a2751a370d233cb6fd6ee482ecec68922',1,'operator&lt;&lt;(ostream &amp;os, card c):&#160;card.cpp'],['../status_8cpp.html#a9d63218d46299ff34d82a53f3295e186',1,'operator&lt;&lt;(ostream &amp;os, const status &amp;st):&#160;status.cpp']]],
+  ['operator_3d_3d_429',['operator==',['../classunit.html#a2882177a63d55a5cd82f6d8726d901e0',1,'unit']]],
+  ['operator_5b_5d_430',['operator[]',['../classcardLib.html#ad51926cf385eb4c93778745b56c3baeb',1,'cardLib::operator[]()'],['../classgameBoard.html#a636e756dd5b999c2c9689407b87b5f59',1,'gameBoard::operator[]()'],['../classstatusCodex.html#aeab463dc831d07d78f61701f3fd8411f',1,'statusCodex::operator[]()']]]
 ];
