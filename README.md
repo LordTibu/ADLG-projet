@@ -9,8 +9,9 @@ $ ./bin/main2D
 ```
 
 ## Pre-requis pour la compilation (apart SDL):
-  -Librerie SDL_Net (code source dans le dossier "include")
-   
+   ```
+  Librerie SDL_Net (code source dans le dossier "include")
+   ```
 ## Description du jeu
 
 ADGL c'est un jeu de cartes 1 vs 1 où les jouers combatent avec leurs heros pour essayer de vaincre le champion ennemi.
