@@ -1,10 +1,10 @@
-PROJET LIFAP4 2022 - ADGL
-Fait Par:
-	-Nicolas Patino - P1926177
-	-Juan C. Lenis - P1925046
+###PROJET LIFAP4 2022 - ADGL
+##Fait Par:
+	-Nicolas Patino 
+	-Juan C. Lenis 
 
-Pre-requis pour la compilation (apart SDL):
-	-Librerie SDL_Net (code source dans le dossier "include")
+##Pre-requis pour la compilation (apart SDL):
+	'-Librerie SDL_Net (code source dans le dossier "include")
 Pour compiler le projet (Linux) appeler la commande "make" depuis le fichier racine.
 
 ADGL c'est un jeu de cartes 1 vs 1 où les jouers combatent avec leurs heros pour essayer de vaincre le champion ennemi.
