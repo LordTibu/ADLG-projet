@@ -1,4 +1,4 @@
-#PROJET LIFAP4 2022 - ADGL
+# PROJET LIFAP4 2022 - ADGL
 
 ### Execution
 
@@ -8,8 +8,7 @@ $ make
 $ ./bin/main2D
 ```
 
-##Fait Par:-Nicolas Patino-Juan C. Lenis
-##Pre-requis pour la compilation (apart SDL):
+## Pre-requis pour la compilation (apart SDL):
   -Librerie SDL_Net (code source dans le dossier "include")
    
 ## Description du jeu
@@ -23,7 +22,7 @@ Le Jeu est fini quand un des joueurs tue le Champion de l'adversaire.
 Le jeu peut etre joué en local (deux personnes dans le meme ordinateur) ou en LAN, où un des joueurs host le serveur dans sa machine et l'adversaire se connecte avec le module client de l'appliclation.
 Le jeu possede aussi une version texte et une version graphique faite à l'aide de SDL2.
 
-##Organisation des dossiers
+## Organisation des dossiers
 ```
 - Assets : C'est là où se trouvent tous les ressources necesaires pour le jeu (textures SDL, fichiers .txt avec les donnes des cartes, etc..).
 - Bin : Plusieurs executables seront produits dans le dossier bin:
@@ -35,7 +34,7 @@ Le jeu possede aussi une version texte et une version graphique faite à l'aide 
 - Obj : Dossier où sont organisés les differents .obj.
 - Src : Fichiers .cpp et .h contenant le code de l'application.
 ```
-##Autheurs
+## Autheurs
 Nicolas Patino
 Juan C. Lenis
 
