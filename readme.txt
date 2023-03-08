@@ -2,7 +2,6 @@ PROJET LIFAP4 2022 - ADGL
 Fait Par:
 	-Nicolas Patino - P1926177
 	-Juan C. Lenis - P1925046
-Lien Git: https://forge.univ-lyon1.fr/p1925046/projet-lifap4-2022
 
 Pre-requis pour la compilation (apart SDL):
 	-Librerie SDL_Net (code source dans le dossier "include")
