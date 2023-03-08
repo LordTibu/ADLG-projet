@@ -24,6 +24,7 @@ Le jeu peut etre joué en local (deux personnes dans le meme ordinateur) ou en L
 Le jeu possede aussi une version texte et une version graphique faite à l'aide de SDL2.
 
 ##Organisation des dossiers
+```
 - Assets : C'est là où se trouvent tous les ressources necesaires pour le jeu (textures SDL, fichiers .txt avec les donnes des cartes, etc..).
 - Bin : Plusieurs executables seront produits dans le dossier bin:
 	1. bin/deckTest : Test du module deckBuilder qui permet à l'utilisateur de personnaliser son deck.
@@ -33,7 +34,7 @@ Le jeu possede aussi une version texte et une version graphique faite à l'aide 
 - Include : Dossier contenant la librerie SDL_net.
 - Obj : Dossier où sont organisés les differents .obj.
 - Src : Fichiers .cpp et .h contenant le code de l'application.
-
+```
 ##Autheurs
 Nicolas Patino
 Juan C. Lenis
