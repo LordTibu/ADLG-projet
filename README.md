@@ -1,4 +1,4 @@
-# PROJET LIFAP4 2022 - ADGL
+# LIFAP4 2022 PROJECT - ADGL
 
 ### Execution
 
@@ -8,34 +8,34 @@ $ make
 $ ./bin/main2D
 ```
 
-## Pre-requis pour la compilation (apart SDL):
+## Pre-requisites for compilation (apart SDL):
    ```
-  Librerie SDL_Net (code source dans le dossier "include")
+  SDL_Net library (source code in "include" folder)
    ```
-## Description du jeu
+## Game description
 
-ADGL c'est un jeu de cartes 1 vs 1 où les jouers combatent avec leurs heros pour essayer de vaincre le champion ennemi.
-Pendant un tour du jeu, le joueur peut faire des actions pendant deux phases du jeu,
-- La phase de deploiement : Le joueur peut deploiyer une des cartes dans son deck dans le tableau.
-- La phase de deplacement/combat : Le joueur peut déplacer un de ses heros ou l'utiliser pour attaquer un des heros ennemis.
-Le Jeu est fini quand un des joueurs tue le Champion de l'adversaire.
+ADGL is a 1 vs 1 card game where players battle with their heroes to try and defeat the enemy champion.
+During a game turn, the player can take actions during two phases of the game,
+- Deployment phase: The player can deploy one of the cards in his deck in the tableau.
+- The move/combat phase: The player can move one of his heroes or use it to attack one of the enemy heroes.
+The game is over when one of the players kills the opponent's Champion.
 
-Le jeu peut etre joué en local (deux personnes dans le meme ordinateur) ou en LAN, où un des joueurs host le serveur dans sa machine et l'adversaire se connecte avec le module client de l'appliclation.
-Le jeu possede aussi une version texte et une version graphique faite à l'aide de SDL2.
+The game can be played locally (two people in the same computer) or in LAN, where one player hosts the server on his machine and the opponent connects with the client module of the application.
+The game also has a text version and a graphical version made using SDL2.
 
-## Organisation des dossiers
+## Folder organization
 ```
-- Assets : C'est là où se trouvent tous les ressources necesaires pour le jeu (textures SDL, fichiers .txt avec les donnes des cartes, etc..).
-- Bin : Plusieurs executables seront produits dans le dossier bin:
-	1. bin/deckTest : Test du module deckBuilder qui permet à l'utilisateur de personnaliser son deck.
-	2. bin/mainTest : Module qui contient les versions texte des differentes versions du jeu (en local ou en LAN).
-	3. bin/main2D : Module qui contient la version SDL du jeu.
-- Doc : La documentation du code.
-- Include : Dossier contenant la librerie SDL_net.
-- Obj : Dossier où sont organisés les differents .obj.
-- Src : Fichiers .cpp et .h contenant le code de l'application.
+- Assets: This is where you'll find all the resources you need for the game (SDL textures, .txt files with map data, etc.).
+- Bin: Several executables will be produced in the bin folder:
+	1. bin/deckTest: Test of the deckBuilder module, which allows users to customize their decks.
+	2. bin/mainTest: Module containing the text versions of the different versions of the game (local or LAN).
+	3. bin/main2D: Module containing the SDL version of the game.
+- Doc: Code documentation.
+- Include: Folder containing the SDL_net library.
+- Obj: Folder containing the various .obj files.
+- Src: .cpp and .h files containing the application code.
 ```
-## Autheurs
+## Authors
 Nicolas Patino
 Juan C. Lenis
 
