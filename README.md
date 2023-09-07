@@ -14,7 +14,7 @@ $ ./bin/main2D
    ```
 ## Game description
 
-ADGL is a 1 vs 1 card game where players battle with their heroes to try and defeat the enemy champion.
+ADGL is a 1 vs 1 card game where players battle with their heroes to try and defeat the enemy's champion.
 During a game turn, the player can take actions during two phases of the game,
 - Deployment phase: The player can deploy one of the cards in his deck in the tableau.
 - The move/combat phase: The player can move one of his heroes or use it to attack one of the enemy heroes.
